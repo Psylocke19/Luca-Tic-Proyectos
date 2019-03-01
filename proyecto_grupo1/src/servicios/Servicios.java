@@ -4,14 +4,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import datos.IUsuariosDAO;
-import datos.UsuarioDAO;
+import datos.UsuariosDAO;
 import modelo.Usuario;
 
  
 
 public class Servicios implements IServicios {
 
-	private IUsuariosDAO usudatos= new UsuarioDAO();
+	private IUsuariosDAO usudatos= new UsuariosDAO();
 	private static final Logger logger = LogManager.getLogger("Mensaje");
 	
 	
@@ -57,6 +57,12 @@ public class Servicios implements IServicios {
 	public boolean comprobacionUsuarioDuplicado(String email) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public Usuario buscarUsuario(String mail) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

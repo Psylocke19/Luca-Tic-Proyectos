@@ -2,7 +2,7 @@ package datos;
 
 import modelo.Usuario;
 
-public class UsuarioDAO implements IUsuariosDAO{
+public class UsuariosDAO implements IUsuariosDAO{
 
 	@Override
 	public void altaUsuario(Usuario usuario) {
@@ -32,6 +32,12 @@ public class UsuarioDAO implements IUsuariosDAO{
 	public boolean comprobacionUsuarioDuplicado(String email) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public Usuario buscarUsuario(String mail) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
