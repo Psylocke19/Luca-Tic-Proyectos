@@ -11,8 +11,11 @@ import org.apache.logging.log4j.LogManager;
 
 public class Conexion {
 
-	Connection conexion;
+	protected Connection conexion;
 	private static final Logger logger = LogManager.getLogger("Mensaje");
+	
+	
+	
 	
 	public Conexion() {
 		try {
