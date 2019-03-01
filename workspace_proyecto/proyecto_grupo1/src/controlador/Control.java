@@ -1,5 +1,5 @@
 package controlador;
 
-public class q {
+public class Control {
 
 }
