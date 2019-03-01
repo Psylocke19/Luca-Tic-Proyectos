@@ -16,9 +16,43 @@ public class Control {
 	
 	public Control() {
 	
-		Menu.Menu();
+		boolean salida = false;
 		
+		while (salida == false) {
+		Menu.Menu();
+		String opt = LeerDatos.LeerString();
+
+		switch (opt) {
+
+		case "1":
+			altaUsuario();
+			break;
+		case "2":
+			;
+			break;
+		case "3":
+			;
+			break;
+		case "4":
+			;
+			break;
+		case "5":
+			;
+			break;
+		case "6":
+			;
+			break;
+		case "7":
+			salida = true;
+			break;
+		default:
+			System.out.println("Opcion no valida;");
+		}
+
 	}
+}
+		
+	
 	
 	public void altaUsuario() {
 		logger.info("Selecionada la opcion de registro");
@@ -27,7 +61,7 @@ public class Control {
 		String poblacion = LeerDatos.LeerString("Introduce tu poblacion: ");
 		String mail = LeerDatos.LeerString("Introduce tu email");
 		
-		if(s.comprobarMailDuplicado(mail)) {
+		if(s.comprobacionUsuarioDuplicado(mail)) {
 			Usuario user = new Usuario(0,nombre,fechaNacmiento,poblacion,mail);
 			s.altaUsuario(user);
 		}else {

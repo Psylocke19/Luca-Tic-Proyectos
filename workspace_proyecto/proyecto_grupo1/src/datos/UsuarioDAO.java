@@ -2,7 +2,7 @@ package datos;
 
 import modelo.Usuario;
 
-public class Datos implements IUsuariosDatos{
+public class UsuarioDAO implements IUsuariosDAO{
 
 	@Override
 	public void altaUsuario(Usuario usuario) {
