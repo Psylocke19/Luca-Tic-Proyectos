@@ -7,17 +7,19 @@ public class Usuario {
 	private String nombre_completo;
 	private String fecha;
 	private String ciudad_residencia;
+	private String mail;
 	//private Integer paquete_abonado;
 	
 	//FIN DE ZONA ATRIBUTOS
 	//ZONA CONSTRUCTORES
 	
-	public Usuario(int idUsuario,String nombre_completo, String fecha, String ciudad_residencia) {
+	public Usuario(int idUsuario,String nombre_completo, String fecha, String ciudad_residencia, String mail) {
 		super();
 		this.idUsuario = idUsuario;
 		this.nombre_completo = nombre_completo;
 		this.fecha = fecha;
 		this.ciudad_residencia = ciudad_residencia;
+		this.mail = mail;
 	}
 	
 	//FIN ZONA CONSTRUTORES
@@ -50,18 +52,27 @@ public class Usuario {
 
 	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
+	}	
+	
+	public String getMail() {
+		return mail;
 	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+
 	
 	//FIN METODOS GETTER AND SETTER
 
-	
+
 	//METODO TOSTRING
 	@Override
 	public String toString() {
 		return "Usuario [idUsuario=" + idUsuario + ", nombre_completo=" + nombre_completo + ", fecha=" + fecha
-				+ ", ciudad_residencia=" + ciudad_residencia + "]";
+				+ ", ciudad_residencia=" + ciudad_residencia + ", mail=" + mail + "]";
 	}
-	
 	
 	
 }
