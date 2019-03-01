@@ -6,11 +6,12 @@ import org.apache.logging.log4j.Logger;
 import gui.Menu;
 import lectura.LeerDatos;
 import modelo.Usuario;
-import servicios.Servicio;
+import servicios.Servicios;
+import servicios.IServicios;
 
 public class Control {
 
-	Servicio s = new Servicio();
+	IServicios s = new Servicios();
 	private static final Logger logger = LogManager.getLogger("Mensaje");
 	
 	public Control() {
