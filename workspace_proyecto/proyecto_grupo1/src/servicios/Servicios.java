@@ -34,4 +34,10 @@ public class Servicios implements IServicios {
 		return false;
 	}
 
+	@Override
+	public Usuario buscarUsuario(String mail) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
