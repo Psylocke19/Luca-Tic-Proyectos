@@ -3,6 +3,7 @@ package modelo;
 public class Usuario {
 
 	//ATRIBUTOS 
+	private int idUsuario;
 	private String nombre_completo;
 	private String fecha;
 	private String ciudad_residencia;
@@ -11,8 +12,9 @@ public class Usuario {
 	//FIN DE ZONA ATRIBUTOS
 	//ZONA CONSTRUCTORES
 	
-	public Usuario(String nombre_completo, String fecha, String ciudad_residencia) {
+	public Usuario(int idUsuario,String nombre_completo, String fecha, String ciudad_residencia) {
 		super();
+		this.idUsuario = idUsuario;
 		this.nombre_completo = nombre_completo;
 		this.fecha = fecha;
 		this.ciudad_residencia = ciudad_residencia;
@@ -41,8 +43,25 @@ public class Usuario {
 	public void setCiudad_residencia(String ciudad_residencia) {
 		this.ciudad_residencia = ciudad_residencia;
 	}
+
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
 	
-	//FIN DE METODOS GETTERS Y SETTERS
+	//FIN METODOS GETTER AND SETTER
+
+	
+	//METODO TOSTRING
+	@Override
+	public String toString() {
+		return "Usuario [idUsuario=" + idUsuario + ", nombre_completo=" + nombre_completo + ", fecha=" + fecha
+				+ ", ciudad_residencia=" + ciudad_residencia + "]";
+	}
+	
 	
 	
 }
