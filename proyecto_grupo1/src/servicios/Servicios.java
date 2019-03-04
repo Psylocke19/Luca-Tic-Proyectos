@@ -136,14 +136,15 @@ public class Servicios implements IServicios {
 			System.out.println("Campos vacíos, la acción no puede realizarse");
 		}
 		
-
 	}
 
 	@Override
 	public void eliminarPeliculas(Peliculas pelicula) {
 		// TODO Auto-generated method stub
+		pelidatos.eliminarPeliculas(pelicula);
 
 	}
+
 
 	@Override
 	public void listarPorMasVistas() {
