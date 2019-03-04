@@ -17,7 +17,7 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 	
 	public void addPelicula(Peliculas p) {
 		
-		String consulta = "INSERT INTO usuario VALUES(?,?,?,?,?)";
+		String consulta = "INSERT INTO peliculas VALUES(?,?,?,?)";
 
 		try {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta);
@@ -39,11 +39,6 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 		}
 	}
 
-	@Override
-	public void addPeliculas(Peliculas pelicula) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void modificarPeliculas(Peliculas pelicula) {

@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import gui.Menu;
 import lectura.LeerDatos;
+import modelo.Categoria;
 import modelo.Peliculas;
 import modelo.Usuario;
 import servicios.Servicios;
@@ -32,7 +33,8 @@ public class Control {
 				altaUsuario();
 				break;
 			case "2":
-				modificarUsuario();;
+				modificarUsuario();
+				;
 				break;
 			case "3":
 				eliminarUsuario();
@@ -41,7 +43,7 @@ public class Control {
 				mostrarUsuario();
 				break;
 			case "5":
-				;
+				addPeliculas();
 				break;
 			case "6":
 				;
@@ -55,14 +57,15 @@ public class Control {
 
 		}
 	}
-/**
- * Añade un nuevo usuario.
- * También comprueba si ese usuario ya existe, si ya está registrado lo indica mediante mensaje de texto
- * 
- * @author Grupo 1
- * 
- * 
- */
+
+	/**
+	 * Añade un nuevo usuario. También comprueba si ese usuario ya existe, si ya
+	 * está registrado lo indica mediante mensaje de texto
+	 * 
+	 * @author Grupo 1
+	 * 
+	 * 
+	 */
 	public void altaUsuario() {
 		logger.info("Selecionada la opcion de registro");
 		String nombre = LeerDatos.LeerString("Introduce tu nombre: ");
@@ -70,8 +73,8 @@ public class Control {
 		String poblacion = LeerDatos.LeerString("Introduce tu poblacion: ");
 		String mail = LeerDatos.LeerString("Introduce tu email");
 
-		if(!Pattern.matches(regexp, fechaNacimiento)) {
-			
+		if (!Pattern.matches(regexp, fechaNacimiento)) {
+
 			System.out.println("Error,introduce la fecha en formato YYYY-MM-DD");
 			mail = LeerDatos.LeerString("Introduce tu email");
 		}
@@ -88,7 +91,7 @@ public class Control {
 
 	public void modificarUsuario() {
 		String mail = LeerDatos.LeerString("Introduce tu email: ");
-		
+
 		Usuario user = s.buscarUsuario(mail);
 		if (user != null) {
 			user.setNombre_completo(LeerDatos.LeerString("Introduce tu nuevo nombre: "));
@@ -99,9 +102,9 @@ public class Control {
 			logger.error("No se ha encontrado un usuario con ese email");
 			System.out.println("No se ha encontrado este usuario");
 		}
-		
+
 	}
-	
+
 	public void eliminarUsuario() {
 		String mail = LeerDatos.LeerString("Introduce tu email: ");
 		Usuario user = s.buscarUsuario(mail);
@@ -111,41 +114,53 @@ public class Control {
 			logger.error("No se ha encontrado un usuario con ese email");
 			System.out.println("No se ha encontrado este usuario");
 		}
-		
+
 	}
-	
+
 	public void addPeliculas() {
-		
-		
-		
+
 		logger.info("Selecionada la opcion de registro");
 		String nombre = LeerDatos.LeerString("Introduce el nombre de pelicula: ");
 		String anio = LeerDatos.LeerString("Introduce la fecha de la pelicula: ");
-		if(!Pattern.matches(regexp, anio)) {
-			
+		if (!Pattern.matches(regexp, anio)) {
+
 			System.out.println("Error,introduce la fecha en formato YYYY-MM-DD");
 			anio = LeerDatos.LeerString("Introduce la fecha");
 		}
-		int num_categoria = LeerDatos.LeerInt("Introduce el numero de categoria de la pelicula: ");
-		
 
-		if (s.comprobacionPeliculaDuplicada(nombre,anio)) {
+		int idCategoria = 0;
 
-			Peliculas pelicula = new Peliculas(0, nombre, anio, num_categoria);
-			s.addPeliculas(pelicula);
-		} else {
-			logger.error("Imposible registrar usuario, ese email ya existe");
-			System.out.println("Ese email ya tiene una cuenta registrada asociada.");
+		boolean respuesta = false;
+		while (respuesta != true) {
+			String nombreCategoria = LeerDatos.LeerString("Introduce el nombre de la categoria de la pelicula: ");
+
+			Categoria c = s.buscarCategoria(nombreCategoria);
+
+			if (c == null) {
+				System.out.println("La categoria que has introducido no existe");
+			} else {
+				idCategoria = c.getIdCategoria();
+				respuesta = true;
+			}
+
 		}
 
-		
+		if (s.comprobacionPeliculaDuplicada(nombre, anio)) {
+
+			Peliculas pelicula = new Peliculas(0, nombre, anio, idCategoria);
+			s.addPeliculas(pelicula);
+		} else {
+			logger.error("Imposible registrar pelicula, esa pelicula ya existe");
+			System.out.println("Esta pelicula ya existe en nuestra base de datos.");
+		}
+
 	}
 
 	public void mostrarUsuario() {
-        String mail = LeerDatos.LeerString("Introduce el email del usuario: ");
-        Usuario user = s.buscarUsuario(mail);
-        s.mostrarUsuario(user);
-        
-    }
-	
+		String mail = LeerDatos.LeerString("Introduce el email del usuario: ");
+		Usuario user = s.buscarUsuario(mail);
+		s.mostrarUsuario(user);
+
+	}
+
 }

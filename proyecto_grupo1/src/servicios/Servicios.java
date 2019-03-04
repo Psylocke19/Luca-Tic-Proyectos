@@ -3,17 +3,21 @@ package servicios;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import datos.CategoriaDAO;
+import datos.ICategoriaDAO;
 import datos.IPeliculasDAO;
 import datos.IUsuariosDAO;
 import datos.PeliculasDAO;
 import datos.UsuariosDAO;
+import modelo.Categoria;
 import modelo.Peliculas;
 import modelo.Usuario;
 
 public class Servicios implements IServicios {
 
 	private IUsuariosDAO usudatos = new UsuariosDAO();
-	private IPeliculasDAO pelidatos = new PeliculasDAO(); 
+	private IPeliculasDAO pelidatos = new PeliculasDAO();
+	private ICategoriaDAO catedatos = new CategoriaDAO();
 	private static final Logger logger = LogManager.getLogger("Mensaje");
 
 	@Override
@@ -105,21 +109,17 @@ public class Servicios implements IServicios {
 	@Override
 	public void addPeliculas(Peliculas pelicula) {
 		// TODO Auto-generated method stub
-			if(!pelicula.getNombre().isEmpty() ||
-					!pelicula.getAnio().isEmpty()  ||
-					pelicula.getNum_categoria() == 0 ) {
-				
-				pelidatos.addPeliculas(pelicula);
-				
-			} else {
-				
-				logger.error("Existen campos vacíos"); 
-				System.out.println("Campos vacíos, la acción no puede realizarse"); 
-			}
-			
-							
+		if (!pelicula.getNombre().isEmpty() || !pelicula.getAnio().isEmpty() || pelicula.getNum_categoria() == 0) {
+
+			pelidatos.addPelicula(pelicula);
+
+		} else {
+
+			logger.error("Existen campos vacíos");
+			System.out.println("Campos vacíos, la acción no puede realizarse");
 		}
 
+	}
 
 	@Override
 	public void modificarPeliculas(Peliculas pelicula) {
@@ -157,7 +157,6 @@ public class Servicios implements IServicios {
 
 	}
 
-	
 	@Override
 	public Usuario buscarPelicula(String nombre) {
 		// TODO Auto-generated method stub
@@ -166,6 +165,40 @@ public class Servicios implements IServicios {
 
 	@Override
 	public boolean comprobacionPeliculaDuplicada(String nombre, String anio) {
+		boolean respuesta = false;
+		if (!nombre.isEmpty() || !anio.isEmpty()) {
+			respuesta = pelidatos.comprobacionPeliculaDuplicada(nombre, anio);
+		} else {
+			System.out.println("Los campos nombre y año introducidos estan vacios");
+		}
+
+		return respuesta;
+	}
+
+	@Override
+	public Categoria buscarCategoria(String nombre) {
+		// TODO Auto-generated method stub
+		if (!nombre.isEmpty()) {
+			Categoria c = catedatos.buscarCategoria(nombre);
+			if (c != null) {
+				return c;
+			} else {
+				System.out.println("Esa categoria no existe");
+			}
+		} else {
+			System.out.println("El nombre esta vacio");
+		}
+		return null;
+	}
+
+	@Override
+	public void addCategoria(Categoria c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean comprobacionCategoriaDuplicada(String nombreCategoria) {
 		// TODO Auto-generated method stub
 		return false;
 	}

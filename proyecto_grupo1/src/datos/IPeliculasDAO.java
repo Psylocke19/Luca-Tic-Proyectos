@@ -3,7 +3,7 @@ package datos;
 import modelo.Peliculas;
 
 public interface IPeliculasDAO {
-	public void addPeliculas(Peliculas pelicula);
+	public void addPelicula(Peliculas pelicula);
 	public void modificarPeliculas(Peliculas pelicula);
     public void eliminarPeliculas(Peliculas pelicula);
     public void listarPeliculas();
