@@ -51,8 +51,34 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO{
 	}
 
 	@Override
-	public void modificarUsuario(Usuario usuario) {
+	public void modificarUsuario(Usuario nom_usuario) {
 		// TODO Auto-generated method stub
+		
+		String consulta = "UPDATE usuario SET nombre= ? ,fechaNacimiento=?,ciudadResidencia=? "
+				+ "WHERE idUsuario = ? AND mail=?";
+
+
+        try {
+            PreparedStatement sentencia = conexion.prepareStatement(consulta);
+            
+            
+            sentencia.setString(1,nom_usuario.getNombre_completo() );
+            sentencia.setString(2,nom_usuario.getFecha() );
+            sentencia.setString(3,nom_usuario.getCiudad_residencia() );
+            sentencia.setInt(4,nom_usuario.getIdUsuario());
+            sentencia.setString(5,nom_usuario.getMail() );
+            sentencia.execute();
+
+            System.out.println("el usuario "+nom_usuario.getNombre_completo()+" se ha modificado");
+            logger.info("el usuario se ha modificado" );
+            
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            logger.info("el usuario NO se ha modificado " );
+            System.out.println("No se ha podido realizar la modificacion del usuario");
+            
+            
+        }
 		
 	}
 
