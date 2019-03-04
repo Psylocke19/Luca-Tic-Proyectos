@@ -126,6 +126,16 @@ public class Servicios implements IServicios {
 	@Override
 	public void modificarPeliculas(Peliculas pelicula) {
 		// TODO Auto-generated method stub
+		if(!pelicula.getNombre().isEmpty() || !pelicula.getAnio().isEmpty()
+				|| !(pelicula.getNum_categoria() == 0)) {
+			
+			pelidatos.modificarPeliculas(pelicula);
+			
+		} else {
+			logger.error("Existen campos vacíos");
+			System.out.println("Campos vacíos, la acción no puede realizarse");
+		}
+		
 
 	}
 
