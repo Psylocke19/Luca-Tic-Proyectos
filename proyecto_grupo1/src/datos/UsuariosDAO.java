@@ -105,7 +105,8 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
             System.out.println("No se ha podido realizar la modificacion del usuario");
             
         }
-        }
+     
+	}
 
 	@Override
 	public void mostrarUsuario(Usuario usuario) {
@@ -119,7 +120,7 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 	@Override
 	public boolean comprobacionUsuarioDuplicado(String email) {
 		// TODO Auto-generated method stub
-		String consulta = "SELECT * FROM usuario WHERE email=?";
+		String consulta = "SELECT * FROM usuario WHERE mail=?";
 
 		try {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta);
@@ -140,7 +141,7 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 	@Override
 	public Usuario buscarUsuario(String email) {
 		// TODO Auto-generated method stub
-		String consulta = "SELECT * FROM usuario WHERE email=?";
+		String consulta = "SELECT * FROM usuario WHERE mail=?";
 		
 		try {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta); 
@@ -158,7 +159,6 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 		}
 		
 		return null;
-	
 	}
 
 }

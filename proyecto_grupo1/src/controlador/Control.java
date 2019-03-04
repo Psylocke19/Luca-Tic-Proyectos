@@ -34,13 +34,13 @@ public class Control {
 				eliminarUsuario();
 				break;
 			case "4":
-				;
+				mostrarUsuario();
 				break;
 			case "5":
 				;
 				break;
 			case "6":
-				System.out.println("Algo");
+				;
 				break;
 			case "7":
 				salida = true;
@@ -89,6 +89,7 @@ public class Control {
 			logger.error("No se ha encontrado un usuario con ese email");
 			System.out.println("No se ha encontrado este usuario");
 		}
+		
 	}
 	
 	public void eliminarUsuario() {

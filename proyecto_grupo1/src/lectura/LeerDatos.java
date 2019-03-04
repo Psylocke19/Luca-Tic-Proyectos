@@ -33,6 +33,7 @@ public class LeerDatos {
 		return 0;
 	}
 	
+	
 	public static double LeerDouble(String msg) {
 		try {
 			System.out.println(msg);

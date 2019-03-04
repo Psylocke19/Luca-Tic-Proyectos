@@ -7,14 +7,10 @@ import java.sql.Connection;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-
-
 public class Conexion {
 
 	protected Connection conexion;
 	private static final Logger logger = LogManager.getLogger("Mensaje");
-	
-	
 	
 	
 	public Conexion() {
