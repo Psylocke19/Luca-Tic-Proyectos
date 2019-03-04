@@ -72,10 +72,9 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 		try {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta);
 
-			
 			sentencia.setString(1, pelicula.getNombre());
 			sentencia.setString(2, pelicula.getAnio());
-			
+
 			sentencia.execute();
 
 			System.out.println("la pelicula se ha eliminado correctamente");
@@ -87,7 +86,7 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 			System.out.println("No se ha podido realizar la baja de la pelicula");
 
 		}
-		
+
 	}
 
 	@Override
@@ -166,9 +165,33 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 					rs.getInt("idCategoria"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			
+
 		}
 
 		return null;
+	}
+
+	@Override
+	public ArrayList<Peliculas> listarPorCategorias(int idCategoria) {
+		String consulta = "SELECT * FROM peliculas WHERE idCategoria=?";
+		ArrayList<Peliculas> listaPelis = new ArrayList<Peliculas>();
+		try {
+			PreparedStatement sentencia = conexion.prepareStatement(consulta);
+			sentencia.setInt(1, idCategoria);
+			ResultSet rs = sentencia.executeQuery();
+			while (rs.next()) {
+				listaPelis.add(new Peliculas(rs.getInt("idPeliculas"), rs.getString("nombre"), rs.getString("anio"),
+						rs.getInt("idCategoria")));
+			}
+			logger.info("Lista de peliculas completada ");
+			return listaPelis;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			logger.info("Retorna true porque la pelicula no existe");
+		}
+
+		return null;
+
 	}
 }

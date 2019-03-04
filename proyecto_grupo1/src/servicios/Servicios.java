@@ -15,7 +15,6 @@ import modelo.Categoria;
 import modelo.Peliculas;
 import modelo.Usuario;
 
-
 public class Servicios implements IServicios {
 
 	private IUsuariosDAO usudatos = new UsuariosDAO();
@@ -62,8 +61,8 @@ public class Servicios implements IServicios {
 
 	@Override
 	/**
-	 * Si el campo está vacío se manda un mensaje de error, sino se
-	 * realiza la modificación de usuario
+	 * Si el campo está vacío se manda un mensaje de error, sino se realiza la
+	 * modificación de usuario
 	 * 
 	 * @author Grupo 1
 	 * @class Servicios
@@ -85,8 +84,8 @@ public class Servicios implements IServicios {
 
 	@Override
 	/**
-	 * Si el campo está vacío se envía un mensaje de de error, sino se
-	 * muestra al usuario
+	 * Si el campo está vacío se envía un mensaje de de error, sino se muestra al
+	 * usuario
 	 * 
 	 * @author Grupo 1
 	 * @class Servicios
@@ -107,7 +106,7 @@ public class Servicios implements IServicios {
 
 	@Override
 	/**
-	 * Si el email introducido no está vacío se realiza la comprobación del mismo 
+	 * Si el email introducido no está vacío se realiza la comprobación del mismo
 	 * para ver si se encuentra diplicado o no en la base de datos
 	 * 
 	 * @author Grupo 1
@@ -139,8 +138,7 @@ public class Servicios implements IServicios {
 
 	@Override
 	/**
-	 * Si el campo está vacío aparece un mensaje de error, sino se 
-	 * añade la película
+	 * Si el campo está vacío aparece un mensaje de error, sino se añade la película
 	 * 
 	 * @author Grupo 1
 	 * @class Servicios
@@ -161,24 +159,23 @@ public class Servicios implements IServicios {
 
 	@Override
 	/**
-	 * Si el campo está vacío se produce un error, sino se
-	 * modifican los atributos de la película
+	 * Si el campo está vacío se produce un error, sino se modifican los atributos
+	 * de la película
 	 * 
 	 * @author Grupo 1
 	 * @class Servicios
 	 */
 	public void modificarPeliculas(Peliculas pelicula) {
 		// TODO Auto-generated method stub
-		if(!pelicula.getNombre().isEmpty() || !pelicula.getAnio().isEmpty()
-				|| !(pelicula.getNum_categoria() == 0)) {
-			
+		if (!pelicula.getNombre().isEmpty() || !pelicula.getAnio().isEmpty() || !(pelicula.getNum_categoria() == 0)) {
+
 			pelidatos.modificarPeliculas(pelicula);
-			
+
 		} else {
 			logger.error("Existen campos vacíos");
 			System.out.println("Campos vacíos, la acción no puede realizarse");
 		}
-		
+
 	}
 
 	@Override
@@ -193,7 +190,6 @@ public class Servicios implements IServicios {
 		pelidatos.eliminarPeliculas(pelicula);
 
 	}
-
 
 	@Override
 	public void listarPorMasVistas() {
@@ -213,12 +209,11 @@ public class Servicios implements IServicios {
 
 	}
 
-
 	@Override
 	/**
-	 * Si los campos están vacíos se muestra un mensaje de nerror, sino se
-	 * llama a datos para realizar la consulta sobre si la pelicula está ya
-	 * presente en la base de datos
+	 * Si los campos están vacíos se muestra un mensaje de nerror, sino se llama a
+	 * datos para realizar la consulta sobre si la pelicula está ya presente en la
+	 * base de datos
 	 * 
 	 * @author Grupo 1
 	 * @class Servicios
@@ -236,9 +231,9 @@ public class Servicios implements IServicios {
 
 	@Override
 	/**
-	 * Si el campo está vacío se muestra un mensaje de error, sino se intenta añadir.
-	 * Si al intentarlo se obtiene null, se muestra un mensaje de aviso que indica 
-	 * que la categoría que se ha intentando añadir no existe
+	 * Si el campo está vacío se muestra un mensaje de error, sino se intenta
+	 * añadir. Si al intentarlo se obtiene null, se muestra un mensaje de aviso que
+	 * indica que la categoría que se ha intentando añadir no existe
 	 * 
 	 * @author Grupo 1
 	 * @class Servicios
@@ -260,8 +255,9 @@ public class Servicios implements IServicios {
 
 	@Override
 	/**
-	 * En este caso, una vez rellenados los campos de añadir categoría se comprueba si alguno de ellos están vacíos.
-	 * Si no es así, se añade. Si hay algún campo incomplemento se envía un mensaje de error y la acción no se lleva a cabo
+	 * En este caso, una vez rellenados los campos de añadir categoría se comprueba
+	 * si alguno de ellos están vacíos. Si no es así, se añade. Si hay algún campo
+	 * incomplemento se envía un mensaje de error y la acción no se lleva a cabo
 	 * 
 	 * @author Grupo 1
 	 */
@@ -281,8 +277,8 @@ public class Servicios implements IServicios {
 
 	@Override
 	/**
-	 * Si el campo está vacío se genera un aviso, sino se procede a comprobar
-	 * que la base de datos no presenta ya esa categoría
+	 * Si el campo está vacío se genera un aviso, sino se procede a comprobar que la
+	 * base de datos no presenta ya esa categoría
 	 * 
 	 * @author Grupo 1
 	 * @class Servicios
@@ -299,8 +295,9 @@ public class Servicios implements IServicios {
 
 	@Override
 	/**
-	 * En este método se genera un ArrayList donde se van almacenando todas las películas de la 
-	 * base de datos para posteriormente mostrarlas en forma de lista
+	 * En este método se genera un ArrayList donde se van almacenando todas las
+	 * películas de la base de datos para posteriormente mostrarlas en forma de
+	 * lista
 	 * 
 	 * @author Grupo 1
 	 * @class Servicios
@@ -308,7 +305,7 @@ public class Servicios implements IServicios {
 	public ArrayList<Peliculas> listarPeliculas() {
 
 		try {
-			
+
 			return pelidatos.listarPeliculas();
 
 		} catch (Exception e) {
@@ -320,9 +317,9 @@ public class Servicios implements IServicios {
 
 	@Override
 	/**
-	 * Si el campo está vacío se genera un aviso, sino se procede a buscar una película 
-	 * en la base de datos. Si al realizar la búsqueda se obtiene null, se indica que 
-	 * la película en cuestión no existe
+	 * Si el campo está vacío se genera un aviso, sino se procede a buscar una
+	 * película en la base de datos. Si al realizar la búsqueda se obtiene null, se
+	 * indica que la película en cuestión no existe
 	 * 
 	 * @author Grupo 1
 	 * @class Servicios
@@ -341,9 +338,24 @@ public class Servicios implements IServicios {
 		}
 		return null;
 	}
-	
-	public void listarPorCategorias() {
-		
+
+	@Override
+	public void listarPorCategorias(int idCategoria) {
+		// TODO Auto-generated method stub
+		if (idCategoria > 0) {
+
+			ArrayList<Peliculas> lista = pelidatos.listarPorCategorias(idCategoria);
+
+			if (!lista.isEmpty()) {
+				for (Peliculas p : lista) {
+					System.out.println(p.toString());
+				}
+			} else {
+				System.out.println("No se ha encontrado ninguna pelicula con esa categoria");
+			}
+		} else {
+			System.out.println("La categoria introducida no existe");
+		}
 	}
 
 }

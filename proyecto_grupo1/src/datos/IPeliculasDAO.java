@@ -11,6 +11,7 @@ public interface IPeliculasDAO {
     public ArrayList<Peliculas> listarPeliculas();
     public void listarPorMasVistas();
     public void listarPorMasValoradas();
+    public ArrayList<Peliculas> listarPorCategorias(int idCategoria);
     public boolean comprobacionPeliculaDuplicada(String nombre,String anio);
     public Peliculas buscarPeliculas(String nombre);
 	

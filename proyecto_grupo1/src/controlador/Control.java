@@ -59,6 +59,9 @@ public class Control {
 				addCategoria();
 				break;
 			case "10":
+				listarPorCategoria();
+				break;
+			case "11":
 				salida = true;
 				break;
 			default:
@@ -275,7 +278,7 @@ public class Control {
 			System.out.println("La categoria que has introducido no existe");
 		} else {
 			idCategoria = c.getIdCategoria();
-			servicios.listarPorCategorias();
+			servicios.listarPorCategorias(idCategoria);
 		}
 
 	}
