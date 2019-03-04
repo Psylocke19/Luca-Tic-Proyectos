@@ -23,7 +23,7 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 
 			sentencia.setInt(1, 0);
 			sentencia.setString(2, p.getNombre());
-			sentencia.setInt(3, p.getAnio());
+			sentencia.setString(3, p.getAnio());
 			sentencia.setInt(4, p.getNum_categoria());
 			sentencia.execute();
 

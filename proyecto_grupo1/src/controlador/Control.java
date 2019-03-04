@@ -119,7 +119,12 @@ public class Control {
 		
 		logger.info("Selecionada la opcion de registro");
 		String nombre = LeerDatos.LeerString("Introduce el nombre de pelicula: ");
-		int anio = LeerDatos.LeerInt("Introduce la fecha de la pelicula: ");
+		String anio = LeerDatos.LeerString("Introduce la fecha de la pelicula: ");
+		if(!Pattern.matches(regexp, anio)) {
+			
+			System.out.println("Error,introduce la fecha en formato YYYY-MM-DD");
+			anio = LeerDatos.LeerString("Introduce la fecha");
+		}
 		int num_categoria = LeerDatos.LeerInt("Introduce el numero de categoria de la pelicula: ");
 		
 

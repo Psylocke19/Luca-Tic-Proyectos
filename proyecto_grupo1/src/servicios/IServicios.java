@@ -20,7 +20,7 @@ public interface IServicios {
     public void listarPorMasVistas();
     public void listarPorMasValoradas();
     public void listarPorNoVistas();
-    public boolean comprobacionPeliculaDuplicada(String nombre,int anio);
+    public boolean comprobacionPeliculaDuplicada(String nombre,String anio);
     public Usuario buscarPelicula(String nombre); 
     
     

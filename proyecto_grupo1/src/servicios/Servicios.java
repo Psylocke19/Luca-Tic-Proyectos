@@ -106,7 +106,7 @@ public class Servicios implements IServicios {
 	public void addPeliculas(Peliculas pelicula) {
 		// TODO Auto-generated method stub
 			if(!pelicula.getNombre().isEmpty() ||
-					pelicula.getAnio() == 0 ||
+					!pelicula.getAnio().isEmpty()  ||
 					pelicula.getNum_categoria() == 0 ) {
 				
 				pelidatos.addPeliculas(pelicula);
@@ -157,16 +157,17 @@ public class Servicios implements IServicios {
 
 	}
 
-	@Override
-	public boolean comprobacionPeliculaDuplicada(String nombre, int anio) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+	
 	@Override
 	public Usuario buscarPelicula(String nombre) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean comprobacionPeliculaDuplicada(String nombre, String anio) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

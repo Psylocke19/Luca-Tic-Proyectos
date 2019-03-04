@@ -5,12 +5,12 @@ public class Peliculas {
 	// ZONA PROPIEDADES
 	private int idPeliculas;
 	private String nombre;
-	private int anio;
+	private String anio;
 	private int num_categoria;
 
 	// ZONA CONSTRUCTORES
 
-	public Peliculas(int idPeliculas, String nombre, int anio, int num_categoria) {
+	public Peliculas(int idPeliculas, String nombre, String anio, int num_categoria) {
 		super();
 		this.idPeliculas = idPeliculas;
 		this.nombre = nombre;
@@ -35,11 +35,11 @@ public class Peliculas {
 		this.nombre = nombre;
 	}
 
-	public int getAnio() {
+	public String getAnio() {
 		return anio;
 	}
 
-	public void setAnio(int anio) {
+	public void setAnio(String anio) {
 		this.anio = anio;
 	}
 
