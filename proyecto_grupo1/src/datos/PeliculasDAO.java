@@ -1,6 +1,7 @@
 package datos;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
@@ -75,10 +76,28 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 	}
 
 	@Override
-	public boolean comprobacionPeliculaDuplicada(String nombre, int anio) {
-		// TODO Auto-generated method stub
+	public boolean comprobacionPeliculaDuplicada(String nombre, String anio) {
+		String consulta = "SELECT * FROM peliculas WHERE nombre=? AND anio=?";
+
+		try {
+			PreparedStatement sentencia = conexion.prepareStatement(consulta);
+			sentencia.setString(1, nombre);
+			sentencia.setString(2, anio);
+			ResultSet rs = sentencia.executeQuery(); 
+			if (!rs.next()) {
+				return true;
+			}
+			logger.info("Esa película ya existe ");
+			return false;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			logger.info("Retorna true porque la pelicula no existe");
+		}
+
 		return false;
-	}
+	}		
+	
 
 	@Override
 	public Peliculas buscarPeliculas(String nombre) {

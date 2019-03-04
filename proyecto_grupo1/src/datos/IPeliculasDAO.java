@@ -9,7 +9,7 @@ public interface IPeliculasDAO {
     public void listarPeliculas();
     public void listarPorMasVistas();
     public void listarPorMasValoradas();
-    public boolean comprobacionPeliculaDuplicada(String nombre,int anio);
+    public boolean comprobacionPeliculaDuplicada(String nombre,String anio);
     public Peliculas buscarPeliculas(String nombre);
 	
 }
