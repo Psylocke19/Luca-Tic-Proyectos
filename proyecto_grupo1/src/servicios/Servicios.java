@@ -65,6 +65,17 @@ public class Servicios implements IServicios {
 	public void mostrarUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 		
+		if(!usuario.getNombre_completo().isEmpty() || 
+				!usuario.getFecha().isEmpty() || 
+				!usuario.getCiudad_residencia().isEmpty()||
+				!usuario.getMail().isEmpty()) {
+			
+			usudatos.mostrarUsuario(usuario);
+		}else {
+			logger.error("No se ha podido mostrar al usuario"); 
+			System.out.println("No se ha podido mostrar al usuario");
+		}
+		
 	}
 
 	@Override
