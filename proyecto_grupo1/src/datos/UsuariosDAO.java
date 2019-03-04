@@ -116,14 +116,14 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 			sentencia.execute();
 
 			logger.info("El usuario con ese email existe ");
-			return false;
+			return true;
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			logger.info("Retorna true porque el usuario no existe");
 		}
 
-		return true;
+		return false;
 	}
 
 	@Override
