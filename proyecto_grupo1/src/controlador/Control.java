@@ -31,7 +31,7 @@ public class Control {
 				modificarUsuario();;
 				break;
 			case "3":
-				;
+				eliminarUsuario();
 				break;
 			case "4":
 				;
@@ -82,6 +82,18 @@ public class Control {
 			logger.error("No se ha encontrado un usuario con ese email");
 			System.out.println("No se ha encontrado este usuario");
 		}
+	}
+	
+	public void eliminarUsuario() {
+		String mail = LeerDatos.LeerString("Introduce tu email: ");
+		Usuario user = s.buscarUsuario(mail);
+		if (user != null) {
+			s.eliminarUsuario(user);
+		} else {
+			logger.error("No se ha encontrado un usuario con ese email");
+			System.out.println("No se ha encontrado este usuario");
+		}
+		
 	}
 
 }
