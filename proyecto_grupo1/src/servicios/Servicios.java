@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import datos.IPeliculasDAO;
 import datos.IUsuariosDAO;
+import datos.PeliculasDAO;
 import datos.UsuariosDAO;
 import modelo.Peliculas;
 import modelo.Usuario;
