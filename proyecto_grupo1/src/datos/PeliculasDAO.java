@@ -41,6 +41,25 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 	@Override
 	public void modificarPeliculas(Peliculas pelicula) {
 		// TODO Auto-generated method stub
+		String consulta = "UPDATE peliculas SET nombre= ? ,anio=? WHERE idPelicula=?";
+
+
+        try {
+            PreparedStatement sentencia = conexion.prepareStatement(consulta);
+            sentencia.setString(1, pelicula.getNombre());
+            sentencia.setString(2, pelicula.getAnio());
+            sentencia.setInt(3, pelicula.getIdPeliculas());
+            sentencia.execute();
+
+            System.out.println("La pelicula se ha modificado");
+            logger.info("La pelicula se ha modificado" );
+            
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            logger.info("La pelicula se ha modificado " );
+            System.out.println("No se ha podido realizar la modificacion de la pelicula");
+            
+        }
 
 	}
 
