@@ -1,7 +1,5 @@
 package gui;
 
-import lectura.LeerDatos;
-
 public class Menu {
 
 	public static void Menu() {
