@@ -113,6 +113,7 @@ public class Control {
 		}
 		
 	}
+	
 	public void addPeliculas() {
 		
 		
