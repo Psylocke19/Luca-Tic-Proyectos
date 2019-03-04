@@ -1,5 +1,6 @@
 package servicios;
 
+import modelo.Categoria;
 import modelo.Peliculas;
 import modelo.Usuario;
 
@@ -23,6 +24,9 @@ public interface IServicios {
     public boolean comprobacionPeliculaDuplicada(String nombre,String anio);
     public Usuario buscarPelicula(String nombre); 
     
-    
+    public void addCategoria(Categoria c); 
+	public Categoria buscarCategoria(String nombreCategoria); 
+	public boolean comprobacionCategoriaDuplicada(String nombreCategoria); 
+	
 	
 }
