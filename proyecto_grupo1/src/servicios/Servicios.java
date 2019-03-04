@@ -211,4 +211,10 @@ public class Servicios implements IServicios {
 		}		return respuesta;
 	}
 
+	@Override
+	public void listarPeliculas() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
