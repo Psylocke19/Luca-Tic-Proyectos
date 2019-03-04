@@ -1,5 +1,7 @@
 package servicios;
 
+import java.util.ArrayList;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -133,11 +135,6 @@ public class Servicios implements IServicios {
 
 	}
 
-	@Override
-	public void listarPeliculas() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void listarPorMasVistas() {
@@ -206,11 +203,6 @@ public class Servicios implements IServicios {
 
 	}
 
-<<<<<<< HEAD
-	
-
-=======
->>>>>>> fea1f278bcfc04cbe27e0222f5d357f9242daa25
 	@Override
 	public boolean comprobacionCategoriaDuplicada(String nombreCategoria) {
 		boolean respuesta = false;
@@ -219,6 +211,12 @@ public class Servicios implements IServicios {
 		} else {
 			System.out.println("El campo nombre de la categoria introducido está vacios");
 		}		return respuesta;
+	}
+
+	@Override
+	public ArrayList<Peliculas> listarPeliculas() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

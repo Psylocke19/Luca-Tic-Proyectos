@@ -1,5 +1,6 @@
 package controlador;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
@@ -162,11 +163,11 @@ public class Control {
 		s.mostrarUsuario(user);
 
 	}
-	
+
 	public void addCategoria() {
 		logger.info("Selecionada la opcion de registro");
 		String nombreCategoria = LeerDatos.LeerString("Introduce el nombre de la categoria: ");
-		
+
 		if (s.comprobacionCategoriaDuplicada(nombreCategoria)) {
 
 			Categoria categoria = new Categoria(0, nombreCategoria);
@@ -174,6 +175,21 @@ public class Control {
 		} else {
 			logger.error("Imposible registrar la categoría, ese nombre ya existe");
 			System.out.println("La categoría que intenta registrar ya ha sido introducida.");
+		}
+
+	}
+
+	public void listarPeliculas() {
+		ArrayList<Peliculas> lista = new ArrayList<>();
+		lista = s.listarPeliculas();
+		if (!lista.isEmpty()) {
+			for (Peliculas p : lista) {
+				System.out.println(p.toString());
+			}
+
+		} else {
+			logger.error("Imposible listar películas, la lista está vacía");
+			System.out.println("La lista de películas está vacía"); 
 		}
 
 	}
