@@ -201,4 +201,46 @@ public class Control {
 		}
 
 	}
+
+	public void modificarPeliculas() {
+
+		String pelicula = LeerDatos.LeerString("Introduce el nombre de la pelicula: ");
+
+		Peliculas objetoPelicula = s.buscarPelicula(pelicula);
+		if (objetoPelicula != null) {
+			objetoPelicula.setNombre(pelicula);
+
+			String fechaPelicula = (LeerDatos.LeerString("Introduce la fecha de la pelicula: "));
+			if (!Pattern.matches(regexp, fechaPelicula)) {
+
+				System.out.println("Error,introduce la fecha en formato YYYY-MM-DD");
+				fechaPelicula = LeerDatos.LeerString("Introduce el anio de la pelicula");
+			}
+			objetoPelicula.setAnio(fechaPelicula);
+
+			int idCategoria = 0;
+
+			boolean respuesta = false;
+			while (respuesta != true) {
+				String nombreCategoria = LeerDatos.LeerString("Introduce el nombre de la categoria de la pelicula: ");
+
+				Categoria c = s.buscarCategoria(nombreCategoria);
+
+				if (c == null) {
+					System.out.println("La categoria que has introducido no existe");
+				} else {
+					idCategoria = c.getIdCategoria();
+					objetoPelicula.setNum_categoria(idCategoria);
+					respuesta = true;
+				}
+
+			}
+			;
+			s.modificarPeliculas(objetoPelicula);
+		} else {
+			logger.error("No se ha encontrado la pelicula indicada");
+			System.out.println("No se ha encontrado la pelicula indicada");
+		}
+
+	}
 }
