@@ -50,8 +50,6 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 	@Override
 	public void modificarUsuario(Usuario nom_usuario) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
-		
 		String consulta = "UPDATE usuario SET nombre= ? ,fechaNacimiento=?,ciudadResidencia=? "
 				+ "WHERE idUsuario = ? AND mail=?";
 
@@ -75,13 +73,8 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
             logger.info("el usuario NO se ha modificado " );
             System.out.println("No se ha podido realizar la modificacion del usuario");
             
-            
         }
-		
-=======
-
->>>>>>> e602ea5cbaaf74da7e8ae82a09e1b1511b985f61
-	}
+        }
 
 	@Override
 	public void mostrarUsuario(Usuario usuario) {
