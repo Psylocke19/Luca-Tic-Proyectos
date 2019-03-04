@@ -104,4 +104,11 @@ public class Control {
 		
 	}
 
+	public void mostrarUsuario() {
+        String mail = LeerDatos.LeerString("Introduce el email del usuario: ");
+        Usuario user = s.buscarUsuario(mail);
+        s.mostrarUsuario(user);
+        
+    }
+	
 }
