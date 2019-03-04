@@ -17,7 +17,26 @@ public class CategoriaDAO extends Conexion implements ICategoriaDAO {
 	
 	@Override
 	public void addCategoria(Categoria c) {
-		// TODO Auto-generated method stub
+		
+		String consulta = "INSERT INTO categoria VALUES(?,?)";
+
+		try {
+			PreparedStatement sentencia = conexion.prepareStatement(consulta);
+
+			sentencia.setInt(1, 0);
+			sentencia.setString(2, c.getNombreCategoria());
+			
+			sentencia.execute();
+
+			System.out.println("la categoria " + c.getNombreCategoria() + " se ha aniadido");
+			logger.info("La categoria se ha aniadido");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			logger.info("la categoria no se ha aniadido ");
+			System.out.println("no se ha podido aniadir la categoria");
+
+		}
 
 	}
 
