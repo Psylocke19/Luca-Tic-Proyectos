@@ -45,10 +45,10 @@ public class Servicios implements IServicios {
 	@Override
 	public void modificarUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
-		if(usuario.getNombre_completo().isEmpty() || 
-				usuario.getFecha().isEmpty() || 
-				usuario.getCiudad_residencia().isEmpty()||
-				usuario.getMail().isEmpty()) {
+		if(!usuario.getNombre_completo().isEmpty() || 
+				!usuario.getFecha().isEmpty() || 
+				!usuario.getCiudad_residencia().isEmpty()||
+				!usuario.getMail().isEmpty()) {
 			
 			usudatos.modificarUsuario(usuario);
 			

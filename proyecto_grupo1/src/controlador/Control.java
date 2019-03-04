@@ -40,7 +40,7 @@ public class Control {
 				;
 				break;
 			case "6":
-				System.out.println("Algo");
+				
 				break;
 			case "7":
 				salida = true;
