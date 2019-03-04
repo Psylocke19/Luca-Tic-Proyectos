@@ -134,12 +134,6 @@ public class Servicios implements IServicios {
 	}
 
 	@Override
-	public void listarPeliculas() {
-		// TODO Auto-generated method stub
-		System.out.println();
-	}
-
-	@Override
 	public void listarPorMasVistas() {
 		// TODO Auto-generated method stub
 
