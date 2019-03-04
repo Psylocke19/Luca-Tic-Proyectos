@@ -33,6 +33,7 @@ public class CategoriaDAO extends Conexion implements ICategoriaDAO {
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
 			logger.info("la categoria no se ha aniadido ");
 			System.out.println("no se ha podido aniadir la categoria");
 
@@ -65,7 +66,23 @@ public class CategoriaDAO extends Conexion implements ICategoriaDAO {
 
 	@Override
 	public boolean comprobacionCategoriaDuplicada(String nombreCategoria) {
-		// TODO Auto-generated method stub
+		String consulta = "SELECT * FROM categoria WHERE nombreCategoria=? ";
+
+		try {
+			PreparedStatement sentencia = conexion.prepareStatement(consulta);
+			sentencia.setString(1, nombreCategoria);
+			ResultSet rs = sentencia.executeQuery(); 
+			if (!rs.next()) {
+				return true;
+			}
+			logger.info("Esa categoria ya existe ");
+			return false;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			logger.info("ERROR");
+		}
+
 		return false;
 	}
 

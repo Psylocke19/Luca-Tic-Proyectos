@@ -136,7 +136,7 @@ public class Servicios implements IServicios {
 	@Override
 	public void listarPeliculas() {
 		// TODO Auto-generated method stub
-
+		System.out.println();
 	}
 
 	@Override
@@ -206,11 +206,7 @@ public class Servicios implements IServicios {
 
 	}
 
-<<<<<<< HEAD
-	
 
-=======
->>>>>>> fea1f278bcfc04cbe27e0222f5d357f9242daa25
 	@Override
 	public boolean comprobacionCategoriaDuplicada(String nombreCategoria) {
 		boolean respuesta = false;

@@ -49,6 +49,9 @@ public class Control {
 				;
 				break;
 			case "7":
+				addCategoria();
+				break;
+			case "8":
 				salida = true;
 				break;
 			default:
