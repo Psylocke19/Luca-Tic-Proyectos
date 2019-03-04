@@ -98,8 +98,11 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 
 	@Override
 	public void mostrarUsuario(Usuario usuario) {
-		// TODO Auto-generated method stub
 
+		System.out.println("Nombre:" + usuario.getNombre_completo() +
+				" email: "+ usuario.getMail() +
+				" Fecha de nacimiento: "+ usuario.getFecha() +
+				" Ciudad de residencia: " + usuario.getCiudad_residencia());
 	}
 
 	@Override
