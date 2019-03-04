@@ -206,12 +206,19 @@ public class Servicios implements IServicios {
 
 	}
 
+<<<<<<< HEAD
 	
 
+=======
+>>>>>>> fea1f278bcfc04cbe27e0222f5d357f9242daa25
 	@Override
 	public boolean comprobacionCategoriaDuplicada(String nombreCategoria) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean respuesta = false;
+		if (!nombreCategoria.isEmpty()) {
+			respuesta = catedatos.comprobacionCategoriaDuplicada(nombreCategoria);
+		} else {
+			System.out.println("El campo nombre de la categoria introducido está vacios");
+		}		return respuesta;
 	}
 
 }
