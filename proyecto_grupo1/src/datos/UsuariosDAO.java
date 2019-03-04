@@ -17,7 +17,7 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 	public void altaUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 
-		String consulta = "INSERT INTO partido VALUES(?,?,?,?,?)";
+		String consulta = "INSERT INTO usuario VALUES(?,?,?,?,?)";
 
 		try {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta);
