@@ -341,5 +341,9 @@ public class Servicios implements IServicios {
 		}
 		return null;
 	}
+	
+	public void listarPorCategorias() {
+		
+	}
 
 }

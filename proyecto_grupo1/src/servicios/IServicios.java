@@ -28,7 +28,8 @@ public interface IServicios {
     
     public void addCategoria(Categoria c); 
 	public Categoria buscarCategoria(String nombreCategoria); 
-	public boolean comprobacionCategoriaDuplicada(String nombreCategoria); 
+	public boolean comprobacionCategoriaDuplicada(String nombreCategoria);
+	public void listarPorCategorias(); 
 	
 	
 }

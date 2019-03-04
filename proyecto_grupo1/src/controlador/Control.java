@@ -17,7 +17,7 @@ import servicios.IServicios;
 public class Control {
 
 	private final String regexp = "\\d{4}-\\d{1,2}-\\d{1,2}";
-	IServicios s = new Servicios();
+	IServicios servicios = new Servicios();
 	private static final Logger logger = LogManager.getLogger("Mensaje");
 
 	public Control() {
@@ -88,10 +88,10 @@ public class Control {
 			System.out.println("Error,introduce la fecha en formato YYYY-MM-DD");
 			mail = LeerDatos.LeerString("Introduce tu email");
 		}
-		if (s.comprobacionUsuarioDuplicado(mail)) {
+		if (servicios.comprobacionUsuarioDuplicado(mail)) {
 
 			Usuario user = new Usuario(0, nombre, fechaNacimiento, poblacion, mail);
-			s.altaUsuario(user);
+			servicios.altaUsuario(user);
 		} else {
 			logger.error("Imposible registrar usuario, ese email ya existe");
 			System.out.println("Ese email ya tiene una cuenta registrada asociada.");
@@ -102,12 +102,12 @@ public class Control {
 	public void modificarUsuario() {
 		String mail = LeerDatos.LeerString("Introduce tu email: ");
 
-		Usuario user = s.buscarUsuario(mail);
+		Usuario user = servicios.buscarUsuario(mail);
 		if (user != null) {
 			user.setNombre_completo(LeerDatos.LeerString("Introduce tu nuevo nombre: "));
 			user.setFecha(LeerDatos.LeerString("Introduce la nueva fecha de nacimiento: "));
 			user.setCiudad_residencia(LeerDatos.LeerString("Introduce tu nueva población: "));
-			s.modificarUsuario(user);
+			servicios.modificarUsuario(user);
 		} else {
 			logger.error("No se ha encontrado un usuario con ese email");
 			System.out.println("No se ha encontrado este usuario");
@@ -117,9 +117,9 @@ public class Control {
 
 	public void eliminarUsuario() {
 		String mail = LeerDatos.LeerString("Introduce tu email: ");
-		Usuario user = s.buscarUsuario(mail);
+		Usuario user = servicios.buscarUsuario(mail);
 		if (user != null) {
-			s.eliminarUsuario(user);
+			servicios.eliminarUsuario(user);
 		} else {
 			logger.error("No se ha encontrado un usuario con ese email");
 			System.out.println("No se ha encontrado este usuario");
@@ -144,7 +144,7 @@ public class Control {
 		while (respuesta != true) {
 			String nombreCategoria = LeerDatos.LeerString("Introduce el nombre de la categoria de la pelicula: ");
 
-			Categoria c = s.buscarCategoria(nombreCategoria);
+			Categoria c = servicios.buscarCategoria(nombreCategoria);
 
 			if (c == null) {
 				System.out.println("La categoria que has introducido no existe");
@@ -156,10 +156,10 @@ public class Control {
 		}
 		
 
-		if (s.comprobacionPeliculaDuplicada(nombre, anio)) {
+		if (servicios.comprobacionPeliculaDuplicada(nombre, anio)) {
 
 			Peliculas pelicula = new Peliculas(0, nombre, anio, idCategoria);
-			s.addPeliculas(pelicula);
+			servicios.addPeliculas(pelicula);
 		} else {
 			logger.error("Imposible registrar pelicula, esa pelicula ya existe");
 			System.out.println("Esta pelicula ya existe en nuestra base de datos.");
@@ -169,8 +169,8 @@ public class Control {
 
 	public void mostrarUsuario() {
 		String mail = LeerDatos.LeerString("Introduce el email del usuario: ");
-		Usuario user = s.buscarUsuario(mail);
-		s.mostrarUsuario(user);
+		Usuario user = servicios.buscarUsuario(mail);
+		servicios.mostrarUsuario(user);
 
 	}
 	
@@ -185,10 +185,10 @@ public class Control {
 		logger.info("Selecionada la opcion de registro");
 		String nombreCategoria = LeerDatos.LeerString("Introduce el nombre de la categoria: ");
 
-		if (s.comprobacionCategoriaDuplicada(nombreCategoria)) {
+		if (servicios.comprobacionCategoriaDuplicada(nombreCategoria)) {
 
 			Categoria categoria = new Categoria(0, nombreCategoria);
-			s.addCategoria(categoria);
+			servicios.addCategoria(categoria);
 		} else {
 			logger.error("Imposible registrar la categoría, ese nombre ya existe");
 			System.out.println("La categoría que intenta registrar ya ha sido introducida.");
@@ -198,7 +198,7 @@ public class Control {
 
 	public void listarPeliculas() {
 		ArrayList<Peliculas> lista = new ArrayList<>();
-		lista = s.listarPeliculas(); 
+		lista = servicios.listarPeliculas(); 
 		if (!lista.isEmpty()) {
 			for (Peliculas p : lista) {
 				System.out.println(p.toString());
@@ -215,7 +215,7 @@ public class Control {
 
 		String pelicula = LeerDatos.LeerString("Introduce el nombre de la pelicula: ");
 
-		Peliculas objetoPelicula = s.buscarPelicula(pelicula);
+		Peliculas objetoPelicula = servicios.buscarPelicula(pelicula);
 		if (objetoPelicula != null) {
 			objetoPelicula.setNombre(pelicula);
 
@@ -233,7 +233,7 @@ public class Control {
 			while (respuesta != true) {
 				String nombreCategoria = LeerDatos.LeerString("Introduce el nombre de la categoria de la pelicula: ");
 
-				Categoria c = s.buscarCategoria(nombreCategoria);
+				Categoria c = servicios.buscarCategoria(nombreCategoria);
 
 				if (c == null) {
 					System.out.println("La categoria que has introducido no existe");
@@ -245,7 +245,7 @@ public class Control {
 
 			}
 			;
-			s.modificarPeliculas(objetoPelicula);
+			servicios.modificarPeliculas(objetoPelicula);
 		} else {
 			logger.error("No se ha encontrado la pelicula indicada");
 			System.out.println("No se ha encontrado la pelicula indicada");
@@ -254,12 +254,28 @@ public class Control {
 	}
 	public void eliminarPeliculas() {
 		String pelicula = LeerDatos.LeerString("Introduce el nombre de la pelicula: ");
-		Peliculas peli = s.buscarPelicula(pelicula);
+		Peliculas peli = servicios.buscarPelicula(pelicula);
 		if (peli != null) {
-			s.eliminarPeliculas(peli);;
+			servicios.eliminarPeliculas(peli);;
 		} else {
 			logger.error("No se ha encontrado una pelicula con ese nombre");
 			System.out.println("No se ha encontrado una pelicula con ese nombre");
+		}
+
+	}
+	public void listarPorCategoria() {
+
+		int idCategoria = 0;
+
+		String nombreCategoria = LeerDatos.LeerString("Introduce el nombre de la categoria de la pelicula: ");
+
+		Categoria c = servicios.buscarCategoria(nombreCategoria);
+
+		if (c == null) {
+			System.out.println("La categoria que has introducido no existe");
+		} else {
+			idCategoria = c.getIdCategoria();
+			servicios.listarPorCategorias();
 		}
 
 	}
