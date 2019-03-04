@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import datos.IUsuariosDAO;
 import datos.UsuariosDAO;
+import modelo.Peliculas;
 import modelo.Usuario;
 
  
@@ -100,6 +101,60 @@ public class Servicios implements IServicios {
 
 	@Override
 	public Usuario buscarUsuario(String mail) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addPeliculas(Peliculas pelicula) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modificarPeliculas(Peliculas pelicula) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminarPeliculas(Peliculas pelicula) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void listarPeliculas() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void listarPorMasVistas() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void listarPorMasValoradas() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void listarPorNoVistas() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean comprobacionPeliculaDuplicada(String nombre, int anio) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Usuario buscarPelicula(String nombre) {
 		// TODO Auto-generated method stub
 		return null;
 	}
