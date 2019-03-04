@@ -53,9 +53,12 @@ public class Control {
 				modificarPeliculas();
 				break;
 			case "8":
-				addCategoria();
+				eliminarPeliculas();
 				break;
 			case "9":
+				addCategoria();
+				break;
+			case "10":
 				salida = true;
 				break;
 			default:

@@ -67,7 +67,7 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 	@Override
 	public void eliminarPeliculas(Peliculas pelicula) {
 
-		String consulta = "DELETE FROM peliculas WHERE nombre=? , anio=?";
+		String consulta = "DELETE FROM peliculas WHERE nombre=? AND anio=?";
 
 		try {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta);
