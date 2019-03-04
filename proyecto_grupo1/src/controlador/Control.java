@@ -51,7 +51,14 @@ public class Control {
 
 		}
 	}
-
+/**
+ * Añade un nuevo usuario.
+ * También comprueba si ese usuario ya existe, si ya está registrado lo indica mediante mensaje de texto
+ * 
+ * @author Grupo 1
+ * 
+ * 
+ */
 	public void altaUsuario() {
 		logger.info("Selecionada la opcion de registro");
 		String nombre = LeerDatos.LeerString("Introduce tu nombre: ");

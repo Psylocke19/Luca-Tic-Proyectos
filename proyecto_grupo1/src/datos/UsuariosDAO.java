@@ -14,6 +14,16 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 	private static final Logger logger = LogManager.getLogger("Mensaje");
 
 	@Override
+	/**
+	 * Pasamos como parametro un usuario, después preparamos la consulta indicando el nombre de la tabla 
+	 * correspondiente y mediante ? indicamos el numero de campos de la tabla.
+	 * 
+	 * Ejecutamos después la consulta y si no ocurre ningún fallo indica mediante mensaje de texto que el 
+	 * usuario ha sido dado de alta.
+	 * 
+	 * 
+	 * @author Grupo 1
+	 */
 	public void altaUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 
@@ -22,7 +32,7 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 		try {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta);
 
-			sentencia.setInt(1, usuario.getIdUsuario());
+			sentencia.setInt(1, 0);
 			sentencia.setString(2, usuario.getNombre_completo());
 			sentencia.setString(3, usuario.getFecha());
 			sentencia.setString(4, usuario.getCiudad_residencia());

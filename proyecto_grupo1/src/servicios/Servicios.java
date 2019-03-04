@@ -16,6 +16,12 @@ public class Servicios implements IServicios {
 	
 	
 	@Override
+	/**
+	 * Si el campo está vacío se llama a la interfaz correspondiente, sino se muestra un mensaje de texto indicando que 
+	 * no es posible realizar la acción.
+	 * 
+	 * @author Grupo 1
+	 */
 	public void altaUsuario(Usuario usuario) {
 
 		if(!usuario.getNombre_completo().isEmpty() || 
