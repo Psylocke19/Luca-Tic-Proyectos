@@ -8,7 +8,7 @@ public interface IUsuariosDAO {
     public void modificarUsuario(Usuario usuario);
     public void mostrarUsuario(Usuario usuario);
     public boolean comprobacionUsuarioDuplicado(String email);
-    public Usuario buscarUsuario(String mail); 
+    public Usuario buscarUsuario(String email); 
 	
     
     

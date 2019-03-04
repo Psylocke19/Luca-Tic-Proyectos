@@ -1,6 +1,7 @@
 package datos;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
@@ -137,9 +138,27 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 	}
 
 	@Override
-	public Usuario buscarUsuario(String mail) {
+	public Usuario buscarUsuario(String email) {
 		// TODO Auto-generated method stub
+		String consulta = "SELECT * FROM usuario WHERE email=?";
+		
+		try {
+			PreparedStatement sentencia = conexion.prepareStatement(consulta); 
+			sentencia.setString(1, email);
+			sentencia.execute(); 
+			ResultSet rs = sentencia.executeQuery(consulta); 
+			if (!rs.next()) {
+				return null;
+			}
+			return (new Usuario(rs.getInt("idusuario"), rs.getString("nombre"), rs.getString("fechaNacimiento"),
+					rs.getString("ciudadResidencia"), rs.getString("mail"))); 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			logger.info("Retorna true porque el usuario no existe");
+		}
+		
 		return null;
+	
 	}
 
 }
