@@ -125,10 +125,12 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 		try {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta);
 			sentencia.setString(1, email);
-			sentencia.execute();
-
+			ResultSet rs = sentencia.executeQuery(); 
+			if (!rs.next()) {
+				return true;
+			}
 			logger.info("El usuario con ese email existe ");
-			return true;
+			return false;
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -147,7 +149,7 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta); 
 			sentencia.setString(1, email);
 			sentencia.execute(); 
-			ResultSet rs = sentencia.executeQuery(consulta); 
+			ResultSet rs = sentencia.executeQuery(); 
 			if (!rs.next()) {
 				return null;
 			}
