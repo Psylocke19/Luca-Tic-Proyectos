@@ -181,7 +181,7 @@ public class Control {
 
 	public void listarPeliculas() {
 		ArrayList<Peliculas> lista = new ArrayList<>();
-		lista = s.listarPeliculas();
+		lista = s.listarPeliculas(); 
 		if (!lista.isEmpty()) {
 			for (Peliculas p : lista) {
 				System.out.println(p.toString());
