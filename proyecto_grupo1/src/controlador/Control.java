@@ -249,4 +249,15 @@ public class Control {
 		}
 
 	}
+	public void eliminarPeliculas() {
+		String pelicula = LeerDatos.LeerString("Introduce el nombre de la pelicula: ");
+		Peliculas peli = s.buscarPelicula(pelicula);
+		if (peli != null) {
+			s.eliminarPeliculas(peli);;
+		} else {
+			logger.error("No se ha encontrado una pelicula con ese nombre");
+			System.out.println("No se ha encontrado una pelicula con ese nombre");
+		}
+
+	}
 }
