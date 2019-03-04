@@ -28,7 +28,7 @@ public class Control {
 				altaUsuario();
 				break;
 			case "2":
-				;
+				modificarUsuario();;
 				break;
 			case "3":
 				;
