@@ -188,6 +188,12 @@ public class Servicios implements IServicios {
 	}
 
 	@Override
+	/**
+	 * En este caso, una vez rellenados los campos de añadir categoría se comprueba si alguno de ellos están vacíos.
+	 * Si no es así, se añade. Si hay algún campo incomplemento se envía un mensaje de error y la acción no se lleva a cabo
+	 * 
+	 * @author Grupo 1
+	 */
 	public void addCategoria(Categoria c) {
 
 		if (!c.getNombreCategoria().isEmpty()) {

@@ -164,7 +164,14 @@ public class Control {
 		s.mostrarUsuario(user);
 
 	}
-
+	
+	/**
+	 * Añade una nueva categoría. Para ello comprueba si la categoría ya existe en la base de datos, 
+	 * enviando un mensaje de error si es así
+	 * 
+	 * @author Grupo 1
+	 * 
+	 */
 	public void addCategoria() {
 		logger.info("Selecionada la opcion de registro");
 		String nombreCategoria = LeerDatos.LeerString("Introduce el nombre de la categoria: ");

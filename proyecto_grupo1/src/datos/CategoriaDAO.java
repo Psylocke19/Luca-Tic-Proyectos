@@ -13,9 +13,17 @@ import modelo.Categoria;
 public class CategoriaDAO extends Conexion implements ICategoriaDAO {
 
 	private static final Logger logger = LogManager.getLogger("Mensaje");
-
+	
 	
 	@Override
+	/**
+	 * Pasamos como parámetro una categoría y después preparamos la consulta indicando el nombre de la tabla correspondiente.
+	 * Igualmente, mediante ? indicamos el número de campos de la tabla. 
+	 * Si una vez ejecutada la consulta no ocurre ningún fallo, se indica mediante un mensaje de texto que la categoría ha sido 
+	 * añadida correctamente. 
+	 * 
+	 * @author Grupo 1
+	 */
 	public void addCategoria(Categoria c) {
 		
 		String consulta = "INSERT INTO categoria VALUES(?,?)";
