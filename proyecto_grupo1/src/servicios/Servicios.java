@@ -193,8 +193,19 @@ public class Servicios implements IServicios {
 
 	@Override
 	public void addCategoria(Categoria c) {
-		// TODO Auto-generated method stub
-		
+
+		if (!c.getNombreCategoria().isEmpty()) {
+
+			catedatos.addCategoria(c);
+
+		} else {
+
+			logger.error("Existen campos vacíos");
+			System.out.println("Campos vacíos, la acción no puede realizarse");
+		}
+
+	}
+
 	}
 
 	@Override
