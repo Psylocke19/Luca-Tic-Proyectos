@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import modelo.Peliculas;
+import modelo.Usuario;
 import conexion.Conexion;
 
 public class PeliculasDAO extends Conexion implements IPeliculasDAO {
@@ -41,31 +42,30 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 	@Override
 	public void modificarPeliculas(Peliculas pelicula) {
 		// TODO Auto-generated method stub
-		String consulta = "UPDATE peliculas SET nombre= ? ,anio=? WHERE idPelicula=?";
+		String consulta = "UPDATE peliculas SET nombre= ? ,anio=?,idCategoria=? WHERE idPeliculas=?";
 
+		try {
+			PreparedStatement sentencia = conexion.prepareStatement(consulta);
+			sentencia.setString(1, pelicula.getNombre());
+			sentencia.setString(2, pelicula.getAnio());
+			sentencia.setInt(3, pelicula.getNum_categoria());
+			sentencia.setInt(4, pelicula.getIdPeliculas());
+			sentencia.execute();
 
-        try {
-            PreparedStatement sentencia = conexion.prepareStatement(consulta);
-            sentencia.setString(1, pelicula.getNombre());
-            sentencia.setString(2, pelicula.getAnio());
-            sentencia.setInt(3, pelicula.getIdPeliculas());
-            sentencia.execute();
+			System.out.println("La pelicula se ha modificado");
+			logger.info("La pelicula se ha modificado");
 
-            System.out.println("La pelicula se ha modificado");
-            logger.info("La pelicula se ha modificado" );
-            
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            logger.info("La pelicula se ha modificado " );
-            System.out.println("No se ha podido realizar la modificacion de la pelicula");
-            
-        }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			logger.info("La pelicula se ha modificado ");
+			System.out.println("No se ha podido realizar la modificacion de la pelicula");
+
+		}
 
 	}
 
 	@Override
 	public void eliminarPeliculas(Peliculas pelicula) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -75,9 +75,10 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 		ArrayList<Peliculas> listaPelis = new ArrayList<Peliculas>();
 		try {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta);
-			ResultSet rs = sentencia.executeQuery(); 
+			ResultSet rs = sentencia.executeQuery();
 			while (rs.next()) {
-				listaPelis.add(new Peliculas(rs.getInt("idPeliculas"), rs.getString("nombre"), rs.getString("anio"), rs.getInt("idCategoria")));
+				listaPelis.add(new Peliculas(rs.getInt("idPeliculas"), rs.getString("nombre"), rs.getString("anio"),
+						rs.getInt("idCategoria")));
 			}
 			logger.info("Lista de peliculas completada ");
 			return listaPelis;
@@ -89,7 +90,6 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 
 		return null;
 
-		
 	}
 
 	@Override
@@ -130,6 +130,24 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 	@Override
 	public Peliculas buscarPeliculas(String nombre) {
 		// TODO Auto-generated method stub
+		String consulta = "SELECT * FROM peliculas WHERE nombre=?";
+
+		try {
+			PreparedStatement sentencia = conexion.prepareStatement(consulta);
+			sentencia.setString(1, nombre);
+			sentencia.execute();
+			ResultSet rs = sentencia.executeQuery();
+			if (!rs.next()) {
+				return null;
+			}
+			logger.info("Pelicula encontrada");
+			return new Peliculas(rs.getInt("idPeliculas"), rs.getString("nombre"), rs.getString("anio"),
+					rs.getInt("idCategoria"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			
+		}
+
 		return null;
 	}
 }

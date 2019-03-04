@@ -24,7 +24,7 @@ public interface IServicios {
     public void listarPorMasValoradas();
     public void listarPorNoVistas();
     public boolean comprobacionPeliculaDuplicada(String nombre,String anio);
-    public Usuario buscarPelicula(String nombre); 
+    public Peliculas buscarPelicula(String nombre); 
     
     public void addCategoria(Categoria c); 
 	public Categoria buscarCategoria(String nombreCategoria); 

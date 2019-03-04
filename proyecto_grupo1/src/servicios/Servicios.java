@@ -163,11 +163,6 @@ public class Servicios implements IServicios {
 
 	}
 
-	@Override
-	public Usuario buscarPelicula(String nombre) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public boolean comprobacionPeliculaDuplicada(String nombre, String anio) {
@@ -239,6 +234,22 @@ public class Servicios implements IServicios {
 		} catch (Exception e) {
 			logger.error("No se ha podido listar las peliculas");
 			System.out.println("No se ha podido listar las peliculas");
+		}
+		return null;
+	}
+
+	@Override
+	public Peliculas buscarPelicula(String nombre) {
+		// TODO Auto-generated method stub
+		if (!nombre.isEmpty()) {
+			Peliculas p = pelidatos.buscarPeliculas(nombre);
+			if (p != null) {
+				return p;
+			} else {
+				System.out.println("Esta pelicula no existe");
+			}
+		} else {
+			System.out.println("El nombre esta vacio");
 		}
 		return null;
 	}

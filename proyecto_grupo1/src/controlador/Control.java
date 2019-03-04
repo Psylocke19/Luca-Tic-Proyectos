@@ -35,7 +35,7 @@ public class Control {
 				break;
 			case "2":
 				modificarUsuario();
-				;
+				
 				break;
 			case "3":
 				eliminarUsuario();
@@ -50,6 +50,12 @@ public class Control {
 				listarPeliculas();
 				break;
 			case "7":
+				modificarPeliculas();
+				break;
+			case "8":
+				addCategoria();
+				break;
+			case "9":
 				salida = true;
 				break;
 			default:
