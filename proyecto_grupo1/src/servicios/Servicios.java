@@ -3,6 +3,7 @@ package servicios;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import datos.IPeliculasDAO;
 import datos.IUsuariosDAO;
 import datos.UsuariosDAO;
 import modelo.Peliculas;
@@ -11,6 +12,7 @@ import modelo.Usuario;
 public class Servicios implements IServicios {
 
 	private IUsuariosDAO usudatos = new UsuariosDAO();
+	private IPeliculasDAO pelidatos = new PeliculasDAO(); 
 	private static final Logger logger = LogManager.getLogger("Mensaje");
 
 	@Override
@@ -102,8 +104,21 @@ public class Servicios implements IServicios {
 	@Override
 	public void addPeliculas(Peliculas pelicula) {
 		// TODO Auto-generated method stub
+			if(!pelicula.getNombre().isEmpty() ||
+					pelicula.getAnio() == 0 ||
+					pelicula.getNum_categoria() == 0 ) {
+				
+				pelidatos.addPeliculas(pelicula);
+				
+			} else {
+				
+				logger.error("Existen campos vacíos"); 
+				System.out.println("Campos vacíos, la acción no puede realizarse"); 
+			}
+			
+							
+		}
 
-	}
 
 	@Override
 	public void modificarPeliculas(Peliculas pelicula) {
