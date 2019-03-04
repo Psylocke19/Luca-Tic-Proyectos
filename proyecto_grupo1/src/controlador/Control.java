@@ -38,7 +38,7 @@ public class Control {
 				eliminarUsuario();
 				break;
 			case "4":
-				
+				mostrarUsuario();
 				break;
 			case "5":
 				;
