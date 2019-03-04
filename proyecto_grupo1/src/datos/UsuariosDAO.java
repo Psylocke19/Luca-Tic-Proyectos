@@ -42,7 +42,7 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 	}
 
 	@Override
-	public void eliminarUsuario(Usuario usuario) {
+	public void eliminarUsuario(Usuario nom_usuario) {
 		// TODO Auto-generated method stub
 
 		String consulta = "DELETE FROM usuario WHERE mail=?";
@@ -51,7 +51,7 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta);
 
 			
-			sentencia.setString(1, usuario.getMail());
+			sentencia.setString(1, nom_usuario.getMail());
 			
 			sentencia.execute();
 
