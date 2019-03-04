@@ -38,6 +38,7 @@ public class Servicios implements IServicios {
 	@Override
 	public void eliminarUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
+		usudatos.eliminarUsuario(usuario);
 		
 		
 	}
