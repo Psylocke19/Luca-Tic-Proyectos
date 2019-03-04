@@ -23,6 +23,7 @@ public class CategoriaDAO extends Conexion implements ICategoriaDAO {
 	 * añadida correctamente. 
 	 * 
 	 * @author Grupo 1
+	 * @class CategoriaDAO
 	 */
 	public void addCategoria(Categoria c) {
 		
@@ -50,6 +51,16 @@ public class CategoriaDAO extends Conexion implements ICategoriaDAO {
 	}
 
 	@Override
+	/**
+	 * Pasamos como parámetro una categoría y después preparamos la consulta indicando el nombre de la tabla correspondiente.
+	 * Igualmente, mediante ? indicamos el número de campos de la tabla. 
+	 * Si una vez ejecutada la consulta no sale el mensaje de error sobre de que la categoría introducida no existe,
+	 * se indica mediante un mensaje de texto que la categoría ha sido 
+	 * encontrada correctamente
+	 * 
+	 * @author Grupo 1
+	 * @class CategoriaDAO
+	 */
 	public Categoria buscarCategoria(String nombreCategoria) {
 
 		String consulta = "SELECT * FROM categoria WHERE nombreCategoria=?";
@@ -73,6 +84,14 @@ public class CategoriaDAO extends Conexion implements ICategoriaDAO {
 	}
 
 	@Override
+	/**
+	 * Pasamos como parámetro una categoría y después preparamos la consulta indicando el nombre de la tabla correspondiente.
+	 * Igualmente, mediante ? indicamos el número de campos de la tabla. 
+	 * A continuación se comprueba si la categoría existía ya
+	 * 
+	 * @author Grupo 1
+	 * @class CategoriaDAO
+	 */
 	public boolean comprobacionCategoriaDuplicada(String nombreCategoria) {
 		String consulta = "SELECT * FROM categoria WHERE nombreCategoria=? ";
 
