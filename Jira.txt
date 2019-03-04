@@ -1,0 +1,2 @@
+Tablero Jira: 
+https://proyectolucatic.atlassian.net/secure/RapidBoard.jspa?projectKey=PJB&rapidView=1&view=planning.nodetail
