@@ -7,6 +7,12 @@ import java.sql.Connection;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+/**
+ * 
+ * @author Grupo 1
+ * Conexión con la base de datos
+ */
+
 public class Conexion {
 
 	protected Connection conexion;
