@@ -69,7 +69,15 @@ public class Servicios implements IServicios {
 	@Override
 	public boolean comprobacionUsuarioDuplicado(String email) {
 		// TODO Auto-generated method stub
-		return false;
+		
+		boolean respuesta = false;
+		if(!email.isEmpty()) {
+			respuesta = usudatos.comprobacionUsuarioDuplicado(email);
+		}else {
+			System.out.println("El email que has introducido esta vacio");
+		}
+		
+		return respuesta;
 	}
 
 	@Override
