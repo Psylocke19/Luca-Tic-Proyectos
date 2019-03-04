@@ -206,7 +206,7 @@ public class Servicios implements IServicios {
 
 	}
 
-	}
+	
 
 	@Override
 	public boolean comprobacionCategoriaDuplicada(String nombreCategoria) {
