@@ -67,6 +67,27 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 	@Override
 	public void eliminarPeliculas(Peliculas pelicula) {
 
+		String consulta = "DELETE FROM peliculas WHERE nombre=? , anio=?";
+
+		try {
+			PreparedStatement sentencia = conexion.prepareStatement(consulta);
+
+			
+			sentencia.setString(1, pelicula.getNombre());
+			sentencia.setString(2, pelicula.getAnio());
+			
+			sentencia.execute();
+
+			System.out.println("la pelicula se ha eliminado correctamente");
+			logger.info("la pelicula se ha eliminado correctamente");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			logger.info("la pelicula NO se ha dado de baja");
+			System.out.println("No se ha podido realizar la baja de la pelicula");
+
+		}
+		
 	}
 
 	@Override
