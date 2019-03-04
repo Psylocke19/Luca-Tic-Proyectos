@@ -42,9 +42,29 @@ public class UsuariosDAO extends Conexion implements IUsuariosDAO {
 	}
 
 	@Override
-	public void bajaUsuario(Usuario usuario) {
+	public void eliminarUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 
+		String consulta = "DELETE FROM usuario WHERE mail=?";
+
+		try {
+			PreparedStatement sentencia = conexion.prepareStatement(consulta);
+
+			
+			sentencia.setString(1, usuario.getMail());
+			
+			sentencia.execute();
+
+			System.out.println("el usuario se ha eliminado correctamente");
+			logger.info("el usuario se ha eliminado correctamente");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			logger.info("el usuario NO se ha dado de baja");
+			System.out.println("No se ha podido realizar la baja del usuario");
+
+		}
+		
 	}
 
 	@Override

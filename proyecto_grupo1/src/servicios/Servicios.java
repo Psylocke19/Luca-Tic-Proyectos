@@ -36,7 +36,7 @@ public class Servicios implements IServicios {
 	}
 
 	@Override
-	public void bajaUsuario(Usuario usuario) {
+	public void eliminarUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 		
 		
