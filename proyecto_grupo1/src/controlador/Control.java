@@ -145,6 +145,7 @@ public class Control {
 			}
 
 		}
+		
 
 		if (s.comprobacionPeliculaDuplicada(nombre, anio)) {
 
