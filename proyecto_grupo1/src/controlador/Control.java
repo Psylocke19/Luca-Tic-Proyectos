@@ -162,5 +162,19 @@ public class Control {
 		s.mostrarUsuario(user);
 
 	}
+	
+	public void addCategoria() {
+		logger.info("Selecionada la opcion de registro");
+		String nombreCategoria = LeerDatos.LeerString("Introduce el nombre de la categoria: ");
+		
+		if (s.comprobacionCategoriaDuplicada(nombreCategoria)) {
 
+			Categoria categoria = new Categoria(0, nombreCategoria);
+			s.addCategoria(categoria);
+		} else {
+			logger.error("Imposible registrar la categoría, ese nombre ya existe");
+			System.out.println("La categoría que intenta registrar ya ha sido introducida.");
+		}
+
+	}
 }
