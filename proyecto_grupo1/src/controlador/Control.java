@@ -1,16 +1,20 @@
 package controlador;
 
+import java.util.regex.Pattern;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import gui.Menu;
 import lectura.LeerDatos;
+import modelo.Peliculas;
 import modelo.Usuario;
 import servicios.Servicios;
 import servicios.IServicios;
 
 public class Control {
 
+	private final String regexp = "\\d{4}-\\d{1,2}-\\d{1,2}";
 	IServicios s = new Servicios();
 	private static final Logger logger = LogManager.getLogger("Mensaje");
 
@@ -34,7 +38,7 @@ public class Control {
 				eliminarUsuario();
 				break;
 			case "4":
-				mostrarUsuario();
+				
 				break;
 			case "5":
 				;
@@ -66,6 +70,11 @@ public class Control {
 		String poblacion = LeerDatos.LeerString("Introduce tu poblacion: ");
 		String mail = LeerDatos.LeerString("Introduce tu email");
 
+		if(!Pattern.matches(regexp, fechaNacimiento)) {
+			
+			System.out.println("Error,introduce la fecha en formato YYYY-MM-DD");
+			mail = LeerDatos.LeerString("Introduce tu email");
+		}
 		if (s.comprobacionUsuarioDuplicado(mail)) {
 
 			Usuario user = new Usuario(0, nombre, fechaNacimiento, poblacion, mail);
@@ -79,6 +88,7 @@ public class Control {
 
 	public void modificarUsuario() {
 		String mail = LeerDatos.LeerString("Introduce tu email: ");
+		
 		Usuario user = s.buscarUsuario(mail);
 		if (user != null) {
 			user.setNombre_completo(LeerDatos.LeerString("Introduce tu nuevo nombre: "));
@@ -101,6 +111,27 @@ public class Control {
 			logger.error("No se ha encontrado un usuario con ese email");
 			System.out.println("No se ha encontrado este usuario");
 		}
+		
+	}
+	public void addPeliculas() {
+		
+		
+		
+		logger.info("Selecionada la opcion de registro");
+		String nombre = LeerDatos.LeerString("Introduce el nombre de pelicula: ");
+		int anio = LeerDatos.LeerInt("Introduce la fecha de la pelicula: ");
+		int num_categoria = LeerDatos.LeerInt("Introduce el numero de categoria de la pelicula: ");
+		
+
+		if (s.comprobacionPeliculaDuplicada(nombre,anio)) {
+
+			Peliculas pelicula = new Peliculas(0, nombre, anio, num_categoria);
+			s.addPeliculas(pelicula);
+		} else {
+			logger.error("Imposible registrar usuario, ese email ya existe");
+			System.out.println("Ese email ya tiene una cuenta registrada asociada.");
+		}
+
 		
 	}
 
