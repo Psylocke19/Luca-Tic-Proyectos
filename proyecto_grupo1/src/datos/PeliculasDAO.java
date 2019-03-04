@@ -3,6 +3,7 @@ package datos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -53,7 +54,8 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 	}
 
 	@Override
-	public void listarPeliculas() {
+	public ArrayList<Peliculas> listarPeliculas() {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,5 +1,7 @@
 package servicios;
 
+import java.util.ArrayList;
+
 import modelo.Categoria;
 import modelo.Peliculas;
 import modelo.Usuario;
@@ -17,7 +19,7 @@ public interface IServicios {
     public void addPeliculas(Peliculas pelicula);
     public void modificarPeliculas(Peliculas pelicula);
     public void eliminarPeliculas(Peliculas pelicula);
-    public void listarPeliculas();
+    public ArrayList<Peliculas> listarPeliculas();
     public void listarPorMasVistas();
     public void listarPorMasValoradas();
     public void listarPorNoVistas();

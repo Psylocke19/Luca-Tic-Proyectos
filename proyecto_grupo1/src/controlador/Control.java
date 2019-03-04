@@ -50,9 +50,6 @@ public class Control {
 				;
 				break;
 			case "7":
-				addCategoria();
-				break;
-			case "8":
 				salida = true;
 				break;
 			default:
@@ -184,7 +181,7 @@ public class Control {
 
 	public void listarPeliculas() {
 		ArrayList<Peliculas> lista = new ArrayList<>();
-		lista = s.listarPelicula();
+		lista = s.listarPeliculas(); 
 		if (!lista.isEmpty()) {
 			for (Peliculas p : lista) {
 				System.out.println(p.toString());
@@ -192,7 +189,7 @@ public class Control {
 
 		} else {
 			logger.error("Imposible listar películas, la lista está vacía");
-			System.out.println("La lista de películas está vacía");
+			System.out.println("La lista de películas está vacía"); 
 		}
 
 	}

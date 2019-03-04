@@ -1,5 +1,7 @@
 package servicios;
 
+import java.util.ArrayList;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -212,9 +214,19 @@ public class Servicios implements IServicios {
 	}
 
 	@Override
-	public void listarPeliculas() {
-		// TODO Auto-generated method stub
+	public ArrayList<Peliculas> listarPeliculas() {
 		
-	}
+		
+		try {
+			logger.error("se han listado las peliculas");
+			return pelidatos.listarPeliculas();
+			
+			
+		} catch (Exception e) {
+			logger.error("No se ha podido listar las peliculas");
+			System.out.println("No se ha podido listar las peliculas");
+		}
+	return null;
+}
 
 }
