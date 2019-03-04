@@ -11,13 +11,11 @@ import org.apache.logging.log4j.Logger;
 import modelo.Peliculas;
 import conexion.Conexion;
 
-
-
 public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 	private static final Logger logger = LogManager.getLogger("Mensaje");
-	
+
 	public void addPelicula(Peliculas p) {
-		
+
 		String consulta = "INSERT INTO peliculas VALUES(?,?,?,?)";
 
 		try {
@@ -40,36 +38,51 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 		}
 	}
 
-
 	@Override
 	public void modificarPeliculas(Peliculas pelicula) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void eliminarPeliculas(Peliculas pelicula) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public ArrayList<Peliculas> listarPeliculas() {
+		String consulta = "SELECT * FROM peliculas";
+		ArrayList<Peliculas> listaPelis = new ArrayList<Peliculas>();
+		try {
+			PreparedStatement sentencia = conexion.prepareStatement(consulta);
+			ResultSet rs = sentencia.executeQuery(); 
+			while (rs.next()) {
+				listaPelis.add(new Peliculas(rs.getInt("idPeliculas"), rs.getString("nombre"), rs.getString("anio"), rs.getInt("idCategoria")));
+			}
+			logger.info("Lista de peliculas completada ");
+			return listaPelis;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			logger.info("Retorna true porque la pelicula no existe");
+		}
+
 		return null;
-		// TODO Auto-generated method stub
+
 		
 	}
 
 	@Override
 	public void listarPorMasVistas() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void listarPorMasValoradas() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -80,7 +93,7 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 			PreparedStatement sentencia = conexion.prepareStatement(consulta);
 			sentencia.setString(1, nombre);
 			sentencia.setString(2, anio);
-			ResultSet rs = sentencia.executeQuery(); 
+			ResultSet rs = sentencia.executeQuery();
 			if (!rs.next()) {
 				return true;
 			}
@@ -93,8 +106,7 @@ public class PeliculasDAO extends Conexion implements IPeliculasDAO {
 		}
 
 		return false;
-	}		
-	
+	}
 
 	@Override
 	public Peliculas buscarPeliculas(String nombre) {

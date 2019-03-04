@@ -47,7 +47,7 @@ public class Control {
 				addPeliculas();
 				break;
 			case "6":
-				;
+				listarPeliculas();
 				break;
 			case "7":
 				salida = true;

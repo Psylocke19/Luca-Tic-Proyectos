@@ -202,7 +202,6 @@ public class Servicios implements IServicios {
 
 	}
 
-
 	@Override
 	public boolean comprobacionCategoriaDuplicada(String nombreCategoria) {
 		boolean respuesta = false;
@@ -210,23 +209,22 @@ public class Servicios implements IServicios {
 			respuesta = catedatos.comprobacionCategoriaDuplicada(nombreCategoria);
 		} else {
 			System.out.println("El campo nombre de la categoria introducido está vacios");
-		}		return respuesta;
+		}
+		return respuesta;
 	}
 
 	@Override
 	public ArrayList<Peliculas> listarPeliculas() {
-		
-		
+
 		try {
-			logger.error("se han listado las peliculas");
+			
 			return pelidatos.listarPeliculas();
-			
-			
+
 		} catch (Exception e) {
 			logger.error("No se ha podido listar las peliculas");
 			System.out.println("No se ha podido listar las peliculas");
 		}
-	return null;
-}
+		return null;
+	}
 
 }
