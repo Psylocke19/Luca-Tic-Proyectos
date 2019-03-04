@@ -39,11 +39,24 @@ public class Servicios implements IServicios {
 	public void bajaUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 		
+		
 	}
 
 	@Override
 	public void modificarUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
+		if(usuario.getNombre_completo().isEmpty() || 
+				usuario.getFecha().isEmpty() || 
+				usuario.getCiudad_residencia().isEmpty()||
+				usuario.getMail().isEmpty()) {
+			
+			usudatos.modificarUsuario(usuario);
+			
+		} else { 
+			
+			logger.error("Existen campos vacíos"); 
+			System.out.println("Campos vacíos, la acción no puede realizarse");
+		}
 		
 	}
 
