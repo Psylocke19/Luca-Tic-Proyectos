@@ -54,8 +54,9 @@ public class Control {
 	 * @return ModelAndView
 	 * @throws Exception
 	 */
+	
 	@GetMapping("/listaProvincias")
-	public List<Provincia>ModelAndView mostrarProvincias() throws Exception {
+	public ModelAndView mostrarProvincias() throws Exception {
 		logger.info("-- en lista Provincias");
 		// Le pasamos el objeto a la parte de servicios
 		ArrayList<Provincia>listaProvincias=service.mostrarProvincias();
