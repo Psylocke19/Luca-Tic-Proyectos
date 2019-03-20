@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.proyecto.model.Provincia;
-import com.proyecto.spring.service.Servicios;
+import com.proyecto.spring.service.IServicios;
 
 import antlr.collections.List;
 
@@ -23,7 +23,7 @@ import antlr.collections.List;
 public class Control {
 
 	@Autowired
-	Servicios service;
+	IServicios service;
 
 	private static final Logger logger = LoggerFactory.getLogger(Control.class);
 
