@@ -44,7 +44,7 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2><b>Lista Provincias</b></h2>
+						<h2><b>Lista provincias</b></h2>
 					</div>
 					<div class="col-sm-6">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Añadir nueva provincia</span></a>
@@ -121,7 +121,7 @@ $(document).ready(function(){
 	<div id="editEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
+				<form th:action="@{/editarProvincia}" th:object="${Provincia}" method="post">
 					<div class="modal-header">						
 						<h4 class="modal-title">Editar provincia</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -129,7 +129,7 @@ $(document).ready(function(){
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>Nombre</label>
-							<input type="text" class="form-control" required>
+							<input type="text" th:field="*{nombre}" class="form-control" required>
 						</div>					
 					</div>
 					<div class="modal-footer">
@@ -144,7 +144,7 @@ $(document).ready(function(){
 	<div id="deleteEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
+				<form th:action="@{eliminarProvincia}" th:object="${Provincia}" method="post">
 					<div class="modal-header">						
 						<h4 class="modal-title">Eliminar provincia</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -154,7 +154,7 @@ $(document).ready(function(){
 						<p class="text-warning"><small>Esta acción no puede ser revertida</small></p>
 					</div>
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+						<input type="button" th:field="*{nombre}" class="btn btn-default" data-dismiss="modal" value="Cancel">
 						<input type="submit" class="btn btn-danger" value="Delete">
 					</div>
 				</form>
