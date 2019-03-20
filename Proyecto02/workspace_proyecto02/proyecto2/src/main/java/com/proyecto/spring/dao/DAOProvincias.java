@@ -26,6 +26,5 @@ public class DAOProvincias implements IDAOProvincias {
 	public void addProvincia(Provincia p) {
 		em.persist(p);
 		em.flush();
-
 	}
 }
