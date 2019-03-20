@@ -16,7 +16,7 @@ public class Servicios implements IServicios {
 	private DAOProvincias datosprovincia; 
 	
 	/**
-	 * Con este método llamamops a la capa inmediatamente a la capa siguiente
+	 * Con este método llamamos a la capa inmediatamente siguiente
 	 * @author Grupo 1
 	 * @param p
 	 */
