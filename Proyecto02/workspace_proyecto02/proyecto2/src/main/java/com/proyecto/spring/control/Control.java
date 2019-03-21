@@ -77,7 +77,7 @@ public class Control {
 		model.addObject("listaProvincias", listaProvincias);
 
 		return model;
-
+////////////////////////////////////////////////COPIAAA/////////////////////////////
 	}
 	
 	@GetMapping("/eliminarProvincias{id}")
