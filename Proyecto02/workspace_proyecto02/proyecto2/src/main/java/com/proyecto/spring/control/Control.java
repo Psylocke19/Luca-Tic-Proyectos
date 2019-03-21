@@ -65,6 +65,13 @@ public class Control {
 
 	}
 
+	/**
+	 * 
+	 * @author Grupo 1
+	 * @param p
+	 * @return ModelAndView
+	 * @throws Exception
+	 */
 	@GetMapping("/listaProvincias")
 	public ModelAndView mostrarProvincias() throws Exception {
 		logger.info("-- en lista Provincias");
@@ -78,6 +85,14 @@ public class Control {
 
 	}
 
+	/**
+	 * 
+	 * Metodo que llama al metodo de servicios eliminarProvincia y elimina una provincia
+	 * @author Grupo 1
+	 * @param p
+	 * @return ModelAndView
+	 * @throws Exception
+	 */
 	@PostMapping("/eliminarProvincia")
 	public ModelAndView eliminarProvincia(@RequestBody Provincia p) throws Exception {
 		logger.info("-- en annadir Provincia");
