@@ -26,7 +26,7 @@ public class Servicios implements IServicios {
 	 */
 	public void addProvincia(Provincia p) {
 		datosprovincia.save(p);
-
+		datosprovincia.flush();
 	}
 
 	/**

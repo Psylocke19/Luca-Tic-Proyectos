@@ -1,12 +1,15 @@
 package com.proyecto.spring.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -36,13 +39,17 @@ public class Control {
 	 * @return ModelAndView
 	 * @throws Exception
 	 */
-	@PostMapping("/addProvincia")
+	@RequestMapping(value = "/addProvincia", method = RequestMethod.POST,
+	        consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, 
+	        produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+	//@PostMapping("/addProvincia")
+	@ResponseBody
 	public ModelAndView addProvincia(@RequestBody Provincia p) throws Exception {
 		logger.info("-- en annadir Provincia");
 		// Le pasamos el objeto a la parte de servicios
 		service.addProvincia(p);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
+		ModelAndView model = new ModelAndView("redirect:/listarProvincias");
 
 		return model;
 	}
@@ -57,7 +64,7 @@ public class Control {
 	
 	@GetMapping("/addProvincia")
 	public ModelAndView mostraraddProvincias() throws Exception {
-		logger.info("-- en lista Provincias");
+		logger.info("-- addProvincias");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("addProvincias");
 		model.addObject("provincia", new Provincia());
@@ -82,10 +89,10 @@ public class Control {
 	public ModelAndView eliminarProvincias() throws Exception {
 		logger.info("-- en lista Provincias");
 		// Le pasamos el objeto a la parte de servicios
-		service.eliminarProvincias(String nombreProvincia);
+		
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("ListarProvincial");
-		model.addObject("listaProvincias", listaProvincias);
+	
 
 		return model;
 	}
