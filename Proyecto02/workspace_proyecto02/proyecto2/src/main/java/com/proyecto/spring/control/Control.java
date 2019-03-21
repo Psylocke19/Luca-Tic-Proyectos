@@ -46,7 +46,7 @@ public class Control {
 		ArrayList<Provincia>listaProvincias=service.mostrarProvincias();
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("ListarProvincial");
-		model.addObject("listaProvincias", listaProvincias);
+		model.addObject("claveListaProvincias", listaProvincias);
 
 		return model;
 

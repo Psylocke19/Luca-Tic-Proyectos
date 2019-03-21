@@ -36,7 +36,7 @@
 	<ul>
 		<li><a th:href="@{/addProvincia}" class="cabecera">Añadir
 				provincia</a></li>
-		<li><a href="@{/ListarProvincial}" class="cabecera">Lista de
+		<li><a th:href="@{/listaProvincias}" class="cabecera">Lista de
 				provincias</a></li>
 	</ul>
 </nav>
@@ -52,7 +52,7 @@
 				<th class="nombreTabla">Nombre</th>
 				<th class="nombreTabla">Acciones</th>
 			</tr>
-			<tr th:each="provincia : ${listaProvincias}" varStatus="status">
+			<tr th:each="provincia : ${claveListaProvincias}" varStatus="status">
 				<td th:text="${provincia.nombre}">Nombre</td>
 				<td>Aqui va algo</td>
 			</tr>
