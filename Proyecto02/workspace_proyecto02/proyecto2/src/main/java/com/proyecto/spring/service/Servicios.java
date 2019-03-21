@@ -43,16 +43,15 @@ public class Servicios implements IServicios {
 	}
 
 	/**
-	 * Metodo que llama a la capa de Datos solicitando una lista de Provincias y 
-	 * retorna una lista mediante metodos de jpa
+	 * Metodo que pasa por parametro un id de provincias y elimina la provincia de la base de datos
 	 * 
-	 * @return ArrayList<Provincia>
+	 * @return void
 	 * @author Grupo 1
 	 * 
 	 * 
 	 */
-	public void eliminarProvincias(String nombreProvincia) {
+	public void eliminarProvincias(int idProvincia) {
 		
-		//datosprovincia.delete(nombreProvincia);
+		datosprovincia.deleteById(idProvincia);
 	}
 }
