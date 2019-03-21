@@ -55,6 +55,16 @@ public class Control {
 	 * @throws Exception
 	 */
 	
+	@GetMapping("/addProvincia")
+	public ModelAndView mostraraddProvincias() throws Exception {
+		logger.info("-- en lista Provincias");
+		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
+		ModelAndView model = new ModelAndView("addProvincias");
+		model.addObject("provincia", new Provincia());
+		return model;
+
+	}
+	
 	@GetMapping("/listaProvincias")
 	public ModelAndView mostrarProvincias() throws Exception {
 		logger.info("-- en lista Provincias");
