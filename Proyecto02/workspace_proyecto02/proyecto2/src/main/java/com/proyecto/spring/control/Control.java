@@ -42,7 +42,7 @@ public class Control {
 		// Le pasamos el objeto a la parte de servicios
 		service.addProvincia(p);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
+		ModelAndView model = new ModelAndView("redirect:/ListarProvincial");
 
 		return model;
 	}
