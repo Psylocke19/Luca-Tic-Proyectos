@@ -11,7 +11,7 @@
 	<div align="center">
 		<h1>FORMULARIO DE PROVINCIAS (add/edit)</h1>
 		<table>
-			<form:form th:action="@{/addProvincia}" method="post" th:object="${provincia}">
+			<form th:action="@{/addProvincia}" method="post" th:object="${provincia}">
 				<form:hidden path="id" />
 				<tr>
 					<td>Nombre:</td>

@@ -77,4 +77,18 @@ public class Control {
 		return model;
 
 	}
+	
+	@GetMapping("/eliminarProvincias")
+	public ModelAndView eliminarProvincias() throws Exception {
+		logger.info("-- en lista Provincias");
+		// Le pasamos el objeto a la parte de servicios
+		service.eliminarProvincias(String nombreProvincia);
+		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
+		ModelAndView model = new ModelAndView("ListarProvincial");
+		model.addObject("listaProvincias", listaProvincias);
+
+		return model;
+	}
+	
+	
 }
