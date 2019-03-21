@@ -11,13 +11,14 @@
 	<div align="center">
 		<h1>FORMULARIO DE PROVINCIAS (add/edit)</h1>
 		<table>
-			<form:form th:action="@{/addProvincia}" method="post" modelAttribute="p">
+			<form:form th:action="@{/addProvincia}" method="post" th:object="${provincia}">
 				<form:hidden path="id" />
 				<tr>
 					<td>Nombre:</td>
-					<td><form:input type="text" th:field="*{nombre}" /></td>
+					<td><input type="text" th:field="*{nombre}" /></td>
 				</tr>
-					<td colspan="2" align="center"><input type="submit"
+					<td colspan="2" align="center">
+					<input type="submit"
 						value="Guardar Registro"></td>
 				</tr>
 			</form:form>
