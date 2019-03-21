@@ -26,7 +26,6 @@ public class Servicios implements IServicios {
 	 */
 	public void addProvincia(Provincia p) {
 		datosprovincia.save(p);
-		datosprovincia.flush();
 	}
 
 	/**
@@ -43,4 +42,17 @@ public class Servicios implements IServicios {
 		return (ArrayList<Provincia>) datosprovincia.findAll();
 	}
 
+	/**
+	 * Metodo que llama a la capa de Datos solicitando una lista de Provincias y 
+	 * retorna una lista mediante metodos de jpa
+	 * 
+	 * @return ArrayList<Provincia>
+	 * @author Grupo 1
+	 * 
+	 * 
+	 */
+	public void eliminarProvincias(String nombreProvincia) {
+		
+		datosprovincia.delete(entity);;
+	}
 }
