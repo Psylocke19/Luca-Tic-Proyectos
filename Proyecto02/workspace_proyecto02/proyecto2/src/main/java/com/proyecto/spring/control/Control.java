@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.proyecto.model.Provincia;
+import com.proyecto.spring.model.Provincia;
 import com.proyecto.spring.service.IServicios;
 
 import antlr.collections.List;

@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.proyecto.model.Provincia;
 import com.proyecto.spring.dao.IProvincia;
+import com.proyecto.spring.model.Provincia;
 
 @Service
 @Transactional

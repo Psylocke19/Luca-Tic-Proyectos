@@ -2,7 +2,7 @@ package com.proyecto.spring.service;
 
 import java.util.ArrayList;
 
-import com.proyecto.model.Provincia;
+import com.proyecto.spring.model.Provincia;
 
 public interface IServicios {
 
