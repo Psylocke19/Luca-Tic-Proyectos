@@ -39,10 +39,10 @@ public class Control {
 	 * @return ModelAndView
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/addProvincia", method = RequestMethod.POST,
-	        consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, 
-	        produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-	//@PostMapping("/addProvincia")
+	//@RequestMapping(value = "/addProvincia", method = RequestMethod.POST,
+	//        consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, 
+	//        produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+	@PostMapping("/addProvincia")
 	@ResponseBody
 	public ModelAndView addProvincia(@RequestBody Provincia p) throws Exception {
 		logger.info("-- en annadir Provincia");
