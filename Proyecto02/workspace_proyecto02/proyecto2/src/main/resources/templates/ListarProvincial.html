@@ -20,7 +20,7 @@
 				<tr th:each="provincia : ${listaProvincias}" varStatus="status">
 					<td th:text="${provincia.nombre}">Nombre</td>
 
-					<td>Aqui va algo</td>
+					<td><a th:href="@{/eliminarProvincia?id=${provincia.id}}"/>eliminar</td>
 					
 				</tr>
 

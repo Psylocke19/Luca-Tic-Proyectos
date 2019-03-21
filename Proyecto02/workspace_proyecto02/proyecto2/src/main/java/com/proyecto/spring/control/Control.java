@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -79,13 +80,13 @@ public class Control {
 
 	}
 	
-	@GetMapping("/eliminarProvincias")
-	public ModelAndView eliminarProvincias() throws Exception {
-		logger.info("-- en lista Provincias");
+	@GetMapping("/eliminarProvincias{id}")
+	public ModelAndView eliminarProvincias(@PathVariable int id) throws Exception {
+		logger.info("-- en eliminar Provincias");
 		// Le pasamos el objeto a la parte de servicios
-		
+		service.eliminarProvincias(id);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model = new ModelAndView("ListarProvincial");
+		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
 	
 
 		return model;

@@ -8,5 +8,6 @@ public interface IServicios {
 
 	public void addProvincia (Provincia p);
 	public ArrayList<Provincia> mostrarProvincias();
+	public void eliminarProvincias(int idProvincia);
 	
 }
