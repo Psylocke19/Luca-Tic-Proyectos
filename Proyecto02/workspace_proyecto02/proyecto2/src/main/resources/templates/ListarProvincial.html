@@ -54,7 +54,7 @@
 			</tr>
 			<tr th:each="provincia : ${claveListaProvincias}" varStatus="status">
 				<td th:text="${provincia.nombre}">Nombre</td>
-				<td>Aqui va algo</td>
+				<td><a th:href="@{/listaProvincias}">Eliminar</a></td>
 			</tr>
 
 		</table>

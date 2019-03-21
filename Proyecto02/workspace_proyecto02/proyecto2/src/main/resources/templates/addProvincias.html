@@ -12,8 +12,10 @@
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <title>Lista de Usuarios</title>
 </head>
+
 <!-- Encabezado-->
     <div class="header">
         <h1>FORMULARIO DE PROVINCIAS</h1>
@@ -28,17 +30,20 @@
     </nav>
 <head>
 <meta charset="UTF-8">
+
 <title>FORMULARIO DE PROVINCIAS</title>
 </head>
 <body>
 	<title>FORMULARIO DE PROVINCIAS</title>
 </head>
 <body>
+
+
 	<div align="center" class="cuerpoAdd">
 		<h1>FORMULARIO DE PROVINCIAS (add/edit)</h1>
 
 		<form th:action="${addProvincia}" method="post"
-			th:object="${provincia}" class="w3-container w3-card-4">
+			th:object="${claveProvincia}" class="w3-container w3-card-4">
 			<table>
 				<tr>
 					<td class="w3-text"><b id="nombre">Nombre:</b></td>
@@ -51,9 +56,11 @@
 			</table>
 		</form>
 	</div>
+	
 	 <!-- Footer -->
     <footer>
         <p class= "author">Creado por Grupo 1 Luca TIC</p>
     </footer>
+    
 </body>
 </html>
