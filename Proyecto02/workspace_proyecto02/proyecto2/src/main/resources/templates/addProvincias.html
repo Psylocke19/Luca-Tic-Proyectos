@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>FORMULARIO DE PROVINCIAS</title>
+</head>
+<body>
+<title>FORMULARIO DE PROVINCIAS</title>
+</head>
+<body>
+	<div align="center">
+		<h1>FORMULARIO DE PROVINCIAS (add/edit)</h1>
+		<table>
+			<form:form action="save" method="post" modelAttribute="p">
+				<form:hidden path="id" />
+				<tr>
+					<td>Nombre:</td>
+					<td><form:input path="nombre" /></td>
+				</tr>
+					<td colspan="2" align="center"><input type="submit"
+						value="Guardar Registro"></td>
+				</tr>
+			</form:form>
+		</table>
+	</div>
+</body>
+</html>

@@ -37,12 +37,12 @@ public class Control {
 	 * @throws Exception
 	 */
 	@PostMapping("/addProvincia")
-	public ModelAndView addProvincia(@ModelAttribute Provincia p) throws Exception {
+	public ModelAndView addProvincia(@RequestBody Provincia p) throws Exception {
 		logger.info("-- en annadir Provincia");
 		// Le pasamos el objeto a la parte de servicios
 		service.addProvincia(p);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model = new ModelAndView("redirect:/");
+		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
 
 		return model;
 	}
@@ -61,7 +61,7 @@ public class Control {
 		// Le pasamos el objeto a la parte de servicios
 		ArrayList<Provincia>listaProvincias=service.mostrarProvincias();
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model = new ModelAndView("listaprovincias");
+		ModelAndView model = new ModelAndView("ListarProvincial");
 		model.addObject("listaProvincias", listaProvincias);
 
 		return model;
