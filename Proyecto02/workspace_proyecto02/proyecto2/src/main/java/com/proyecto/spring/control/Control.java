@@ -54,7 +54,7 @@ public class Control {
 	 * @return ModelAndView
 	 * @throws Exception
 	 */
-	
+
 	@GetMapping("/addProvincia")
 	public ModelAndView mostraraddProvincias() throws Exception {
 		logger.info("-- en lista Provincias");
@@ -64,12 +64,12 @@ public class Control {
 		return model;
 
 	}
-	
+
 	@GetMapping("/listaProvincias")
 	public ModelAndView mostrarProvincias() throws Exception {
 		logger.info("-- en lista Provincias");
 		// Le pasamos el objeto a la parte de servicios
-		ArrayList<Provincia>listaProvincias=service.mostrarProvincias();
+		ArrayList<Provincia> listaProvincias = service.mostrarProvincias();
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("ListarProvincial");
 		model.addObject("listaProvincias", listaProvincias);
@@ -77,18 +77,16 @@ public class Control {
 		return model;
 
 	}
-	
-	@GetMapping("/eliminarProvincias")
-	public ModelAndView eliminarProvincias() throws Exception {
-		logger.info("-- en lista Provincias");
+
+	@PostMapping("/eliminarProvincia")
+	public ModelAndView eliminarProvincia(@RequestBody Provincia p) throws Exception {
+		logger.info("-- en annadir Provincia");
 		// Le pasamos el objeto a la parte de servicios
-		service.eliminarProvincias(String nombreProvincia);
+		service.eliminarProvincia(p);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model = new ModelAndView("ListarProvincial");
-		model.addObject("listaProvincias", listaProvincias);
+		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
 
 		return model;
 	}
-	
-	
+
 }
