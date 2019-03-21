@@ -61,7 +61,7 @@ public class Control {
 	public ModelAndView mostraraddProvincias() throws Exception {
 		logger.info("-- addPtro");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model = new ModelAndView("addProvincias");
+		ModelAndView model  = new ModelAndView("addProvincias");
 		model.addObject("provincia", new Provincia());
 		return model;
 
