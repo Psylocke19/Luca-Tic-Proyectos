@@ -29,6 +29,49 @@ public class Control {
 
 	private static final Logger logger = LoggerFactory.getLogger(Control.class);
 
+	
+	/**
+	 * 
+	 * @author Grupo 1
+	 * @param p
+	 * @return Model
+	 * @throws Exception
+	 */
+	
+	
+	@GetMapping("/listaProvincias")
+	public ModelAndView mostrarProvincias() throws Exception {
+		logger.info("-- en lista Provincias");
+		// Le pasamos el objeto a la parte de servicios
+		ArrayList<Provincia>listaProvincias=service.mostrarProvincias();
+		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
+		ModelAndView model = new ModelAndView("ListarProvincial");
+		model.addObject("listaProvincias", listaProvincias);
+
+		return model;
+
+	}
+	
+	
+
+	/**
+	 * 
+	 * @author Grupo 1
+	 * @param p
+	 * @return ModelAndView
+	 * @throws Exception
+	 */
+	
+	@GetMapping("/addProvincia")
+	public ModelAndView mostraraddProvincias() throws Exception {
+		logger.info("-- addPtro");
+		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
+		ModelAndView model  = new ModelAndView("addProvincias");
+		model.addObject("provincia", new Provincia());
+		return model;
+
+	}
+	
 	/**
 	 * Metodo que recoge una provincia a traves de metodo POST y la baja a la capa
 	 * de Servicios.
@@ -49,36 +92,8 @@ public class Control {
 		return model;
 	}
 
-	/**
-	 * 
-	 * @author Grupo 1
-	 * @param p
-	 * @return ModelAndView
-	 * @throws Exception
-	 */
 	
-	@GetMapping("/addProvincia")
-	public ModelAndView mostraraddProvincias() throws Exception {
-		logger.info("-- addPtro");
-		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model  = new ModelAndView("addProvincias");
-		model.addObject("provincia", new Provincia());
-		return model;
 
-	}
-	
-	@GetMapping("/listaProvincias")
-	public ModelAndView mostrarProvincias() throws Exception {
-		logger.info("-- en lista Provincias");
-		// Le pasamos el objeto a la parte de servicios
-		ArrayList<Provincia>listaProvincias=service.mostrarProvincias();
-		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model = new ModelAndView("ListarProvincial");
-		model.addObject("listaProvincias", listaProvincias);
-
-		return model;
-////////////////////////////////////////////////COPIAAA/////////////////////////////
-	}
 	
 	@GetMapping("/eliminarProvincias{id}")
 	public ModelAndView eliminarProvincias(@PathVariable int id) throws Exception {
