@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -37,10 +38,10 @@ public class Control {
 	 * @throws Exception
 	 */
 	@PostMapping("/addProvincia")
-	public ModelAndView addProvincia(@RequestBody Provincia p) throws Exception {
+	public ModelAndView addProvincia(@ModelAttribute Provincia provincia) throws Exception {
 		logger.info("-- en annadir Provincia");
 		// Le pasamos el objeto a la parte de servicios
-		service.addProvincia(p);
+		service.addProvincia(provincia);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
 

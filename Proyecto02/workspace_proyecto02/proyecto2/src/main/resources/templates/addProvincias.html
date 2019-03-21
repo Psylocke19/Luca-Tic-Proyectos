@@ -5,24 +5,24 @@
 <title>FORMULARIO DE PROVINCIAS</title>
 </head>
 <body>
-<title>FORMULARIO DE PROVINCIAS</title>
+	<title>FORMULARIO DE PROVINCIAS</title>
 </head>
 <body>
 	<div align="center">
 		<h1>FORMULARIO DE PROVINCIAS (add/edit)</h1>
-		<table>
-			<form:form th:action="@{/addProvincia}" method="post" th:object="${provincia}">
-				<form:hidden path="id" />
+
+		<form th:action="${addProvincia}" method="post"
+			th:object="${provincia}">
+			<table>
 				<tr>
 					<td>Nombre:</td>
-					<td><input type="text" th:field="*{provincia.nombre}" /></td>
+					<td><input type="text" th:field="*{nombre}" /></td>
 				</tr>
-					<td colspan="2" align="center">
-					<input type="submit"
-						value="Guardar Registro"></td>
+				<td colspan="2" align="center"><input type="submit"
+					value="Guardar Registro"></td>
 				</tr>
-			</form:form>
-		</table>
+			</table>
+		</form>
 	</div>
 </body>
 </html>

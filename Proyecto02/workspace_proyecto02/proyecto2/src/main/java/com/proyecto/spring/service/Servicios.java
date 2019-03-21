@@ -53,6 +53,6 @@ public class Servicios implements IServicios {
 	 */
 	public void eliminarProvincias(String nombreProvincia) {
 		
-		datosprovincia.delete(entity);;
+		//datosprovincia.delete(nombreProvincia);
 	}
 }
