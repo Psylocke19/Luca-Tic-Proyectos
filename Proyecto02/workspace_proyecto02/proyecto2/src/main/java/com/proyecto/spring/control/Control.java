@@ -123,6 +123,10 @@ public class Control {
 	public ModelAndView editarProvincia(@ModelAttribute Provincia p) throws Exception {
 		logger.info("-- en editar Provincias");
 		// Le pasamos el objeto a la parte de servicios
+<<<<<<< HEAD
+=======
+		service.editarProvincia(p);
+>>>>>>> e09923ef8ecb6eed606d68e4aed5ad0463c03fa5
 		logger.info("-- Provincia editada");
 		service.editarProvincia(p);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
