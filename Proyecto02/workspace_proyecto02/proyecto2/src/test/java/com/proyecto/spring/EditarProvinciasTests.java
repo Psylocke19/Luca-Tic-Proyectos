@@ -28,10 +28,11 @@ public class EditarProvinciasTests {
 	public void comprobarEditarProvinciasTest1() {
 		
 		
-		servicios.addProvincia(new Provincia(0,"prueba1"));
+		servicios.addProvincia(new Provincia(59,"prueba1"));
 		servicios.editarProvincia(new Provincia(59,"prueba2"));
 		
 		assertTrue(datos.findById(59).get().getNombre().equals("prueba2"));
+		datos.deleteById(59);
 	}
 		
 		
