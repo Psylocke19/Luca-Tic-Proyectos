@@ -95,7 +95,7 @@ public class Control {
 	
 
 	
-	@GetMapping("/eliminarProvincias{id}")
+	@GetMapping("/eliminarProvincias/{id}")
 	public ModelAndView eliminarProvincias(@PathVariable int id) throws Exception {
 		logger.info("-- en eliminar Provincias");
 		// Le pasamos el objeto a la parte de servicios
