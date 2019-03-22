@@ -86,15 +86,24 @@ body {min-height:100%}
     font-family:'Lato', sans-serif;
 }
 
+.cuerpoAdd {
+	margin-top: 50px; 
+	padding-top: 50px;
+}
+
 #nombre
 {
     font-size: 30px; 
+; 
 }
 
 #registro 
 {
-    font-size: 30px; 
-    
+    font-size: 30px;  
+}
+
+#cuadroblanco {
+	width: 55%; 
 }
 
 #tabla {
@@ -102,15 +111,12 @@ body {min-height:100%}
      
 }
 
-#parteverdetabla {
-	display: flex;
-	align-items:center;
-	justify-content:center; 
-	align-text: center;
-}
-
 .nombreTabla {
     font-size: 30px;  
+}
+
+.alineariconos {
+	align: center; 
 }
 
 #huecoTabla {
