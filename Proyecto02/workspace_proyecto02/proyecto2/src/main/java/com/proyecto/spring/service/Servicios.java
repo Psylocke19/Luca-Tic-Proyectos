@@ -9,7 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.proyecto.spring.dao.IProvincia;
 import com.proyecto.spring.model.Contacto;
+import com.proyecto.spring.model.Direccion;
+import com.proyecto.spring.model.Persona;
 import com.proyecto.spring.model.Provincia;
+import com.proyecto.spring.model.Telefono;
 
 @Service
 @Transactional

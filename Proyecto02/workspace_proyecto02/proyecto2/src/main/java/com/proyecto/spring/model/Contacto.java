@@ -15,6 +15,9 @@ public class Contacto {
 		this.dir = dir;
 		this.pro = pro;
 	}
+	public Contacto() {
+		// TODO Auto-generated constructor stub
+	}
 	public Persona getP() {
 		return p;
 	}

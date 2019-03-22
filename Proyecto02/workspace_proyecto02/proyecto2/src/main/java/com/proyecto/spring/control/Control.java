@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.proyecto.spring.model.Contacto;
 import com.proyecto.spring.model.Provincia;
 import com.proyecto.spring.service.IServicios;
 
@@ -27,6 +28,8 @@ public class Control {
 	@Autowired
 	IServicios service;
 
+	//Hola
+	
 	private static final Logger logger = LoggerFactory.getLogger(Control.class);
 
 	/**
@@ -64,11 +67,28 @@ public class Control {
 		logger.info("-- addPtro");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("addProvincias");
+		model.addObject("value", "add");
 		model.addObject("claveProvincia", new Provincia());
 		return model;
 
 	}
 
+	@GetMapping("/editProvincia/{id}")
+	public ModelAndView mostrareditdProvincias(@PathVariable int id) throws Exception {
+		logger.info("-- Mostrando editarProvincia");
+		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
+		ModelAndView model = new ModelAndView("addProvincias");
+		model.addObject("value", "edit");
+		Provincia p = new Provincia();
+		p.setId(id);
+		p.setNombre("");
+		model.addObject("claveProvincia", p);
+		logger.info("-- Saliendo editarProvincia");
+
+		return model;
+
+	}
+	
 	/**
 	 * Metodo que recoge una provincia a traves de metodo POST y la baja a la capa
 	 * de Servicios.
@@ -119,14 +139,13 @@ public class Control {
 	 * @return model
 	 * @throws Exception
 	 */
-	@GetMapping("/editarProvincias")
+	@PostMapping("/editProvincia/{id}")
 	public ModelAndView editarProvincia(@ModelAttribute Provincia p) throws Exception {
 		logger.info("-- en editar Provincias");
 		// Le pasamos el objeto a la parte de servicios
 		service.editarProvincia(p);
 
 		logger.info("-- Provincia editada");
-		service.editarProvincia(p);
 		
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
@@ -165,8 +184,9 @@ public class Control {
 	 * @return ModelAndView
 	 * @throws Exception
 	 */
+	
 	@PostMapping("/addContacto")
-	public ModelAndView addContacto(@ModelAttribute Contacto c) throws Exception {
+	public ModelAndView addContactoPost(@ModelAttribute Contacto c) throws Exception {
 		logger.info("-- en annadir Contacto");
 		// Le pasamos el objeto a la parte de servicios
 		service.addContacto(c);
@@ -176,4 +196,5 @@ public class Control {
 
 		return model;
 	}
+	
 }
