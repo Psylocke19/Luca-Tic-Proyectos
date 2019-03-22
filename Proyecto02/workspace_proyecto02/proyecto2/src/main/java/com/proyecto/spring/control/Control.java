@@ -64,11 +64,28 @@ public class Control {
 		logger.info("-- addPtro");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("addProvincias");
+		model.addObject("value", "add");
 		model.addObject("claveProvincia", new Provincia());
 		return model;
 
 	}
 
+	@GetMapping("/editProvincia/{id}")
+	public ModelAndView mostrareditdProvincias(@PathVariable int id) throws Exception {
+		logger.info("-- Mostrando editarProvincia");
+		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
+		ModelAndView model = new ModelAndView("addProvincias");
+		model.addObject("value", "edit");
+		Provincia p = new Provincia();
+		p.setId(id);
+		p.setNombre("");
+		model.addObject("claveProvincia", p);
+		logger.info("-- Saliendo editarProvincia");
+
+		return model;
+
+	}
+	
 	/**
 	 * Metodo que recoge una provincia a traves de metodo POST y la baja a la capa
 	 * de Servicios.
@@ -119,16 +136,12 @@ public class Control {
 	 * @return model
 	 * @throws Exception
 	 */
-	@GetMapping("/editarProvincias")
+	@PostMapping("/editProvincia/{id}")
 	public ModelAndView editarProvincia(@ModelAttribute Provincia p) throws Exception {
 		logger.info("-- en editar Provincias");
 		// Le pasamos el objeto a la parte de servicios
-<<<<<<< HEAD
-=======
 		service.editarProvincia(p);
->>>>>>> e09923ef8ecb6eed606d68e4aed5ad0463c03fa5
 		logger.info("-- Provincia editada");
-		service.editarProvincia(p);
 		
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
@@ -167,6 +180,7 @@ public class Control {
 	 * @return ModelAndView
 	 * @throws Exception
 	 */
+	
 	@PostMapping("/addContacto")
 	public ModelAndView addProvincia(@ModelAttribute Contacto c) throws Exception {
 		logger.info("-- en annadir Provincia");
@@ -178,4 +192,5 @@ public class Control {
 
 		return model;
 	}
+	
 }
