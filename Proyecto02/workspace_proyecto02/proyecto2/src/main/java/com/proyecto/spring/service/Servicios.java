@@ -104,9 +104,9 @@ public class Servicios implements IServicios {
 	
 
 	public void addContacto(Contacto c) {
-		datospersona.save(c.getPersona());
-		datostelefono.save(c.getTelefono());
-		datosdireccion.save(c.getDireccion());
+		datospersona.save(c.getP());
+		datostelefono.save(c.getTl());
+		datosdireccion.save(c.getDir());
 	}
 
 
