@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.proyecto.spring.model.Contacto;
 import com.proyecto.spring.model.Provincia;
 import com.proyecto.spring.service.IServicios;
 
@@ -143,6 +144,7 @@ public class Control {
 		logger.info("-- en editar Provincias");
 		// Le pasamos el objeto a la parte de servicios
 		service.editarProvincia(p);
+
 		logger.info("-- Provincia editada");
 		
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
@@ -184,11 +186,11 @@ public class Control {
 	 */
 	
 	@PostMapping("/addContacto")
-	public ModelAndView addProvincia(@ModelAttribute Contacto c) throws Exception {
-		logger.info("-- en annadir Provincia");
+	public ModelAndView addContactoPost(@ModelAttribute Contacto c) throws Exception {
+		logger.info("-- en annadir Contacto");
 		// Le pasamos el objeto a la parte de servicios
 		service.addContacto(c);
-		logger.info("-- Provincia annadida a la BD");
+		logger.info("-- Contacto annadido a la BD");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
 
