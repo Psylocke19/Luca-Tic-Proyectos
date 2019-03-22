@@ -34,26 +34,17 @@
 <title>FORMULARIO DE PROVINCIAS</title>
 </head>
 <body>
-	<title>FORMULARIO DE PROVINCIAS</title>
-</head>
 <body>
 
-
 	<div align="center" class="cuerpoAdd">
-		<h1>FORMULARIO DE PROVINCIAS (add/edit)</h1>
+		<h1 class="formularioProvincias">FORMULARIO DE PROVINCIAS</h1>
 
 		<form th:action="${addProvincia}" method="post"
-			th:object="${claveProvincia}" class="w3-container w3-card-4">
-			<table>
-				<tr>
-					<td class="w3-text"><b id="nombre">Nombre:</b></td>
-					<td><input type="text" th:field="*{nombre}" class="w3-input w3-border"/></td>
-				</tr>
-				<td align="center">
+			th:object="${claveProvincia}" id="nombre">Nombre:
+			<input type="text" th:field="*{nombre}" class="w3-input w3-border" id="cuadroblanco"/>
+				<br>
 				<input type="submit"
-					value="Guardar Registro" class="w3-btn w3-green" id="registro"> </td>
-				</tr>
-			</table>
+					value="Guardar Registro" class="w3-btn w3-green" id="registro">
 		</form>
 	</div>
 	
