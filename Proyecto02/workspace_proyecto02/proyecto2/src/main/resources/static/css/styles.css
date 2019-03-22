@@ -98,7 +98,15 @@ body {min-height:100%}
 }
 
 #tabla {
-    width: 30%; 
+    width: 30%;
+     
+}
+
+#parteverdetabla {
+	display: flex;
+	align-items:center;
+	justify-content:center; 
+	align-text: center;
 }
 
 .nombreTabla {
@@ -108,6 +116,7 @@ body {min-height:100%}
 #huecoTabla {
     min-height: 300px; 
 }
+
 
 footer
     {
