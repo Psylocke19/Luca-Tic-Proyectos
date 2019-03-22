@@ -75,6 +75,12 @@ public class Servicios implements IServicios {
 		datosprovincia.save(p);
 	}
 
+	@Override
+	public void addContacto(Contacto c) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/**
 	 * Metodo para desencapsular el objeto contacto y meter los atributos a la base de datos
 	 * 
@@ -84,6 +90,7 @@ public class Servicios implements IServicios {
 	 * 
 	 * 
 	 */
+	/**
 	public void addContacto(Contacto c) {
 		Persona p = c.getP();
 		datosprovincia.save(p);
@@ -93,6 +100,6 @@ public class Servicios implements IServicios {
 		datosprovincia.save(dir);
 		Provincia pro = c.getPro();
 
-	}
+	}*/
 
 }
