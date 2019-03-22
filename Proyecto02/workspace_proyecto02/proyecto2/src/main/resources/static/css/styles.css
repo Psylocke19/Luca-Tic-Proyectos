@@ -86,10 +86,15 @@ body {min-height:100%}
     font-family:'Lato', sans-serif;
 }
 
+.cuerpoAdd {
+	margin-top: 50px; 
+	padding-top: 50px;
+}
+
 #nombre
 {
     font-size: 30px; 
-    padding-top: 50px; 
+; 
 }
 
 #registro 

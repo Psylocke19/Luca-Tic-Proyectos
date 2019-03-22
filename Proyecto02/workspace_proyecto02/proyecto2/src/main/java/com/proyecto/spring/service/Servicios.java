@@ -54,4 +54,19 @@ public class Servicios implements IServicios {
 		
 		datosprovincia.deleteById(idProvincia);
 	}
+
+
+	/**
+	 * Metodo que le entra un un objeto de tipo Provincia y lo envia al apartado de datos.
+	 * 
+	 * @param Provincia p
+	 * @return void
+	 * @author Grupo 1
+	 * 
+	 * 
+	 */
+	public void editarProvincia(Provincia p) {
+		// TODO Auto-generated method stub
+		datosprovincia.save(p);
+	}
 }
