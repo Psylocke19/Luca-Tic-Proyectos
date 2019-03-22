@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.proyecto.spring.dao.IProvincia;
+import com.proyecto.spring.model.Contacto;
 import com.proyecto.spring.model.Provincia;
 
 @Service
@@ -29,7 +30,7 @@ public class Servicios implements IServicios {
 	}
 
 	/**
-	 * Metodo que llama a la capa de Datos solicitando una lista de Provincias y 
+	 * Metodo que llama a la capa de Datos solicitando una lista de Provincias y
 	 * retorna una lista mediante metodos de jpa
 	 * 
 	 * @return ArrayList<Provincia>
@@ -43,7 +44,8 @@ public class Servicios implements IServicios {
 	}
 
 	/**
-	 * Metodo que pasa por parametro un id de provincias y elimina la provincia de la base de datos
+	 * Metodo que pasa por parametro un id de provincias y elimina la provincia de
+	 * la base de datos
 	 * 
 	 * @return void
 	 * @author Grupo 1
@@ -51,13 +53,13 @@ public class Servicios implements IServicios {
 	 * 
 	 */
 	public void eliminarProvincias(int idProvincia) {
-		
+
 		datosprovincia.deleteById(idProvincia);
 	}
 
-
 	/**
-	 * Metodo que le entra un un objeto de tipo Provincia y lo envia al apartado de datos.
+	 * Metodo que le entra un un objeto de tipo Provincia y lo envia al apartado de
+	 * datos.
 	 * 
 	 * @param Provincia p
 	 * @return void
@@ -69,4 +71,25 @@ public class Servicios implements IServicios {
 		// TODO Auto-generated method stub
 		datosprovincia.save(p);
 	}
+
+	/**
+	 * Metodo para desencapsular el objeto contacto y meter los atributos a la base de datos
+	 * 
+	 * @param Provincia p
+	 * @return void
+	 * @author Grupo 1
+	 * 
+	 * 
+	 */
+	public void addContacto(Contacto c) {
+		Persona p = c.getP();
+		datosprovincia.save(p);
+		Telefono tlf = c.getTl();
+		datosprovincia.save(tlf);
+		Direccion dir = c.getDir();
+		datosprovincia.save(dir);
+		Provincia pro = c.getPro();
+
+	}
+
 }

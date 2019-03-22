@@ -123,10 +123,8 @@ public class Control {
 	public ModelAndView editarProvincia(@ModelAttribute Provincia p) throws Exception {
 		logger.info("-- en editar Provincias");
 		// Le pasamos el objeto a la parte de servicios
-<<<<<<< HEAD
-=======
 		service.editarProvincia(p);
->>>>>>> e09923ef8ecb6eed606d68e4aed5ad0463c03fa5
+
 		logger.info("-- Provincia editada");
 		service.editarProvincia(p);
 		
@@ -168,11 +166,11 @@ public class Control {
 	 * @throws Exception
 	 */
 	@PostMapping("/addContacto")
-	public ModelAndView addProvincia(@ModelAttribute Contacto c) throws Exception {
-		logger.info("-- en annadir Provincia");
+	public ModelAndView addContacto(@ModelAttribute Contacto c) throws Exception {
+		logger.info("-- en annadir Contacto");
 		// Le pasamos el objeto a la parte de servicios
 		service.addContacto(c);
-		logger.info("-- Provincia annadida a la BD");
+		logger.info("-- Contacto annadido a la BD");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
 
