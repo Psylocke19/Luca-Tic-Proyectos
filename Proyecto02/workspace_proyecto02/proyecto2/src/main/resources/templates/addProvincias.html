@@ -37,14 +37,15 @@
 <body>
 
 	<div align="center" class="cuerpoAdd">
-		<h1 class="formularioProvincias">FORMULARIO DE PROVINCIAS</h1>
 
 		<form th:action="${addProvincia}" method="post"
-			th:object="${claveProvincia}" id="nombre">Nombre:
+			th:object="${claveProvincia}" id="nombre">Nombre
 			<input type="text" th:field="*{nombre}" class="w3-input w3-border" id="cuadroblanco"/>
 				<br>
 				<input type="submit"
-					value="Guardar Registro" class="w3-btn w3-green" id="registro">
+					value="Añadir provincia" class="w3-btn w3-green" id="registro">
+				<input type="submit"
+					value="Editar provincia" class="w3-btn w3-red" id="registro">
 		</form>
 	</div>
 	

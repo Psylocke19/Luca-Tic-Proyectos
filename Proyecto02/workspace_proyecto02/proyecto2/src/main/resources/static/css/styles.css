@@ -86,14 +86,10 @@ body {min-height:100%}
     font-family:'Lato', sans-serif;
 }
 
-.formularioProvincias {
-	margin-top: 100px; 
-	padding-top: 50px; 
-}
-
 #nombre
 {
     font-size: 30px; 
+    padding-top: 50px; 
 }
 
 #registro 
@@ -102,7 +98,7 @@ body {min-height:100%}
 }
 
 #cuadroblanco {
-	width: 30%; 
+	width: 55%; 
 }
 
 #tabla {
