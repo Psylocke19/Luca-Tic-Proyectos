@@ -120,7 +120,7 @@ public class Control {
 	public ModelAndView editarProvincia(@ModelAttribute Provincia p) throws Exception {
 		logger.info("-- en editar Provincias");
 		// Le pasamos el objeto a la parte de servicios
-		service.editarProvincias(p);
+		service.editarProvincia(p);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/editarProvincias");
 
