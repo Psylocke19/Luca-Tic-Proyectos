@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/statics/styles.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script type="text/javascript" src="./js/external/imageMapResizer.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title>Lista de Usuarios</title>
+</head>
+<!-- Encabezado-->
+    <div class="header">
+        <h1>FORMULARIO DE PROVINCIAS</h1>
+    </div>
+<!-- Barra de navegación -->
+    <a name="top"></a>
+    <nav class= "nav">
+        <ul>
+            <li><a href="addProvincias.html" class="cabecera">Añadir provincia</a></li> 
+            <li><a href="ListarProvincial.html" class="cabecera">Lista de provincias</a></li> 
+        </ul>
+    </nav>
+<head>
+<meta charset="UTF-8">
+<title>FORMULARIO DE PROVINCIAS</title>
+</head>
+<body>
+	<title>FORMULARIO DE PROVINCIAS</title>
+</head>
+<body>
+	<div align="center">
+		<h1>FORMULARIO DE PROVINCIAS (add/edit)</h1>
+
+		<form th:action="${addProvincia}" method="post"
+			th:object="${provincia}">
+			<table>
+				<tr>
+					<td>Nombre:</td>
+					<td><input type="text" th:field="*{nombre}" /></td>
+				</tr>
+				<td colspan="2" align="center"><input type="submit"
+					value="Guardar Registro"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

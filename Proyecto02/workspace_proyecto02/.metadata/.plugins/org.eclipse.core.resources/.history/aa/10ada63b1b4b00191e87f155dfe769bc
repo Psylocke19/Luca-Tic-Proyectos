@@ -1,0 +1,9 @@
+package com.proyecto.spring.service;
+
+import com.proyecto.model.Provincia;
+
+public interface IServicios {
+
+	public void addProvincia (Provincia p);
+	
+}

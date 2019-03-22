@@ -1,0 +1,36 @@
+package com.proyecto.spring.dao;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
+import com.proyecto.model.Provincia;
+
+@Repository
+public class DAOProvincias implements IDAOProvincias {
+
+	@PersistenceContext
+	private EntityManager em;
+	
+	public void addProvincia(Provincia p) {
+		
+		@Transactional()
+		@Override
+		public List<Cliente>  mostrarLista(){
+			// TODO Auto-generated method stub
+			
+			return em.createQuery("from Provincia").getResultList();
+			//EN EL ENTITYMANAGER SOLO HAY ENTIDADES POR ESO SE PONE LA ENTIENDAD AL CREAR QUERY
+		}
+
+		@Transactional
+		@Override
+		public void a(Cliente cliente) {
+			// TODO Auto-generated method stub
+			em.persist(cliente);
+			em.flush();
+		}
+
+	}
+}

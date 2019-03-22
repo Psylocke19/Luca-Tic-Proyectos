@@ -1,0 +1,9 @@
+package com.proyecto.spring.dao;
+
+import com.proyecto.model.Provincia;
+
+public interface IDAOProvincias {
+
+	public void addProvincia(Provincia p);
+	public void editarProvincia(Provincia p)
+}

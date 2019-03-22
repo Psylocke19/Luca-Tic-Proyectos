@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Usuarios</title>
+</head>
+<body>
+	<div align="center">
+		<h1>LISTADO DE PROVINCIAS</h1>
+		<p>Estos son los datos de la tabla de provincias</p>
+		<br>
+		<p>
+		<a th:href="@{paginaAddProvincia}">Haz clic para crear un NUEVA PROVINCIA</a> 
+		<table border="1">
+			<tr>
+				<th>Nombre</th>
+
+			</tr>
+
+				<tr th:each="provincia : ${listaProvincias}" varStatus="status">
+					<td th:text="${provincia.nombre}">Nombre</td>
+
+					<td>Aqui va algo</td>
+					
+				</tr>
+
+		</table>
+		<p>
+			
+		</p>
+	</div>
+</body>
+</html>

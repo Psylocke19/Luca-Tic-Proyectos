@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
+<fullyQualifiedTypeName name="javax.persistence.PersistenceContext"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<fullyQualifiedTypeName name="antlr.collections.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+<fullyQualifiedTypeName name="com.proyecto.model.Provincia"/>
+<fullyQualifiedTypeName name="com.proyecto.spring.dao.ProvinciaRepository"/>
+<fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+<fullyQualifiedTypeName name="com.proyecto.spring.dao.IProvincia"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,46 @@
+package com.proyecto.spring.service;
+
+import java.util.ArrayList;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.proyecto.model.Provincia;
+import com.proyecto.spring.dao.IDAOProvincias;
+import com.proyecto.spring.dao.ProvinciaRepository;
+
+@Service
+@Transactional
+public class Servicios implements IServicios {
+
+	@Autowired
+	
+	private ProvinciaRepository datosprovincia;
+
+	/**
+	 * Con este método llamamos a la capa inmediatamente siguiente
+	 * 
+	 * @author Grupo 1
+	 * @param p
+	 */
+	public void addProvincia(Provincia p) {
+		datosprovincia.save(p);
+
+	}
+
+	/**
+	 * Metodo que llama a la capa de Datos solicitando una lista de Provincias.
+	 * 
+	 * @return ArrayList<Provincia>
+	 * @author Grupo 1
+	 * 
+	 * 
+	 */
+	public ArrayList<Provincia> mostrarProvincias() {
+
+		return datosprovincia.mostrarProvincias();
+	}
+
+}

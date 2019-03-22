@@ -1,0 +1,8 @@
+package com.proyecto.spring.dao;
+
+import com.proyecto.model.Provincia;
+
+public interface IDAOProvincias {
+
+
+}
