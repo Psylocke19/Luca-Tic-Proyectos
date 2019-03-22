@@ -27,6 +27,8 @@ public class Control {
 	@Autowired
 	IServicios service;
 
+	//Hola
+	
 	private static final Logger logger = LoggerFactory.getLogger(Control.class);
 
 	/**
