@@ -2226,3 +2226,18 @@ java.lang.Exception: File not found: C:\Users\admin\Desktop\proyecto\Proyecto02\
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-03-22 09:22:20.200
 !MESSAGE executing callback sts4.classpath.RehzguOb SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-03-22 09:26:43.194
+!MESSAGE Preparing classpath changed notification proyecto2
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-03-22 09:26:43.194
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-03-22 09:26:43.195
+!MESSAGE classpath=21 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-03-22 09:26:43.195
+!MESSAGE executing callback sts4.classpath.RehzguOb proyecto2 false 21
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-03-22 09:26:43.215
+!MESSAGE executing callback sts4.classpath.RehzguOb SUCCESS [done]
