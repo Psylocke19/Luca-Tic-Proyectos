@@ -93,7 +93,13 @@ public class Control {
 	}
 
 	
-
+	/**
+	 * 
+	 * @author Grupo 1 
+	 * @param id
+	 * @return model
+	 * @throws Exception
+	 */
 	
 	@GetMapping("/eliminarProvincias/{id}")
 	public ModelAndView eliminarProvincias(@PathVariable int id) throws Exception {
@@ -107,11 +113,21 @@ public class Control {
 		return model;
 	}
 	
-	@GetMapping("/editarProvincias/{id}")
-	public ModelAndView editarProvincia(@PathVariable int id) throws Exception {
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @author Grupo 1
+	 * @param id
+	 * @return model
+	 * @throws Exception
+	 */
+	@GetMapping("/editarProvincias")
+	public ModelAndView editarProvincia(@ModelAttribute Provincia p) throws Exception {
 		logger.info("-- en editar Provincias");
 		// Le pasamos el objeto a la parte de servicios
-		service.editarProvincias(id);
+		service.editarProvincias(p);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/editarProvincias");
 	
