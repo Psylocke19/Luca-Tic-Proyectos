@@ -107,5 +107,17 @@ public class Control {
 		return model;
 	}
 	
+	@GetMapping("/editarProvincias/{id}")
+	public ModelAndView editarProvincia(@PathVariable int id) throws Exception {
+		logger.info("-- en editar Provincias");
+		// Le pasamos el objeto a la parte de servicios
+		service.editarProvincias(id);
+		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
+		ModelAndView model = new ModelAndView("redirect:/editarProvincias");
+	
+
+		return model;
+	}
+	
 	
 }
