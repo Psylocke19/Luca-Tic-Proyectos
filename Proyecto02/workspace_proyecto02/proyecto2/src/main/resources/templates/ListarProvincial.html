@@ -56,7 +56,7 @@
 			<tr th:each="provincia : ${claveListaProvincias}" varStatus="status">
 				<td th:text="${provincia.id}">Nombre</td>
 				<td th:text="${provincia.nombre}">Nombre</td>
-				<td><a th:href="@{'/eliminarProvincias/' + ${provincia.id}}"><i class="far fa-trash-alt fa-1.8x"></i></a>&emsp;<i class="far fa-edit"></i></a></td>
+				<td class="alineariconos"><a th:href="@{'/eliminarProvincias/' + ${provincia.id}}"><i class="far fa-trash-alt fa-1.8x"></i></a>&emsp;<i class="far fa-edit"></i></a></td>
 			</tr>
 
 		</table>

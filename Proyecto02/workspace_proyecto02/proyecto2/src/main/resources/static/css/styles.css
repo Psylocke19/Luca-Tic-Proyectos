@@ -102,15 +102,12 @@ body {min-height:100%}
      
 }
 
-#parteverdetabla {
-	display: flex;
-	align-items:center;
-	justify-content:center; 
-	align-text: center;
-}
-
 .nombreTabla {
     font-size: 30px;  
+}
+
+.alineariconos {
+	align: center; 
 }
 
 #huecoTabla {
