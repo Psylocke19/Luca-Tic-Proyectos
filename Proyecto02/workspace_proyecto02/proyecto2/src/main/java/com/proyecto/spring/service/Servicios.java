@@ -10,10 +10,9 @@ import org.springframework.stereotype.Service;
 import com.proyecto.spring.dao.IDireccion;
 import com.proyecto.spring.dao.IPersona;
 import com.proyecto.spring.dao.IProvincia;
-<<<<<<< HEAD
-=======
+
 import com.proyecto.spring.dao.ITelefono;
->>>>>>> e9c6cb3aca25b3b0708b864ffd08512e70408d71
+
 import com.proyecto.spring.model.Contacto;
 import com.proyecto.spring.model.Direccion;
 import com.proyecto.spring.model.Persona;
@@ -89,15 +88,9 @@ public class Servicios implements IServicios {
 		datosprovincia.save(p);
 	}
 
-<<<<<<< HEAD
-	@Override
-	public void addContacto(Contacto c) {
-		// TODO Auto-generated method stub
-		
-	}
 
-=======
->>>>>>> e9c6cb3aca25b3b0708b864ffd08512e70408d71
+
+
 	/**
 	 * Metodo para desencapsular el objeto contacto y meter los atributos a la base de datos
 	 * 
@@ -107,24 +100,14 @@ public class Servicios implements IServicios {
 	 * 
 	 * 
 	 */
-<<<<<<< HEAD
-	/**
-	public void addContacto(Contacto c) {
-		Persona p = c.getP();
-		datosprovincia.save(p);
-		Telefono tlf = c.getTl();
-		datosprovincia.save(tlf);
-		Direccion dir = c.getDir();
-		datosprovincia.save(dir);
-		Provincia pro = c.getPro();
 
-	}*/
-=======
+	
+
 	public void addContacto(Contacto c) {
 		datospersona.save(c.getPersona());
 		datostelefono.save(c.getTelefono());
 		datosdireccion.save(c.getDireccion());
 	}
->>>>>>> e9c6cb3aca25b3b0708b864ffd08512e70408d71
+
 
 }
