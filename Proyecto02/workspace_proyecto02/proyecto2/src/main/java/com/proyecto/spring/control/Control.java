@@ -123,12 +123,54 @@ public class Control {
 	public ModelAndView editarProvincia(@ModelAttribute Provincia p) throws Exception {
 		logger.info("-- en editar Provincias");
 		// Le pasamos el objeto a la parte de servicios
-		service.editarProvincias(p);
 		logger.info("-- Provincia editada");
+		service.editarProvincia(p);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
 
 		return model;
 	}
 
+	/**
+	 * 
+	 * Mapea a addContacto mediante un metodo GET y se le pasa un objeto de tipo
+	 * Contacto enviando una pagina "addContacto" y añado un atributo
+	 * llamado"claveContacto" con un objeto nuevo de Contacto
+	 * 
+	 * @author Grupo 1
+	 * @param Contacto c
+	 * @return ModelAndView
+	 * @throws Exception
+	 */
+
+	@GetMapping("/addContacto")
+	public ModelAndView addContacto(Contacto c) throws Exception {
+		logger.info("-- addPtro");
+		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
+		ModelAndView model = new ModelAndView("addContacto");
+		model.addObject("claveContacto", new Contacto());
+		return model;
+
+	}
+
+	/**
+	 * Mapea a addContacto mediante un metodo POST y se le pasa un objeto de tipo
+	 * Contacto con atributos rellenos redireccionando a listaProvincias
+	 * 
+	 * @author Grupo 1
+	 * @param Provincia p
+	 * @return ModelAndView
+	 * @throws Exception
+	 */
+	@PostMapping("/addContacto")
+	public ModelAndView addProvincia(@ModelAttribute Contacto c) throws Exception {
+		logger.info("-- en annadir Provincia");
+		// Le pasamos el objeto a la parte de servicios
+		service.addContacto(c);
+		logger.info("-- Provincia annadida a la BD");
+		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
+		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
+
+		return model;
+	}
 }
