@@ -7,7 +7,10 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.proyecto.spring.dao.IDireccion;
+import com.proyecto.spring.dao.IPersona;
 import com.proyecto.spring.dao.IProvincia;
+import com.proyecto.spring.dao.ITelefono;
 import com.proyecto.spring.model.Contacto;
 import com.proyecto.spring.model.Direccion;
 import com.proyecto.spring.model.Persona;
@@ -21,6 +24,14 @@ public class Servicios implements IServicios {
 	@Autowired
 	private IProvincia datosprovincia;
 
+	@Autowired
+	private IPersona datospersona;
+	
+	@Autowired
+	private IDireccion datosdireccion;
+	
+	@Autowired
+	private ITelefono datostelefono;
 	/**
 	 * Con este método llamamos a la capa inmediatamente siguiente y lo añade a la
 	 * base de datos de objetos mediante los metodos de jpa
@@ -85,14 +96,9 @@ public class Servicios implements IServicios {
 	 * 
 	 */
 	public void addContacto(Contacto c) {
-		Persona p = c.getP();
-		datosprovincia.save(p);
-		Telefono tlf = c.getTl();
-		datosprovincia.save(tlf);
-		Direccion dir = c.getDir();
-		datosprovincia.save(dir);
-		Provincia pro = c.getPro();
-
+		datospersona.save(c.getPersona());
+		datostelefono.save(c.getTelefono());
+		datosdireccion.save(c.getDireccion());
 	}
 
 }
