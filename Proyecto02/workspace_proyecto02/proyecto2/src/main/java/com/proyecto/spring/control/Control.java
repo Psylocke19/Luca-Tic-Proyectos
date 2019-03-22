@@ -42,6 +42,7 @@ public class Control {
 		logger.info("-- en lista Provincias");
 		// Le pasamos el objeto a la parte de servicios
 		ArrayList<Provincia> listaProvincias = service.mostrarProvincias();
+		logger.info("-- Lista rellenada");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("ListarProvincial");
 		model.addObject("claveListaProvincias", listaProvincias);
@@ -82,6 +83,7 @@ public class Control {
 		logger.info("-- en annadir Provincia");
 		// Le pasamos el objeto a la parte de servicios
 		service.addProvincia(provincia);
+		logger.info("-- Provincia annadida a la BD");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
 
@@ -101,6 +103,7 @@ public class Control {
 		logger.info("-- en eliminar Provincias");
 		// Le pasamos el objeto a la parte de servicios
 		service.eliminarProvincias(id);
+		logger.info("-- Provincia eliminada de la BD");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
 
@@ -121,8 +124,9 @@ public class Control {
 		logger.info("-- en editar Provincias");
 		// Le pasamos el objeto a la parte de servicios
 		service.editarProvincias(p);
+		logger.info("-- Provincia editada");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model = new ModelAndView("redirect:/editarProvincias");
+		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
 
 		return model;
 	}
