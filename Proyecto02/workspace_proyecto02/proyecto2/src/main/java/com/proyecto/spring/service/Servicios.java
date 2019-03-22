@@ -7,7 +7,13 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.proyecto.spring.dao.IDireccion;
+import com.proyecto.spring.dao.IPersona;
 import com.proyecto.spring.dao.IProvincia;
+<<<<<<< HEAD
+=======
+import com.proyecto.spring.dao.ITelefono;
+>>>>>>> e9c6cb3aca25b3b0708b864ffd08512e70408d71
 import com.proyecto.spring.model.Contacto;
 import com.proyecto.spring.model.Direccion;
 import com.proyecto.spring.model.Persona;
@@ -21,6 +27,14 @@ public class Servicios implements IServicios {
 	@Autowired
 	private IProvincia datosprovincia;
 
+	@Autowired
+	private IPersona datospersona;
+	
+	@Autowired
+	private IDireccion datosdireccion;
+	
+	@Autowired
+	private ITelefono datostelefono;
 	/**
 	 * Con este método llamamos a la capa inmediatamente siguiente y lo añade a la
 	 * base de datos de objetos mediante los metodos de jpa
@@ -75,12 +89,15 @@ public class Servicios implements IServicios {
 		datosprovincia.save(p);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void addContacto(Contacto c) {
 		// TODO Auto-generated method stub
 		
 	}
 
+=======
+>>>>>>> e9c6cb3aca25b3b0708b864ffd08512e70408d71
 	/**
 	 * Metodo para desencapsular el objeto contacto y meter los atributos a la base de datos
 	 * 
@@ -90,6 +107,7 @@ public class Servicios implements IServicios {
 	 * 
 	 * 
 	 */
+<<<<<<< HEAD
 	/**
 	public void addContacto(Contacto c) {
 		Persona p = c.getP();
@@ -101,5 +119,12 @@ public class Servicios implements IServicios {
 		Provincia pro = c.getPro();
 
 	}*/
+=======
+	public void addContacto(Contacto c) {
+		datospersona.save(c.getPersona());
+		datostelefono.save(c.getTelefono());
+		datosdireccion.save(c.getDireccion());
+	}
+>>>>>>> e9c6cb3aca25b3b0708b864ffd08512e70408d71
 
 }
