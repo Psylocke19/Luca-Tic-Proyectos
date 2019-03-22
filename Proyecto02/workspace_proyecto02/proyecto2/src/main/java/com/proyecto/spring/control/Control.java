@@ -29,7 +29,6 @@ public class Control {
 
 	private static final Logger logger = LoggerFactory.getLogger(Control.class);
 
-	
 	/**
 	 * 
 	 * @author Grupo 1
@@ -37,13 +36,12 @@ public class Control {
 	 * @return Model
 	 * @throws Exception
 	 */
-	
-	
+
 	@GetMapping("/listaProvincias")
 	public ModelAndView mostrarProvincias() throws Exception {
 		logger.info("-- en lista Provincias");
 		// Le pasamos el objeto a la parte de servicios
-		ArrayList<Provincia>listaProvincias=service.mostrarProvincias();
+		ArrayList<Provincia> listaProvincias = service.mostrarProvincias();
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("ListarProvincial");
 		model.addObject("claveListaProvincias", listaProvincias);
@@ -51,8 +49,6 @@ public class Control {
 		return model;
 
 	}
-	
-	
 
 	/**
 	 * 
@@ -61,17 +57,17 @@ public class Control {
 	 * @return ModelAndView
 	 * @throws Exception
 	 */
-	
+
 	@GetMapping("/addProvincia")
 	public ModelAndView mostraraddProvincias() throws Exception {
 		logger.info("-- addPtro");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model  = new ModelAndView("addProvincias");
+		ModelAndView model = new ModelAndView("addProvincias");
 		model.addObject("claveProvincia", new Provincia());
 		return model;
 
 	}
-	
+
 	/**
 	 * Metodo que recoge una provincia a traves de metodo POST y la baja a la capa
 	 * de Servicios.
@@ -92,15 +88,14 @@ public class Control {
 		return model;
 	}
 
-	
 	/**
 	 * 
-	 * @author Grupo 1 
+	 * @author Grupo 1
 	 * @param id
 	 * @return model
 	 * @throws Exception
 	 */
-	
+
 	@GetMapping("/eliminarProvincias/{id}")
 	public ModelAndView eliminarProvincias(@PathVariable int id) throws Exception {
 		logger.info("-- en eliminar Provincias");
@@ -108,12 +103,10 @@ public class Control {
 		service.eliminarProvincias(id);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
-	
 
 		return model;
 	}
-	
-	
+
 	/**
 	 * 
 	 * 
@@ -130,10 +123,8 @@ public class Control {
 		service.editarProvincias(p);
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/editarProvincias");
-	
 
 		return model;
 	}
-	
-	
+
 }
