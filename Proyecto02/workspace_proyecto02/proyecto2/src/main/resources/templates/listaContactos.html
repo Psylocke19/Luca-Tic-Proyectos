@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato|Roboto"
 	rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title>Lista de Provincias</title>
+<title>Lista de Contactos</title>
 </head>
 <!-- Encabezado-->
 <div class="header">
@@ -44,23 +44,27 @@
 				contactos</a></li>
 	</ul>
 </nav>
-<body class="listarProvincias">
+<body class="listarContactos">
 	<div align="center">
-		<h1 id="formulario">LISTADO DE PROVINCIAS</h1>
+		<h1 id="formulario">LISTADO DE CONTACTOS</h1>
 		<br>
 		<p>
-		<table class="w3-table-all" id="tabla">
+		<table class="w3-table-all" id="tablaContactos">
 			<tr class="w3-green">
 				<th class="nombreTabla">Index</th>
 				<th class="nombreTabla">Nombre</th>
+				<th class="nombreTabla">Teléfono</th>
+				<th class="nombreTabla">Dirección</th>
 				<th class="nombreTabla">Acciones</th>
 			</tr>
-			<tr th:each="provincia : ${claveListaProvincias}" varStatus="status">
-				<td th:text="${provincia.id}">Nombre</td>
-				<td th:text="${provincia.nombre}">Nombre</td>
+			<tr th:each="contacto : ${claveListaContacto}" varStatus="status">
+				<td th:text="${contacto.id}">Nombre</td>
+				<td th:text="${contacto.persona}">Nombre</td>
+				<td th:text="${contacto.telefono}">Teléfono</td>
+				<td th:text="${contacto.direccion}">Dirección</td>
 				<td class="alineariconos">
-				<a th:href="@{'/eliminarProvincias/' + ${provincia.id}}"><i class="far fa-trash-alt fa-1.8x"></i></a>&emsp;
-				<a th:href="@{'/editProvincia/' + ${provincia.id}}"><i class="far fa-edit"></i></a>
+				<a th:href="@{'/eliminarContactos/' + ${contacto.id}}"><i class="far fa-trash-alt fa-1.8x"></i></a>&emsp;
+				<a th:href="@{'/editContacto/' + ${contacto.id}}"><i class="far fa-edit"></i></a>
 				</td>
 			</tr>
 

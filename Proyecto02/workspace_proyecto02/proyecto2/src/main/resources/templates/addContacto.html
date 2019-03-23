@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
 <link href="../static/css/styles.css" th:href="@{/css/styles.css}"
 	rel="stylesheet" />
+<meta charset="UTF-8">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
@@ -48,21 +48,43 @@
 <body>
 
 	<div align="center" class="cuerpoAdd">
-		<span th:if="${value == 'add'}">
-			<form th:action="${addProvincia}" method="post"
-				th:object="${claveProvincia}" id="nombre">
-				Nombre <input type="text" th:field="*{nombre}"
-					class="w3-input w3-border" id="cuadroblanco" /> <br> <input
-					type="submit" value="Añadir provincia" class="w3-btn w3-green"
+		<!--  <span th:if="${value == 'add'}">  -->
+			<form th:action="${addContacto}" method="post"
+				th:object="${claveContacto}" id="nombre">
+				Nombre <input type="text" th:field="*{persona}"
+					class="w3-input w3-border" id="cuadroblanco" />
+			<form th:action="${addContacto}" method="post"
+				th:object="${claveContacto}" id="nombre">
+				Teléfono <input type="text" th:field="*{telefono}"
+					class="w3-input w3-border" id="cuadroblanco" />
+			<form th:action="${addContacto}" method="post"
+				th:object="${claveContacto}" id="nombre">
+				Dirección <input type="text" th:field="*{direccion}"
+					class="w3-input w3-border" id="cuadroblanco" />
+					 <br> 
+					 <input type="submit" value="Añadir contacto" class="w3-btn w3-green"
 					id="registro">
 			</form>
+			</form>
+			</form>
 		</span> <span th:if="${value == 'edit'}">
-			<form th:action="${editProvincia}" method="post"
-				th:object="${claveProvincia}" id="nombre">
-				Nombre <input type="text" th:field="*{nombre}"
-					class="w3-input w3-border" id="cuadroblanco" /> <br> <input
-					type="submit" value="Editar provincia" class="w3-btn w3-red"
+			<form th:action="${editContacto}" method="post"
+				th:object="${claveContacto}" id="nombre">
+				Nombre <input type="text" th:field="*{persona}"
+					class="w3-input w3-border" id="cuadroblanco" /> 
+			<form th:action="${addContacto}" method="post"
+				th:object="${claveContacto}" id="nombre">
+				Teléfono <input type="text" th:field="*{telefono}"
+					class="w3-input w3-border" id="cuadroblanco" />
+			<form th:action="${addContacto}" method="post"
+				th:object="${claveContacto}" id="nombre">
+				Dirección <input type="text" th:field="*{direccion}"
+					class="w3-input w3-border" id="cuadroblanco" />
+					<br> 
+					<input type="submit" value="Editar contacto" class="w3-btn w3-red"
 					id="registro">
+			</form>
+			</form>
 			</form>
 		</span>
 	</div>
