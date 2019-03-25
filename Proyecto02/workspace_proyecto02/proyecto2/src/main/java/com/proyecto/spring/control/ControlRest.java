@@ -17,6 +17,11 @@ public class ControlRest {
 	@Autowired
 	private IServicios servicios;
 	
+	/**
+	 * Metodo que retorna una lista de Contactos llamado de la capa servicios
+	 * 
+	 * @return
+	 */
 	@GetMapping("/mostrarContacto")
 	public List<Contacto> mostrarContacto(){
 		
