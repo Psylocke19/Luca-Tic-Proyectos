@@ -169,5 +169,20 @@ public class Servicios implements IServicios {
 		// Devolvemos la lista de contactos ya cohesionada
 		return listaContactos;
 	}
+	
+	/**
+	 * @author grupo1 
+	 * Metodo que introduce un objeto de tipo contacto y es eliminada su encapsulacion partiendo el objeto en persona direccion y la lista de telefonos
+	 * @param c
+	 */
+	public void editarContacto(Contacto c ) {
+		
+		datospersona.save(c.getPersona());
+		datosdireccion.save(c.getDireccion());
+		datostelefono.saveAll(c.getList_telefono());
+			
+		
+		
+	}
 
 }
