@@ -1,19 +1,16 @@
 package com.proyecto.spring.model;
 
-
-
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-
 
 /**
  * The persistent class for the persona database table.
  * 
  */
 @Entity
-@NamedQuery(name="Persona.findAll", query="SELECT p FROM Persona p")
+@NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p")
 public class Persona implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -31,13 +28,15 @@ public class Persona implements Serializable {
 
 	private String nombre;
 
-	//bi-directional many-to-one association to Direccion
-	@OneToMany(mappedBy="persona")
-	private List<Direccion> direccions;
-
-	//bi-directional many-to-one association to Telefono
-	@OneToMany(mappedBy="persona")
-	private List<Telefono> telefonos;
+	public Persona(int idpersona, String apellido1, String apellido2, String dni, Date fechanacimiento, String nombre) {
+		super();
+		this.idpersona = idpersona;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+		this.fechanacimiento = fechanacimiento;
+		this.nombre = nombre;
+	}
 
 	public Persona() {
 	}
@@ -88,50 +87,6 @@ public class Persona implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public List<Direccion> getDireccions() {
-		return this.direccions;
-	}
-
-	public void setDireccions(List<Direccion> direccions) {
-		this.direccions = direccions;
-	}
-
-	public Direccion addDireccion(Direccion direccion) {
-		getDireccions().add(direccion);
-		direccion.setPersona(this);
-
-		return direccion;
-	}
-
-	public Direccion removeDireccion(Direccion direccion) {
-		getDireccions().remove(direccion);
-		direccion.setPersona(null);
-
-		return direccion;
-	}
-
-	public List<Telefono> getTelefonos() {
-		return this.telefonos;
-	}
-
-	public void setTelefonos(List<Telefono> telefonos) {
-		this.telefonos = telefonos;
-	}
-
-	public Telefono addTelefono(Telefono telefono) {
-		getTelefonos().add(telefono);
-		telefono.setPersona(this);
-
-		return telefono;
-	}
-
-	public Telefono removeTelefono(Telefono telefono) {
-		getTelefonos().remove(telefono);
-		telefono.setPersona(null);
-
-		return telefono;
 	}
 
 }

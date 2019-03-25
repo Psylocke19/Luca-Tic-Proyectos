@@ -16,7 +16,9 @@ public class Contacto {
 	}
 
 	public Contacto() {
-
+		persona = new Persona();
+		list_telefono = new ArrayList<Telefono>();
+		direccion = new Direccion();
 	}
 
 	public Persona getPersona() {
