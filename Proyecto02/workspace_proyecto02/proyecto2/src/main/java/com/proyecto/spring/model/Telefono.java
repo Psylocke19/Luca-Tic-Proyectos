@@ -1,17 +1,14 @@
 package com.proyecto.spring.model;
 
-
-
 import java.io.Serializable;
 import javax.persistence.*;
-
 
 /**
  * The persistent class for the telefono database table.
  * 
  */
 @Entity
-@NamedQuery(name="Telefono.findAll", query="SELECT t FROM Telefono t")
+@NamedQuery(name = "Telefono.findAll", query = "SELECT t FROM Telefono t")
 public class Telefono implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -20,10 +17,17 @@ public class Telefono implements Serializable {
 
 	private String telefono;
 
-	//bi-directional many-to-one association to Persona
+	// bi-directional many-to-one association to Persona
 	@ManyToOne
-	@JoinColumn(name="idpersona")
+	@JoinColumn(name = "idpersona")
 	private Persona persona;
+
+	public Telefono(int idtelefono, String telefono, Persona persona) {
+		super();
+		this.idtelefono = idtelefono;
+		this.telefono = telefono;
+		this.persona = persona;
+	}
 
 	public Telefono() {
 	}
