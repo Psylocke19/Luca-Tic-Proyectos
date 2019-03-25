@@ -19,9 +19,9 @@ import com.proyecto.spring.service.IServicios;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Proyecto2ApplicationTests {
+public class addProvinciaTests {
 
-	private static final Logger logger = LoggerFactory.getLogger(Proyecto2ApplicationTests.class);
+	private static final Logger logger = LoggerFactory.getLogger(addProvinciaTests.class);
 	@Autowired
 	private IProvincia provincias;
 	@Autowired
