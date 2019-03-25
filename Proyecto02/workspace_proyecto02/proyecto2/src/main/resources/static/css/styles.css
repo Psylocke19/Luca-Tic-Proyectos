@@ -111,6 +111,10 @@ body {min-height:100%}
      
 }
 
+#tablaContactos {
+	width: 60%; 
+}
+
 .nombreTabla {
     font-size: 30px;  
 }
