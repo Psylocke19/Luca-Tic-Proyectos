@@ -136,7 +136,7 @@ public class Servicios implements IServicios {
 	 * 
 	 * 
 	 */
-	public List<Contacto> mostrarContactos() {
+	public ArrayList<Contacto> mostrarContactos() {
 		
 		// Creamos una lista para persona, telefono y direccion a partir de la base de datos correspondiente
 		List<Persona> persona = datospersona.findAll();

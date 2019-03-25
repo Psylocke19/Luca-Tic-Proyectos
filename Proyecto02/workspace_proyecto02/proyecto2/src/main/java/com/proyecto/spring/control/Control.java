@@ -196,4 +196,18 @@ public class Control {
 		return model;
 	}
 	
+	@GetMapping("/listaContactos")
+	public ModelAndView mostrarContactos() throws Exception {
+		logger.info("-- en lista Contactos");
+		// Le pasamos el objeto a la parte de servicios
+		ArrayList<Contacto> listaContactos = service.mostrarContactos();
+		logger.info("-- Lista rellenada");
+		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
+		ModelAndView model = new ModelAndView("ListaContactos");
+		model.addObject("claveListaContactos", listaContactos);
+
+		return model;
+
+	}
+	
 }

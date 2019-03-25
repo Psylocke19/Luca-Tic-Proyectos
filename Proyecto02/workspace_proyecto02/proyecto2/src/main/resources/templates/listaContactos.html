@@ -58,7 +58,7 @@
 				<th class="nombreTabla">Acciones</th>
 			</tr>
 			<tr th:each="contacto : ${claveListaContacto}" varStatus="status">
-				<td th:text="${contacto.id}">Nombre</td>
+				<td th:text="${contacto.id}">Index</td>
 				<td th:text="${contacto.persona}">Nombre</td>
 				<td th:text="${contacto.telefono}">Teléfono</td>
 				<td th:text="${contacto.direccion}">Dirección</td>
