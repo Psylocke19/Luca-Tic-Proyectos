@@ -1,11 +1,7 @@
 package com.proyecto.spring;
 
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
 
 
 import org.junit.Test;
@@ -19,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.proyecto.spring.dao.IProvincia;
 import com.proyecto.spring.model.Provincia;
 import com.proyecto.spring.service.IServicios;
-import com.proyecto.spring.service.Servicios;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
