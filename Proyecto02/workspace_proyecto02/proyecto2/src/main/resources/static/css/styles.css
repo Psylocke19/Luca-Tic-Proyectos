@@ -130,7 +130,7 @@ body {min-height:100%}
 
 footer
     {
-    position: fixed;
+    position: relative; 
     background-color: black; 
     color: white; 
     bottom: 0; 
