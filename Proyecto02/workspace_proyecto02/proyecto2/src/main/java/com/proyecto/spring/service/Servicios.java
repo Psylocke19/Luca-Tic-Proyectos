@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 import com.proyecto.spring.dao.IDireccion;
 import com.proyecto.spring.dao.IPersona;
 import com.proyecto.spring.dao.IProvincia;
+
 import com.proyecto.spring.dao.ITelefono;
+
 import com.proyecto.spring.model.Contacto;
 import com.proyecto.spring.model.Direccion;
 import com.proyecto.spring.model.Persona;
@@ -86,6 +88,9 @@ public class Servicios implements IServicios {
 		datosprovincia.save(p);
 	}
 
+
+
+
 	/**
 	 * Metodo para desencapsular el objeto contacto y meter los atributos a la base de datos
 	 * 
@@ -95,10 +100,14 @@ public class Servicios implements IServicios {
 	 * 
 	 * 
 	 */
+
+	
+
 	public void addContacto(Contacto c) {
-		datospersona.save(c.getPersona());
-		datostelefono.save(c.getTelefono());
-		datosdireccion.save(c.getDireccion());
+		datospersona.save(c.getP());
+		datostelefono.save(c.getTl());
+		datosdireccion.save(c.getDir());
 	}
+
 
 }
