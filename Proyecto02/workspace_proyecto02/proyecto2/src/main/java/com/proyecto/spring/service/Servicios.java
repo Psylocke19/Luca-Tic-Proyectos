@@ -127,18 +127,30 @@ public class Servicios implements IServicios {
 		datosdireccion.save(c.getDireccion());
 
 	}
-
+	
+	/**
+	 * Metodo para mostrar la lista de contactos a partir de las listas de persona, telefono y direccion
+	 * 
+	 * @return List<Contacto>
+	 * @author Grupo 1
+	 * 
+	 * 
+	 */
 	public List<Contacto> mostrarContactos() {
-
+		
+		// Creamos una lista para persona, telefono y direccion a partir de la base de datos correspondiente
 		List<Persona> persona = datospersona.findAll();
 		List<Telefono> telefono = datostelefono.findAll();
 		List<Direccion> direccion = datosdireccion.findAll();
-
+		
+		// Creamos un ArrayList de contactos donde almacenaremos los datos de las distintas tablas
 		ArrayList<Contacto> listaContactos = new ArrayList<>();
+		// Recorremos el array rellenándolo con los datos de las personas
 		for (Persona p : persona) {
 			Contacto c = new Contacto();
 			c.setPersona(p);
-
+			
+			// Hacemos lo mismo con la de teléfonos pero en forma de ArrayList, ya que cada persona puede tener asociado más de un teléfono
 			ArrayList<Telefono> listaTelefonos = new ArrayList<>();
 			for (Telefono t : telefono) {
 				if (t.getPersona().getIdpersona() == p.getIdpersona()) {
@@ -146,6 +158,7 @@ public class Servicios implements IServicios {
 				}
 			}
 			c.setList_telefono(listaTelefonos);
+			// Introducimos las direcciones 
 			for (Direccion d : direccion) {
 				if (d.getPersona().getIdpersona() == p.getIdpersona()) {
 					c.setDireccion(d);
@@ -153,6 +166,7 @@ public class Servicios implements IServicios {
 			}
 			listaContactos.add(c);
 		}
+		// Devolvemos la lista de contactos ya cohesionada
 		return listaContactos;
 	}
 
