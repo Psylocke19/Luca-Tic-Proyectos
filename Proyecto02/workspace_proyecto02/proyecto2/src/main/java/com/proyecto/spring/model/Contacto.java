@@ -1,22 +1,22 @@
 package com.proyecto.spring.model;
 
+import java.util.ArrayList;
+
 public class Contacto {
 
 	private Persona persona;
-	private Telefono telefono;
+	private ArrayList<Telefono> list_telefono;
 	private Direccion direccion;
 
-	
-
-	public Contacto(Persona persona, Telefono telefono, Direccion direccion) {
+	public Contacto(Persona persona, ArrayList<Telefono> list_telefono, Direccion direccion) {
 		super();
 		this.persona = persona;
-		this.telefono = telefono;
+		this.list_telefono = list_telefono;
 		this.direccion = direccion;
 	}
 
 	public Contacto() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Persona getPersona() {
@@ -27,12 +27,12 @@ public class Contacto {
 		this.persona = persona;
 	}
 
-	public Telefono getTelefono() {
-		return telefono;
+	public ArrayList<Telefono> getList_telefono() {
+		return list_telefono;
 	}
 
-	public void setTelefono(Telefono telefono) {
-		this.telefono = telefono;
+	public void setList_telefono(ArrayList<Telefono> list_telefono) {
+		this.list_telefono = list_telefono;
 	}
 
 	public Direccion getDireccion() {
@@ -45,9 +45,7 @@ public class Contacto {
 
 	@Override
 	public String toString() {
-		return "Contacto [persona=" + persona + ", telefono=" + telefono + ", direccion=" + direccion + "]";
+		return "Contacto [persona=" + persona + ", list_telefono=" + list_telefono + ", direccion=" + direccion + "]";
 	}
 
-	
-	
 }

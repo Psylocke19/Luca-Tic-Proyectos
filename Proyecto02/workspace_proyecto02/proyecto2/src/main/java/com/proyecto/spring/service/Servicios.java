@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import com.proyecto.spring.dao.IDireccion;
 import com.proyecto.spring.dao.IPersona;
 import com.proyecto.spring.dao.IProvincia;
+
 import com.proyecto.spring.dao.ITelefono;
+
 import com.proyecto.spring.model.Contacto;
 import com.proyecto.spring.model.Direccion;
 import com.proyecto.spring.model.Persona;
@@ -98,7 +100,9 @@ public class Servicios implements IServicios {
 	 * 
 	 * 
 	 */
+
 	public void addContacto(Contacto c) {
+
 		// Annadimos el Objeto Persona a la BBDD
 		datospersona.save(c.getPersona());
 
@@ -108,16 +112,19 @@ public class Servicios implements IServicios {
 		Persona miPersona = datospersona.buscarPersona(c.getPersona());
 
 		// Le annadimos al telefono de contacto el objeto Persona completo con el ID
-		c.getTelefono().setPersona(miPersona);
+		for (int i = 0; i < c.getList_telefono().size(); i++) {
+			c.getList_telefono().get(i).setPersona(miPersona);
 
-		// Annadimos ahora el objeto telefono entero con la Persona ya relaccionada
-		datostelefono.save(c.getTelefono());
+			// Annadimos ahora el objeto telefono entero con la Persona ya relaccionada
+			datostelefono.save(c.getList_telefono().get(i));
+		}
 
 		// Hacemos lo mismo con el objeto Direccion
 		c.getDireccion().setPersona(miPersona);
 
 		// La annadimos a la BBDD
 		datosdireccion.save(c.getDireccion());
+
 	}
 
 }
