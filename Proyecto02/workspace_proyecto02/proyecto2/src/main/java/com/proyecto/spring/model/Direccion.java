@@ -1,17 +1,14 @@
 package com.proyecto.spring.model;
 
-
-
 import java.io.Serializable;
 import javax.persistence.*;
-
 
 /**
  * The persistent class for the direccion database table.
  * 
  */
 @Entity
-@NamedQuery(name="Direccion.findAll", query="SELECT d FROM Direccion d")
+@NamedQuery(name = "Direccion.findAll", query = "SELECT d FROM Direccion d")
 public class Direccion implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -24,17 +21,28 @@ public class Direccion implements Serializable {
 
 	private String localidad;
 
-	//bi-directional many-to-one association to Persona
+	// bi-directional many-to-one association to Persona
 	@ManyToOne
-	@JoinColumn(name="idpersona")
+	@JoinColumn(name = "idpersona")
 	private Persona persona;
 
-	//bi-directional many-to-one association to Provincia
+	// bi-directional many-to-one association to Provincia
 	@ManyToOne
-	@JoinColumn(name="idprovincia")
+	@JoinColumn(name = "idprovincia")
 	private Provincia provincia;
 
 	public Direccion() {
+	}
+
+	public Direccion(int iddireccion, String codpostal, String direccion, String localidad, Persona persona,
+			Provincia provincia) {
+		super();
+		this.iddireccion = iddireccion;
+		this.codpostal = codpostal;
+		this.direccion = direccion;
+		this.localidad = localidad;
+		this.persona = persona;
+		this.provincia = provincia;
 	}
 
 	public int getIddireccion() {

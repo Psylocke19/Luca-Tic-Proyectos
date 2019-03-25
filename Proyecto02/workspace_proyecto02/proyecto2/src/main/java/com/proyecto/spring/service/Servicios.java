@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.proyecto.spring.dao.IDireccion;
@@ -26,12 +27,13 @@ public class Servicios implements IServicios {
 
 	@Autowired
 	private IPersona datospersona;
-	
+
 	@Autowired
 	private IDireccion datosdireccion;
-	
+
 	@Autowired
 	private ITelefono datostelefono;
+
 	/**
 	 * Con este método llamamos a la capa inmediatamente siguiente y lo añade a la
 	 * base de datos de objetos mediante los metodos de jpa
@@ -87,7 +89,8 @@ public class Servicios implements IServicios {
 	}
 
 	/**
-	 * Metodo para desencapsular el objeto contacto y meter los atributos a la base de datos
+	 * Metodo para desencapsular el objeto contacto y meter los atributos a la base
+	 * de datos
 	 * 
 	 * @param Provincia p
 	 * @return void
@@ -96,8 +99,24 @@ public class Servicios implements IServicios {
 	 * 
 	 */
 	public void addContacto(Contacto c) {
+		// Annadimos el Objeto Persona a la BBDD
 		datospersona.save(c.getPersona());
+
+		// Buscamos la persona que hemos annadido y con el metodo
+		// buscarPersona(Implementado por nosotros) nos
+		// devuelve ese mismo objeto completo, con la ID generada por la BBDD
+		Persona miPersona = datospersona.buscarPersona(c.getPersona());
+
+		// Le annadimos al telefono de contacto el objeto Persona completo con el ID
+		c.getTelefono().setPersona(miPersona);
+
+		// Annadimos ahora el objeto telefono entero con la Persona ya relaccionada
 		datostelefono.save(c.getTelefono());
+
+		// Hacemos lo mismo con el objeto Direccion
+		c.getDireccion().setPersona(miPersona);
+
+		// La annadimos a la BBDD
 		datosdireccion.save(c.getDireccion());
 	}
 
