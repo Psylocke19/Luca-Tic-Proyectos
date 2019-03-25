@@ -1,6 +1,7 @@
 package com.proyecto.spring.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -125,6 +126,34 @@ public class Servicios implements IServicios {
 		// La annadimos a la BBDD
 		datosdireccion.save(c.getDireccion());
 
+	}
+
+	public List<Contacto> mostrarContactos() {
+
+		List<Persona> persona = datospersona.findAll();
+		List<Telefono> telefono = datostelefono.findAll();
+		List<Direccion> direccion = datosdireccion.findAll();
+
+		ArrayList<Contacto> listaContactos = new ArrayList<>();
+		for (Persona p : persona) {
+			Contacto c = new Contacto();
+			c.setPersona(p);
+
+			ArrayList<Telefono> listaTelefonos = new ArrayList<>();
+			for (Telefono t : telefono) {
+				if (t.getPersona().getIdpersona() == p.getIdpersona()) {
+					listaTelefonos.add(t);
+				}
+			}
+			c.setList_telefono(listaTelefonos);
+			for (Direccion d : direccion) {
+				if (d.getPersona().getIdpersona() == p.getIdpersona()) {
+					c.setDireccion(d);
+				}
+			}
+			listaContactos.add(c);
+		}
+		return listaContactos;
 	}
 
 }
