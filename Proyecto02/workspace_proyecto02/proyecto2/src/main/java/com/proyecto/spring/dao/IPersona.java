@@ -6,8 +6,9 @@ import org.springframework.stereotype.Repository;
 import com.proyecto.spring.model.Persona;
 
 @Repository
-public interface IPersona extends JpaRepository<Persona, Integer>  {
+public interface IPersona extends JpaRepository<Persona, Integer>, IPersonaCustom  {
 
+	
 	/*
 	void delete(User user);
 
