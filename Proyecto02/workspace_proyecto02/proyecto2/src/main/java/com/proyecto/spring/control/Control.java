@@ -165,7 +165,7 @@ public class Control {
 	 */
 
 	@GetMapping("/addContacto")
-	public ModelAndView addContacto(Contacto c) throws Exception {
+	public ModelAndView addContacto() throws Exception {
 		logger.info("-- addPtro");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("addContacto");
