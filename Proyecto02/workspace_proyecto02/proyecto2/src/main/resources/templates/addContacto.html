@@ -100,11 +100,13 @@
 			<p>
 				Provincia: <select id="browsers">
 					<option th:each="provincia : ${claveProvincias}" varStatus="status"
-						value="${provincia.nombre}">
+						th:field="*{direccion.provincia.id}" th:value="${provincia.id}"
+						th:text="${provincia.nombre}">
 				</select>
 			</p>
 			<br> <input type="submit" value="Añadir contacto"
 				class="w3-btn w3-green" id="registro">
+		</form>
 	</div>
 
 	<!-- Footer -->
