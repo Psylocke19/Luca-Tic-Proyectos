@@ -1,15 +1,11 @@
 package com.proyecto.spring.dao;
 
-import java.util.List;
-import java.util.Optional;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.Query;
@@ -22,6 +18,7 @@ public class IPersonaImpl implements IPersonaCustom {
 
 	@PersistenceContext
 	EntityManager entityManager;
+
 
 	/**
 	 * Metodo que busca una persona por parametros y nos devuelve el objeto completo
@@ -50,5 +47,8 @@ public class IPersonaImpl implements IPersonaCustom {
 
 		return (Persona) query.getSingleResult();
 	}
+
+	
+
 
 }
