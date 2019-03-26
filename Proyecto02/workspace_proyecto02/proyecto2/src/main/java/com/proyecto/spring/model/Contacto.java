@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Contacto {
 
 	private Persona persona;
-	private ArrayList<Telefono> list_telefono;
+	private ArrayList<Telefono> list_telefono = new ArrayList<Telefono>();
 	private Telefono telefonofijo;
 	private Telefono telefonomovil;
 	private Direccion direccion;
@@ -17,8 +17,6 @@ public class Contacto {
 		this.telefonomovil = movil;
 		this.direccion = direccion;
 
-		list_telefono.add(this.telefonomovil);
-		list_telefono.add(this.telefonofijo);
 	}
 
 	public Contacto(Persona persona, ArrayList<Telefono> list_telefono, Direccion direccion) {
