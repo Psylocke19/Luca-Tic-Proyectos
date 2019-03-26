@@ -40,7 +40,7 @@ public class IPersonaImpl implements IPersonaCustom {
 	
 	@Override
 	public Persona buscarPersona(Persona p) {
-		/*
+		
 		Query query = entityManager.createNativeQuery(
 				"FROM Persona WHERE nombre=?, apellido1=?, apellido2=?,dni=?,fechanacimiento=?", Persona.class);
 		query.setParameter(1, p.getNombre());
@@ -48,10 +48,8 @@ public class IPersonaImpl implements IPersonaCustom {
 		query.setParameter(3, p.getApellido2());
 		query.setParameter(4, p.getDni());
 		query.setParameter(5, p.getFechanacimiento());
-		return (Persona) query.getSingleResult();*/
-		
-		//ASR
-		return new Persona();
+		return (Persona) query.getSingleResult();
+
 	} 
 
 }
