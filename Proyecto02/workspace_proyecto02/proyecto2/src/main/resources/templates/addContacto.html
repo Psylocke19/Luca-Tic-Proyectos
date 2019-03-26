@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato|Roboto"
 	rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Molengo|Titan+One" rel="stylesheet">
 
 <title>Lista de Usuarios</title>
 </head>
@@ -94,9 +95,9 @@
 			</p>
 			<p>
 			    Provincia: <input list="browsers" name="browser" class="w3-input w3-border" id="cuadroblanco">
-			<datalist id="browsers">
-				<option th:each="provincia : ${claveListaProvincias}" varStatus="status" value="${provincia.nombre}"">
-			</datalist>
+			<select id="browsers">
+				<option th:each="provincia : ${provincia}" varStatus="status" value="${provincia.nombre}"">
+			</select>
 			</p>
 			<br> <input type="submit" value="Añadir contacto"
 				class="w3-btn w3-green" id="registro">
