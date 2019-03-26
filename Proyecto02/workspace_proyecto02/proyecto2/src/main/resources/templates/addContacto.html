@@ -98,10 +98,9 @@
 					class="w3-input w3-border" id="cuadroblanco" />
 			</p>
 			<p>
-				Provincia: <select id="browsers">
-					<option th:each="provincia : ${claveProvincias}" varStatus="status"
-						th:field="*{direccion.provincia.id}" th:value="${provincia.id}"
-						th:text="${provincia.nombre}">
+				Provincia: <select id="browsers" th:field="*{direccion.provincia.id}">
+					<option th:each="provincia : ${claveProvincias}"
+						th:value="${provincia.id}" th:text="${provincia.nombre}"></option>
 				</select>
 			</p>
 			<br> <input type="submit" value="Añadir contacto"
