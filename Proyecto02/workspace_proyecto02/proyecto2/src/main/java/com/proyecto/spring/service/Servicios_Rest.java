@@ -136,4 +136,19 @@ public class Servicios_Rest implements IServicios_Rest{
 		return restDatospersona.existsById(idContacto);
 	}
 	
+	/**
+	 * Metodo que desencapsula el Objeto Contacto, actualizando los Objetos Persona, Direccion y Telefono en la BBDD
+	 * @param Contacto c
+	 * @return
+	 */
+	public Contacto editarContacto(Contacto c) {
+		restDatospersona.save(c.getPersona());
+		restDatosdireccion.save(c.getDireccion());
+		restDatostelefono.save(c.getTelefonofijo());
+		restDatostelefono.save(c.getTelefonomovil());
+		
+		return c;
+
+	}
+	
 }
