@@ -94,7 +94,8 @@
 					class="w3-input w3-border" id="cuadroblanco" />
 			</p>
 			<p>
-				Provincia: <select id="browsers" th:field="*{direccion.provincia.id}">
+				Provincia: <br>
+				<select id="cuadroblanco" class="w3-input w3-border" th:field="*{direccion.provincia.id}">
 					<option th:each="provincia : ${claveProvincias}"
 						th:value="${provincia.id}" th:text="${provincia.nombre}"></option>
 				</select>
@@ -113,24 +114,24 @@
 			<p>
 			
 				Nombre <input type="text" th:field="*{persona.nombre}"
-					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.persona.nombre}"/>
+					class="w3-input w3-border" id="cuadroblanco"/>
 			</p>
 			<p>
 				Primer apellido: <input type="text" th:field="*{persona.apellido1}"
-					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.persona.apellido1}"/>
+					class="w3-input w3-border" id="cuadroblanco"/>
 			</p>
 			<p>
 				Segundo apellido: <input type="text" th:field="*{persona.apellido2}"
-					class="w3-input w3-border" id="cuadroblanco"  th:text="${claveContacto.persona.apellido2}"/>
+					class="w3-input w3-border" id="cuadroblanco"/>
 			</p>
 			<p>
 				DNI: <input type="text" th:field="*{persona.dni}"
-					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.persona.dni}"/>
+					class="w3-input w3-border" id="cuadroblanco"/>
 			</p>
 			<p>
 				Fecha de nacimiento: <input type="text"
 					th:field="*{persona.fechanacimiento}" class="w3-input w3-border"
-					id="cuadroblanco" th:text="${claveContacto.persona.fechanacimiento}"/>
+					id="cuadroblanco"/>
 			</p>
 
 			<p>
@@ -138,24 +139,25 @@
 			<input type="hidden"  th:field="*{telefonomovil.idtelefono}">
 				Teléfono móvil: <input type="text"
 					th:field="*{telefonomovil.telefono}" class="w3-input w3-border"
-					id="cuadroblanco" th:text="${claveContacto.telefonomovil.telefono}"/>
+					id="cuadroblanco"/>
 			</p>
 			<p>
 			<input type="hidden"  th:field="*{direccion.persona.idpersona}">
 			<input type="hidden"  th:field="*{direccion.iddireccion}">
 				Código Postal: <input type="text" th:field="*{direccion.codpostal}"
-					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.direccion.codpostal}"/>
+					class="w3-input w3-border" id="cuadroblanco"/>
 			</p>
 			<p>
 				Dirección: <input type="text" th:field="*{direccion.direccion}"
-					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.direccion.direccion}"/>
+					class="w3-input w3-border" id="cuadroblanco"/>
 			</p>
 			<p>
 				Localidad: <input type="text" th:field="*{direccion.localidad}"
-					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.direccion.localidad}"/>
+					class="w3-input w3-border" id="cuadroblanco"/>
 			</p>
 			<p>
-				Provincia: <select id="browsers" th:field="*{direccion.provincia.id}">
+				Provincia: <br>
+				<select  id="cuadroblanco" class="w3-input w3-border" th:field="*{direccion.provincia.id}">
 					<option th:each="provincia : ${claveProvincias}"
 						th:value="${provincia.id}" th:text="${provincia.nombre}"></option>
 				</select>
