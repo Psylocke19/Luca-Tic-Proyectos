@@ -210,4 +210,24 @@ public class Control {
 
 	}
 	
+	/**
+	 * 
+	 * @author Grupo 1
+	 * @param id
+	 * @return model
+	 * @throws Exception
+	 */
+
+	@GetMapping("/eliminarContacto/{id}")
+	public ModelAndView eliminarContacto(@PathVariable int id) throws Exception {
+		logger.info("-- en eliminar Contacto");
+		// Le pasamos el objeto a la parte de servicios
+		service.eliminarContacto(id);
+		logger.info("-- Contacto eliminado de la BD");
+		//Una vez se haya eliminado el contacto nos redigirimos a listarContactos
+		ModelAndView model = new ModelAndView("redirect:/listaContactos");
+
+		return model;
+	}
+	
 }

@@ -14,4 +14,6 @@ public interface IServicios {
 	public void editarProvincia(Provincia p);
 	public void addContacto(Contacto c);
 	public ArrayList<Contacto> mostrarContactos(); 
+	public void eliminarContacto(int idContacto);
+	public void editarContacto(Contacto c);
 }

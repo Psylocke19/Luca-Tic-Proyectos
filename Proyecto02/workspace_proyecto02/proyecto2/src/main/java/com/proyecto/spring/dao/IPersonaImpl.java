@@ -23,8 +23,11 @@ public class IPersonaImpl implements IPersonaCustom {
 	@PersistenceContext
 	EntityManager entityManager;
 
+<<<<<<< HEAD
 	
 
+=======
+>>>>>>> cdb12331e18112b2db68deb522c1dfde415e151e
 	/**
 	 * Metodo que busca una persona por parametros y nos devuelve el objeto completo
 	 * con la id que le asigno la base de datos
@@ -38,12 +41,10 @@ public class IPersonaImpl implements IPersonaCustom {
 	// Este metodo lo creamos para buscar el objeto que introducimos en el apartado
 	// de servicios y luego para averiguar la ID que le genero la BBDD, lo buscamos
 	// con los datos, y nos retorna el objeto completo con el ID generado
-	
-	
-	 
+
 	@Override
 	public Persona buscarPersona(Persona p) {
-		
+
 		Query query = entityManager.createNativeQuery(
 				"FROM Persona WHERE nombre=?, apellido1=?, apellido2=?,dni=?,fechanacimiento=?", Persona.class);
 		query.setParameter(1, p.getNombre());
@@ -54,6 +55,7 @@ public class IPersonaImpl implements IPersonaCustom {
 
 		return (Persona) query.getSingleResult();
 	}
+<<<<<<< HEAD
 
 		
 		
@@ -64,5 +66,7 @@ public class IPersonaImpl implements IPersonaCustom {
 
 
 	} 
+=======
+>>>>>>> cdb12331e18112b2db68deb522c1dfde415e151e
 
 }
