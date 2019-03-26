@@ -229,6 +229,15 @@ public class Control {
 
 		return model;
 	}
+	
+	/**
+	 * Método que busca un contacto por su id y retorna el objeto correspondiente con los nuevos datos modificados
+	 * 
+	 * @author Grupo 1
+	 * @param Contacto c
+	 * @return ModelAndView
+	 * @throws Exception
+	 */
 
 	@GetMapping("/editarContacto/{id}")
 	public ModelAndView editarContacto(@PathVariable int id) throws Exception {
@@ -236,6 +245,20 @@ public class Control {
 		ModelAndView model = new ModelAndView("addContacto");
 		
 		model.addObject("claveContacto", service.buscadorContacto(id));
+
+		return model;
+	}
+	
+	@PostMapping("/editarContacto/{id}")
+	public ModelAndView editarContacto(@ModelAttribute Contacto c) throws Exception {
+		logger.info("-- en editar Contactos");
+		// Le pasamos el objeto a la parte de servicios
+		service.editarContacto(c);
+
+		logger.info("-- Contacto editado");
+		
+		// Una vez se haya annadido nos redirigimos a la pagina inicial de contactos
+		ModelAndView model = new ModelAndView("redirect:/listaContactos");
 
 		return model;
 	}
