@@ -36,8 +36,8 @@
 	<ul>
 		<li><a th:href="@{/addProvincia}" class="cabecera">Añadir
 				provincia</a></li>
-		<li><a th:href="@{/listaProvincias}" class="cabecera">Lista de
-				provincias</a></li>
+		<li><a th:href="@{/listaProvincias}" class="cabecera">Lista
+				de provincias</a></li>
 		<li><a th:href="@{/addContacto}" class="cabecera">Añadir
 				contacto</a></li>
 		<li><a th:href="@{/listaContactos}" class="cabecera">Lista de
@@ -57,15 +57,21 @@
 				<th class="nombreTabla">Dirección</th>
 				<th class="nombreTabla">Acciones</th>
 			</tr>
-			<tr th:each="contacto : ${claveListaContacto}" varStatus="status">
-				<td th:text="${contacto.id}">Index</td>
-				<td th:text="${contacto.persona}">Nombre</td>
-				<td th:text="${contacto.telefono}">Teléfono</td>
-				<td th:text="${contacto.direccion}">Dirección</td>
-				<td class="alineariconos">
-				<a th:href="@{'/eliminarContactos/' + ${contacto.id}}"><i class="far fa-trash-alt fa-1.8x"></i></a>&emsp;
-				<a th:href="@{'/editContacto/' + ${contacto.id}}"><i class="far fa-edit"></i></a>
+			<tr th:each="contacto : ${claveListaContactos}" varStatus="status">
+				<td th:text="${contacto.persona.idpersona}">Index</td>
+				<td th:text="${contacto.persona.nombre}">Nombre</td>
+				<td>
+				<table class="w3-table-all" id="tablaContactos">
+				<tr th:each="tlf : ${contacto.list_telefono}" varStatus="status">
+				<td th:text="${tlf.telefono}">Telefono</td>
+				</table>
 				</td>
+				<td th:text="${contacto.direccion.localidad}">Dirección</td>
+				<td class="alineariconos"><a
+					th:href="@{'/eliminarContactos/' + ${contacto.persona.idpersona}}"><i
+						class="far fa-trash-alt fa-1.8x"></i></a>&emsp; <a
+					th:href="@{'/editContacto/' + ${contacto.persona.idpersona}}"><i
+						class="far fa-edit"></i></a></td>
 			</tr>
 
 		</table>
