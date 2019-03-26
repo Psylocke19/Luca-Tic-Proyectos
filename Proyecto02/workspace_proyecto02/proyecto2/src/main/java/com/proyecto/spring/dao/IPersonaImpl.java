@@ -48,7 +48,7 @@ public class IPersonaImpl implements IPersonaCustom {
 	 
 	@Override
 	public Persona buscarPersona(Persona p) {
-		/*
+		
 		Query query = entityManager.createNativeQuery(
 				"FROM Persona WHERE nombre=?, apellido1=?, apellido2=?,dni=?,fechanacimiento=?", Persona.class);
 		query.setParameter(1, p.getNombre());
@@ -56,6 +56,7 @@ public class IPersonaImpl implements IPersonaCustom {
 		query.setParameter(3, p.getApellido2());
 		query.setParameter(4, p.getDni());
 		query.setParameter(5, p.getFechanacimiento());
+<<<<<<< HEAD
 <<<<<<< HEAD:Proyecto02/workspace_proyecto02/proyecto2/src/main/java/com/proyecto/spring/dao/PersonaImpl.java
 		return (Persona) query.getSingleResult();
 	} */
@@ -64,6 +65,10 @@ public class IPersonaImpl implements IPersonaCustom {
 		
 		//ASR
 		return new Persona();
+=======
+		return (Persona) query.getSingleResult();
+
+>>>>>>> 97f1e583e6b3e84d2f71c2868792b5550d7bba86
 	} 
 >>>>>>> 50e35b203b47a65d924f021695d8ed5fc32fd3fc:Proyecto02/workspace_proyecto02/proyecto2/src/main/java/com/proyecto/spring/dao/IPersonaImpl.java
 
