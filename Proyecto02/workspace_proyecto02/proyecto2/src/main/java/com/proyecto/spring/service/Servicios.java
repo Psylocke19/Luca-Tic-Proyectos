@@ -29,7 +29,7 @@ import com.proyecto.spring.model.Telefono;
 public class Servicios implements IServicios {
 
 	private static final Logger logger = LoggerFactory.getLogger(Servicios.class);
-	
+
 	@Autowired
 	private IProvincia datosprovincia;
 
@@ -117,21 +117,20 @@ public class Servicios implements IServicios {
 		// devuelve ese mismo objeto completo, con la ID generada por la BBDD
 		Persona miPersona = datospersona.buscarPersona(c.getPersona());
 
-		
-		
 		// Le annadimos al telefono de contacto el objeto Persona completo con el ID
 		c.getTelefonofijo().setPersona(miPersona);
 
 		c.getTelefonomovil().setPersona(miPersona);
-		
-		//Antes de annadir cualquiera de los dos, comprobamos si no estan vacios, en caso de que esten, no se annadira
-		if(!c.getTelefonofijo().getTelefono().isEmpty()) {
+
+		// Antes de annadir cualquiera de los dos, comprobamos si no estan vacios, en
+		// caso de que esten, no se annadira
+		if (!c.getTelefonofijo().getTelefono().isEmpty()) {
 			datostelefono.save(c.getTelefonofijo());
 		}
-		if(!c.getTelefonomovil().getTelefono().isEmpty()) {
+		if (!c.getTelefonomovil().getTelefono().isEmpty()) {
 			datostelefono.save(c.getTelefonomovil());
 		}
-		
+
 		// Hacemos lo mismo con el objeto Direccion
 		c.getDireccion().setPersona(miPersona);
 
@@ -192,6 +191,7 @@ public class Servicios implements IServicios {
 	 * Metodo que introduce un objeto de tipo contacto y es eliminada su
 	 * encapsulacion partiendo el objeto en persona direccion y la lista de
 	 * telefonos
+	 * 
 	 * @author grupo1
 	 * @param Contacto
 	 */
@@ -201,6 +201,32 @@ public class Servicios implements IServicios {
 		datosdireccion.save(c.getDireccion());
 		datostelefono.saveAll(c.getList_telefono());
 
+	}
+
+	public Contacto buscadorContacto(int idPersona) {
+
+		ArrayList<Telefono> misTelefonos = (ArrayList<Telefono>) datostelefono.findAll();
+
+		Persona p = datospersona.getOne(idPersona);
+
+		for (Telefono t : misTelefonos) {
+			if (t.getPersona().getIdpersona() != idPersona) {
+				misTelefonos.remove(t);
+			}
+		}
+
+		ArrayList<Direccion> misDirecciones = (ArrayList<Direccion>) datosdireccion.findAll();
+
+		Direccion dir = null;
+
+		for (Direccion d : misDirecciones) {
+			if (d.getPersona().getIdpersona() == idPersona) {
+				dir = d;
+				break;
+			}
+		}
+
+		return new Contacto(p, misTelefonos, dir);
 	}
 
 	/**

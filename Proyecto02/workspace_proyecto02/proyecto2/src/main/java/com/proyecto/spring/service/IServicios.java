@@ -16,4 +16,5 @@ public interface IServicios {
 	public ArrayList<Contacto> mostrarContactos(); 
 	public void eliminarContacto(int idContacto);
 	public void editarContacto(Contacto c);
+	public Contacto buscadorContacto(int idPersona);
 }

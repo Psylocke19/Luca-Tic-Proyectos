@@ -28,9 +28,8 @@ public class Control {
 	@Autowired
 	IServicios service;
 
-	
 	private static final Logger logger = LoggerFactory.getLogger(Control.class);
-	
+
 	/**
 	 * 
 	 * @author Grupo 1
@@ -87,7 +86,7 @@ public class Control {
 		return model;
 
 	}
-	
+
 	/**
 	 * Metodo que recoge una provincia a traves de metodo POST y la baja a la capa
 	 * de Servicios.
@@ -145,7 +144,7 @@ public class Control {
 		service.editarProvincia(p);
 
 		logger.info("-- Provincia editada");
-		
+
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
 
@@ -184,7 +183,7 @@ public class Control {
 	 * @return ModelAndView
 	 * @throws Exception
 	 */
-	
+
 	@PostMapping("/addContacto")
 	public ModelAndView addContactoPost(@ModelAttribute Contacto c) throws Exception {
 		logger.info("-- en annadir Contacto");
@@ -196,7 +195,7 @@ public class Control {
 
 		return model;
 	}
-	
+
 	@GetMapping("/listaContactos")
 	public ModelAndView mostrarContactos() throws Exception {
 		logger.info("-- en lista Contactos");
@@ -210,7 +209,7 @@ public class Control {
 		return model;
 
 	}
-	
+
 	/**
 	 * 
 	 * @author Grupo 1
@@ -225,10 +224,20 @@ public class Control {
 		// Le pasamos el objeto a la parte de servicios
 		service.eliminarContacto(id);
 		logger.info("-- Contacto eliminado de la BD");
-		//Una vez se haya eliminado el contacto nos redigirimos a listarContactos
+		// Una vez se haya eliminado el contacto nos redigirimos a listarContactos
 		ModelAndView model = new ModelAndView("redirect:/listaContactos");
 
 		return model;
 	}
-	
+
+	@GetMapping("/editarContacto/{id}")
+	public ModelAndView editarContacto(@PathVariable int id) throws Exception {
+		logger.info("-- en editar Contacto");
+		ModelAndView model = new ModelAndView("addContacto");
+		
+		model.addObject("claveContacto", service.buscadorContacto(id));
+
+		return model;
+	}
+
 }
