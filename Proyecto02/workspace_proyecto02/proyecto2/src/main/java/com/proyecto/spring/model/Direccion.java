@@ -29,7 +29,7 @@ public class Direccion implements Serializable {
 	// bi-directional many-to-one association to Provincia
 	@ManyToOne
 	@JoinColumn(name = "idprovincia")
-	private Provincia provincia;
+	private Provincia provincia = new Provincia();
 
 	public Direccion() {
 	}
