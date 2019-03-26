@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import com.proyecto.spring.model.Contacto;
 
@@ -25,7 +25,7 @@ import com.proyecto.spring.service.IServicios_Rest;
 public class ControlRest {
 
 	@Autowired
-	private IServicios_Rest serviciosrest;
+	private IServicios_Rest serviciosRest;
 
 	private static final Logger logger = LogManager.getLogger("Mensaje :");
 
@@ -37,7 +37,7 @@ public class ControlRest {
 	@GetMapping("/mostrarContacto")
 	public List<Contacto> mostrarContacto() {
 
-		return serviciosrest.mostrarContactos();
+		return serviciosRest.mostrarContactos();
 
 	}
 
@@ -53,7 +53,7 @@ public class ControlRest {
 		// Le pasamos el objeto a la parte de servicios
 
 		logger.info("en add contacto");
-		return serviciosrest.addContacto(c);
+		return serviciosRest.addContacto(c);
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class ControlRest {
 	public boolean eliminarContacto(@PathVariable int id) throws Exception {
 		logger.info("-- en eliminar Contacto");
 		// Le pasamos el id a la parte de servicios
-		return serviciosrest.borrarId(id);
+		return serviciosRest.borrarId(id);
 	}
 
 	/**
