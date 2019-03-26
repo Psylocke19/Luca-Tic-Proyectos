@@ -51,16 +51,17 @@
 <body>
 
 	<div align="center" class="cuerpoAdd">
-		<!--  <span th:if="${value == 'add'}">  -->
+		<span th:if="${value == 'add'}"> 
 		<form th:action="${addContacto}" method="post"
 			th:object="${claveContacto}" id="nombre">
+
 			<p>
 				Nombre <input type="text" th:field="*{persona.nombre}"
 					class="w3-input w3-border" id="cuadroblanco" />
 			</p>
 			<p>
 				Primer apellido: <input type="text" th:field="*{persona.apellido1}"
-					class="w3-input w3-border" id="cuadroblanco" th:text="${provincia.nombre}/>
+					class="w3-input w3-border" id="cuadroblanco"/>
 			</p>
 			<p>
 				Segundo apellido: <input type="text" th:field="*{persona.apellido2}"
@@ -106,6 +107,67 @@
 			<br> <input type="submit" value="Añadir contacto"
 				class="w3-btn w3-green" id="registro">
 		</form>
+		</span>
+	</div>
+	
+		<div align="center" class="cuerpoAdd">
+		<span th:if="${value == 'edit'}"> 
+		<form th:action="${editarContacto}" method="post"
+			th:object="${claveContacto}" id="nombre">
+
+			<p>
+				Nombre <input type="text" th:field="*{persona.nombre}"
+					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.persona.nombre}"/>
+			</p>
+			<p>
+				Primer apellido: <input type="text" th:field="*{persona.apellido1}"
+					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.persona.apellido1}"/>
+			</p>
+			<p>
+				Segundo apellido: <input type="text" th:field="*{persona.apellido2}"
+					class="w3-input w3-border" id="cuadroblanco"  th:text="${claveContacto.persona.apellido2}"/>
+			</p>
+			<p>
+				DNI: <input type="text" th:field="*{persona.dni}"
+					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.persona.dni}"/>
+			</p>
+			<p>
+				Fecha de nacimiento: <input type="text"
+					th:field="*{persona.fechanacimiento}" class="w3-input w3-border"
+					id="cuadroblanco" th:text="${claveContacto.persona.fechanacimiento}"/>
+			</p>
+			<p>
+				Teléfono fijo: <input type="text"
+					th:field="*{telefonofijo.telefono}" class="w3-input w3-border"
+					id="cuadroblanco"  th:text="${claveContacto.telefonofijo.telefono}"/>
+			</p>
+			<p>
+				Teléfono móvil: <input type="text"
+					th:field="*{telefonomovil.telefono}" class="w3-input w3-border"
+					id="cuadroblanco" th:text="${claveContacto.telefonomovil.telefono}"/>
+			</p>
+			<p>
+				Código Postal: <input type="text" th:field="*{direccion.codpostal}"
+					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.direccion.codpostal}"/>
+			</p>
+			<p>
+				Dirección: <input type="text" th:field="*{direccion.direccion}"
+					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.direccion.direccion}"/>
+			</p>
+			<p>
+				Localidad: <input type="text" th:field="*{direccion.localidad}"
+					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.direccion.localidad}"/>
+			</p>
+			<p>
+				Provincia: <select id="browsers" th:field="*{direccion.provincia.id}">
+					<option th:each="provincia : ${claveProvincias}"
+						th:value="${provincia.id}" th:text="${provincia.nombre}"></option>
+				</select>
+			</p>
+			<br> <input type="submit" value="Editar contacto"
+				class="w3-btn w3-red" id="registro">
+		</form>
+		</span>
 	</div>
 
 	<!-- Footer -->

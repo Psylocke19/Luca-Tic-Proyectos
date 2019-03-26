@@ -76,7 +76,7 @@ public class Contacto {
 
 	@Override
 	public String toString() {
-		return "Contacto [persona=" + persona + ", list_telefono=" + list_telefono + ", direccion=" + direccion + "]";
+		return "Contacto [persona=" + persona.toString() + ", list_telefono=" + list_telefono.toString() + ", direccion=" + direccion.toString() + "]";
 	}
 
 }

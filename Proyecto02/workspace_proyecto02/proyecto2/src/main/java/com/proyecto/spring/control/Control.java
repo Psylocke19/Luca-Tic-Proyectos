@@ -168,6 +168,7 @@ public class Control {
 		logger.info("-- addContacto");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("addContacto");
+		model.addObject("value", "add");
 		model.addObject("claveContacto", new Contacto());
 		model.addObject("claveProvincias", service.mostrarProvincias());
 		return model;
@@ -241,11 +242,13 @@ public class Control {
 
 	@GetMapping("/editarContacto/{id}")
 	public ModelAndView editarContacto(@PathVariable int id) throws Exception {
-		logger.info("-- en editar Contacto");
+		logger.info("-- en mostrar Editar Contacto");
 		ModelAndView model = new ModelAndView("addContacto");
-		
+		model.addObject("value", "edit");
 		model.addObject("claveContacto", service.buscadorContacto(id));
-
+		logger.info(service.buscadorContacto(id).toString());
+		model.addObject("claveProvincias", service.mostrarProvincias());
+		
 		return model;
 	}
 	

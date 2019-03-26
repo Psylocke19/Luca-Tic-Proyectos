@@ -120,15 +120,14 @@ public class Servicios implements IServicios {
 		// Le annadimos al telefono de contacto el objeto Persona completo con el ID
 		c.getTelefonofijo().setPersona(miPersona);
 
-		c.getTelefonomovil().setPersona(miPersona);
-
 		// Antes de annadir cualquiera de los dos, comprobamos si no estan vacios, en
 		// caso de que esten, no se annadira
 		if (!c.getTelefonofijo().getTelefono().isEmpty()) {
 			datostelefono.save(c.getTelefonofijo());
 		}
 		if (!c.getTelefonomovil().getTelefono().isEmpty()) {
-			datostelefono.save(c.getTelefonomovil());
+			c.getTelefonofijo().setTelefono(c.getTelefonomovil().getTelefono());
+			datostelefono.save(c.getTelefonofijo());
 		}
 
 		// Hacemos lo mismo con el objeto Direccion
@@ -200,18 +199,19 @@ public class Servicios implements IServicios {
 		datospersona.save(c.getPersona());
 		datosdireccion.save(c.getDireccion());
 		datostelefono.saveAll(c.getList_telefono());
-
 	}
 
 	public Contacto buscadorContacto(int idPersona) {
 
-		ArrayList<Telefono> misTelefonos = (ArrayList<Telefono>) datostelefono.findAll();
+		ArrayList<Telefono> listaTelefonos = (ArrayList<Telefono>) datostelefono.findAll();
 
 		Persona p = datospersona.getOne(idPersona);
 
-		for (Telefono t : misTelefonos) {
-			if (t.getPersona().getIdpersona() != idPersona) {
-				misTelefonos.remove(t);
+		ArrayList<Telefono> misTelefonos = new ArrayList<Telefono>();
+
+		for (Telefono t : listaTelefonos) {
+			if (t.getPersona().getIdpersona() == idPersona) {
+				misTelefonos.add(t);
 			}
 		}
 
@@ -225,8 +225,13 @@ public class Servicios implements IServicios {
 				break;
 			}
 		}
+		if (misTelefonos.size() <= 1) {
+			Telefono t = new Telefono();
+			t.setPersona(p);
+			return new Contacto(p, misTelefonos.get(0), t, dir);
+		}
+		return new Contacto(p, misTelefonos.get(0), misTelefonos.get(1), dir);
 
-		return new Contacto(p, misTelefonos, dir);
 	}
 
 	/**

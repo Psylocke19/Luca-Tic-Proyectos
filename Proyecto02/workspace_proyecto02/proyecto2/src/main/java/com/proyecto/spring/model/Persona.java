@@ -23,12 +23,13 @@ public class Persona implements Serializable {
 
 	private String dni;
 
-	@Column(name="fechanacimiento")
+	@Column(name = "fechanacimiento")
 	private String fechanacimiento;
 
 	private String nombre;
 
-	public Persona(int idpersona, String apellido1, String apellido2, String dni, String fechanacimiento, String nombre) {
+	public Persona(int idpersona, String apellido1, String apellido2, String dni, String fechanacimiento,
+			String nombre) {
 		super();
 		this.idpersona = idpersona;
 		this.apellido1 = apellido1;
@@ -87,6 +88,12 @@ public class Persona implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
+				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + "]";
 	}
 
 }
