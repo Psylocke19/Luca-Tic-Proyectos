@@ -112,14 +112,21 @@ public class Servicios implements IServicios {
 		// devuelve ese mismo objeto completo, con la ID generada por la BBDD
 		Persona miPersona = datospersona.buscarPersona(c.getPersona());
 
+		
+		
 		// Le annadimos al telefono de contacto el objeto Persona completo con el ID
-		for (int i = 0; i < c.getList_telefono().size(); i++) {
-			c.getList_telefono().get(i).setPersona(miPersona);
+		c.getTelefonofijo().setPersona(miPersona);
 
-			// Annadimos ahora el objeto telefono entero con la Persona ya relaccionada
-			datostelefono.save(c.getList_telefono().get(i));
+		c.getTelefonomovil().setPersona(miPersona);
+		
+		//Antes de annadir cualquiera de los dos, comprobamos si no estan vacios, en caso de que esten, no se annadira
+		if(!c.getTelefonofijo().getTelefono().isEmpty()) {
+			datostelefono.save(c.getTelefonofijo());
 		}
-
+		if(!c.getTelefonomovil().getTelefono().isEmpty()) {
+			datostelefono.save(c.getTelefonomovil());
+		}
+		
 		// Hacemos lo mismo con el objeto Direccion
 		c.getDireccion().setPersona(miPersona);
 

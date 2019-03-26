@@ -192,7 +192,7 @@ public class Control {
 		service.addContacto(c);
 		logger.info("-- Contacto annadido a la BD");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
-		ModelAndView model = new ModelAndView("redirect:/listaProvincias");
+		ModelAndView model = new ModelAndView("redirect:/listaContactos");
 
 		return model;
 	}
