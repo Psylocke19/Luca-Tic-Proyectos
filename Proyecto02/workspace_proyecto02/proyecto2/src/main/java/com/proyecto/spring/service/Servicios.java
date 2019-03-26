@@ -127,9 +127,10 @@ public class Servicios implements IServicios {
 		datosdireccion.save(c.getDireccion());
 
 	}
-	
+
 	/**
-	 * Metodo para mostrar la lista de contactos a partir de las listas de persona, telefono y direccion
+	 * Metodo para mostrar la lista de contactos a partir de las listas de persona,
+	 * telefono y direccion
 	 * 
 	 * @return List<Contacto>
 	 * @author Grupo 1
@@ -137,20 +138,23 @@ public class Servicios implements IServicios {
 	 * 
 	 */
 	public ArrayList<Contacto> mostrarContactos() {
-		
-		// Creamos una lista para persona, telefono y direccion a partir de la base de datos correspondiente
+
+		// Creamos una lista para persona, telefono y direccion a partir de la base de
+		// datos correspondiente
 		List<Persona> persona = datospersona.findAll();
 		List<Telefono> telefono = datostelefono.findAll();
 		List<Direccion> direccion = datosdireccion.findAll();
-		
-		// Creamos un ArrayList de contactos donde almacenaremos los datos de las distintas tablas
+
+		// Creamos un ArrayList de contactos donde almacenaremos los datos de las
+		// distintas tablas
 		ArrayList<Contacto> listaContactos = new ArrayList<>();
 		// Recorremos el array rellenándolo con los datos de las personas
 		for (Persona p : persona) {
 			Contacto c = new Contacto();
 			c.setPersona(p);
-			
-			// Hacemos lo mismo con la de teléfonos pero en forma de ArrayList, ya que cada persona puede tener asociado más de un teléfono
+
+			// Hacemos lo mismo con la de teléfonos pero en forma de ArrayList, ya que cada
+			// persona puede tener asociado más de un teléfono
 			ArrayList<Telefono> listaTelefonos = new ArrayList<>();
 			for (Telefono t : telefono) {
 				if (t.getPersona().getIdpersona() == p.getIdpersona()) {
@@ -158,7 +162,7 @@ public class Servicios implements IServicios {
 				}
 			}
 			c.setList_telefono(listaTelefonos);
-			// Introducimos las direcciones 
+			// Introducimos las direcciones
 			for (Direccion d : direccion) {
 				if (d.getPersona().getIdpersona() == p.getIdpersona()) {
 					c.setDireccion(d);
@@ -169,20 +173,37 @@ public class Servicios implements IServicios {
 		// Devolvemos la lista de contactos ya cohesionada
 		return listaContactos;
 	}
-	
+
 	/**
-	 * @author grupo1 
-	 * Metodo que introduce un objeto de tipo contacto y es eliminada su encapsulacion partiendo el objeto en persona direccion y la lista de telefonos
-	 * @param c
+	 * Metodo que introduce un objeto de tipo contacto y es eliminada su
+	 * encapsulacion partiendo el objeto en persona direccion y la lista de
+	 * telefonos
+	 * @author grupo1
+	 * @param Contacto
 	 */
-	public void editarContacto(Contacto c ) {
-		
+	public void editarContacto(Contacto c) {
+
 		datospersona.save(c.getPersona());
 		datosdireccion.save(c.getDireccion());
 		datostelefono.saveAll(c.getList_telefono());
-			
-		
-		
+
+	}
+
+	/**
+	 * Metodo que elimina un contacto de la BBDD. Le pasamos el ID de la Persona, y
+	 * una vez borramos esta, automaticamente se borra tanto las direcciones como
+	 * los telefonos asociados a esa persona
+	 * 
+	 * @author Grupo 1
+	 * @param int idContacto
+	 */
+
+	public void eliminarContacto(int idContacto) {
+
+		// Eliminamos solo la persona porque en la BBDD esta puesto el DELETE ON
+		// CASCADE, y todas las direcciones y telefono asociados al ID de esa persona,
+		// seran eliminados una vez que la persona se elimine
+		datospersona.deleteById(idContacto);
 	}
 
 }
