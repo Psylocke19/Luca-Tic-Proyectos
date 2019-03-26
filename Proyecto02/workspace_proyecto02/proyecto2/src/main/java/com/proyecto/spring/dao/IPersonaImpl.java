@@ -47,6 +47,10 @@ public class IPersonaImpl implements IPersonaCustom {
 
 		return (Persona) query.getSingleResult();
 	}
+	
+
+
+	
 
 	
 

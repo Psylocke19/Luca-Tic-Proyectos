@@ -88,8 +88,8 @@ public class ControlRest {
 	 */
 	
 	 
-	@PutMapping("/editarContacto/")
-	public Contacto editarContacto(@ModelAttribute Contacto c) {
+	@PutMapping("/editarContacto/{id}")
+	public Contacto editarContacto(@PathVariable Contacto c) {
 				
 		return serviciosRest.editarContacto(c);
 	

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.proyecto.spring.dao.IDireccion;
 import com.proyecto.spring.dao.IPersona;
 import com.proyecto.spring.dao.IProvincia;
+import com.proyecto.spring.dao.IProvinciaCustom;
 import com.proyecto.spring.dao.ITelefono;
 import com.proyecto.spring.model.Contacto;
 import com.proyecto.spring.model.Direccion;
@@ -32,6 +33,8 @@ public class Servicios_Rest implements IServicios_Rest{
 
 	@Autowired
 	private ITelefono restDatostelefono;
+	@Autowired
+	private IProvinciaCustom restDatosCustom;
 	
 	
 	public Contacto addContacto(Contacto c) {
@@ -149,6 +152,14 @@ public class Servicios_Rest implements IServicios_Rest{
 		
 		return c;
 
+	}
+	
+	public List<Contacto> buscarPorProvincia(String provincia) {
+		
+		
+		
+		return restDatosCustom.buscarPorProvincia(provincia);
+		
 	}
 	
 }

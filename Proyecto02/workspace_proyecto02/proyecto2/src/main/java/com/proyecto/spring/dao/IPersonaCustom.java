@@ -8,4 +8,6 @@ import com.proyecto.spring.model.Persona;
 public interface IPersonaCustom{
 
 	public Persona buscarPersona(Persona p);
+
+	
 }
