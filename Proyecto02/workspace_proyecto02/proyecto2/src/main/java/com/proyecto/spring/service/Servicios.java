@@ -5,10 +5,13 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
+import com.proyecto.spring.control.Control;
 import com.proyecto.spring.dao.IDireccion;
 import com.proyecto.spring.dao.IPersona;
 import com.proyecto.spring.dao.IProvincia;
@@ -25,6 +28,8 @@ import com.proyecto.spring.model.Telefono;
 @Transactional
 public class Servicios implements IServicios {
 
+	private static final Logger logger = LoggerFactory.getLogger(Servicios.class);
+	
 	@Autowired
 	private IProvincia datosprovincia;
 
@@ -130,10 +135,8 @@ public class Servicios implements IServicios {
 		// Hacemos lo mismo con el objeto Direccion
 		c.getDireccion().setPersona(miPersona);
 
-		System.out.println(c.getDireccion().getProvincia().toString());
-		
-		//c.getDireccion().setProvincia(new Provincia(1, ""));
-		
+		logger.info("--- " + c.getDireccion().getProvincia().toString());
+
 		// La annadimos a la BBDD
 		datosdireccion.save(c.getDireccion());
 
