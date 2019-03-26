@@ -123,6 +123,8 @@ public class Servicios implements IServicios {
 		// Hacemos lo mismo con el objeto Direccion
 		c.getDireccion().setPersona(miPersona);
 
+		c.getDireccion().setProvincia(new Provincia(1, ""));
+		
 		// La annadimos a la BBDD
 		datosdireccion.save(c.getDireccion());
 

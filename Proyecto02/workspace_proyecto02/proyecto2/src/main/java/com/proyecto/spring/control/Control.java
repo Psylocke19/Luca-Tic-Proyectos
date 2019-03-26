@@ -166,10 +166,11 @@ public class Control {
 
 	@GetMapping("/addContacto")
 	public ModelAndView addContacto() throws Exception {
-		logger.info("-- addPtro");
+		logger.info("-- addContacto");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("addContacto");
 		model.addObject("claveContacto", new Contacto());
+		model.addObject("claveProvincias", service.mostrarProvincias());
 		return model;
 
 	}

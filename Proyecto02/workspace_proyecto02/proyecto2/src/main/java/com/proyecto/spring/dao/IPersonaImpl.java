@@ -41,7 +41,7 @@ public class IPersonaImpl implements IPersonaCustom {
 	public Persona buscarPersona(Persona p) {
 
 		Query query = entityManager.createNativeQuery(
-				"FROM Persona WHERE nombre=?, apellido1=?, apellido2=?,dni=?,fechanacimiento=?", Persona.class);
+				"SELECT * FROM Persona WHERE nombre=? AND apellido1=? AND apellido2=? AND dni=? AND fechanacimiento=?", Persona.class);
 		query.setParameter(1, p.getNombre());
 		query.setParameter(2, p.getApellido1());
 		query.setParameter(3, p.getApellido2());

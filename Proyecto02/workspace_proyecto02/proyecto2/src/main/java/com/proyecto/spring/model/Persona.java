@@ -23,12 +23,12 @@ public class Persona implements Serializable {
 
 	private String dni;
 
-	@Temporal(TemporalType.DATE)
-	private Date fechanacimiento;
+	@Column(name="fechanacimiento")
+	private String fechanacimiento;
 
 	private String nombre;
 
-	public Persona(int idpersona, String apellido1, String apellido2, String dni, Date fechanacimiento, String nombre) {
+	public Persona(int idpersona, String apellido1, String apellido2, String dni, String fechanacimiento, String nombre) {
 		super();
 		this.idpersona = idpersona;
 		this.apellido1 = apellido1;
@@ -73,11 +73,11 @@ public class Persona implements Serializable {
 		this.dni = dni;
 	}
 
-	public Date getFechanacimiento() {
+	public String getFechanacimiento() {
 		return this.fechanacimiento;
 	}
 
-	public void setFechanacimiento(Date fechanacimiento) {
+	public void setFechanacimiento(String fechanacimiento) {
 		this.fechanacimiento = fechanacimiento;
 	}
 

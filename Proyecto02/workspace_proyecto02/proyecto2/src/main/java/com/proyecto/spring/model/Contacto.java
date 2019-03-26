@@ -6,7 +6,20 @@ public class Contacto {
 
 	private Persona persona;
 	private ArrayList<Telefono> list_telefono;
+	private Telefono telefonofijo;
+	private Telefono telefonomovil;
 	private Direccion direccion;
+
+	public Contacto(Persona persona, Telefono fijo, Telefono movil, Direccion direccion) {
+		super();
+		this.persona = persona;
+		this.telefonofijo = fijo;
+		this.telefonomovil = movil;
+		this.direccion = direccion;
+
+		list_telefono.add(this.telefonomovil);
+		list_telefono.add(this.telefonofijo);
+	}
 
 	public Contacto(Persona persona, ArrayList<Telefono> list_telefono, Direccion direccion) {
 		super();
@@ -19,6 +32,8 @@ public class Contacto {
 		persona = new Persona();
 		list_telefono = new ArrayList<Telefono>();
 		direccion = new Direccion();
+		telefonofijo = new Telefono();
+		telefonomovil = new Telefono();
 	}
 
 	public Persona getPersona() {
@@ -43,6 +58,22 @@ public class Contacto {
 
 	public void setDireccion(Direccion direccion) {
 		this.direccion = direccion;
+	}
+
+	public Telefono getTelefonofijo() {
+		return telefonofijo;
+	}
+
+	public void setTelefonofijo(Telefono telefonofijo) {
+		this.telefonofijo = telefonofijo;
+	}
+
+	public Telefono getTelefonomovil() {
+		return telefonomovil;
+	}
+
+	public void setTelefonomovil(Telefono telefonomovil) {
+		this.telefonomovil = telefonomovil;
 	}
 
 	@Override
