@@ -8,15 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
-<<<<<<< HEAD
+
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-=======
+
 
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
->>>>>>> master
+
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -82,7 +82,6 @@ public class ControlRest {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Metodo que retorna un Objeto Contacto modificado desde la capa de Servicios
 	 * @param Contacto c
 	 * @return
@@ -92,27 +91,11 @@ public class ControlRest {
 	@PutMapping("/editarContacto/")
 	public Contacto editarContacto(@ModelAttribute Contacto c) {
 				
-		return servicios.editarContacto(c);
+		return serviciosRest.editarContacto(c);
 	
 	
 }
 
-=======
-	 * Metodo que llama a la capa servicios y que devuelve un Objeto Contacto
-	 * 
-	 * @param id
-	 * @param Contacto c
-	 * @return
-	 * 
-	 * 		@GetMapping("/editarContacto/{id}") public Contacto
-	 *         editarContacto(@PathVariable int id, Contacto c) {
-	 * 
-	 * 
-	 *         return servicios.editarContacto();
-	 * 
-	 * 
-	 *         }
-	 */
->>>>>>> master
+
 
 }
