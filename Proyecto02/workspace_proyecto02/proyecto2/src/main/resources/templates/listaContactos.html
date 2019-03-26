@@ -61,10 +61,11 @@
 				<td th:text="${contacto.persona.idpersona}">Index</td>
 				<td th:text="${contacto.persona.nombre}">Nombre</td>
 				<td>
-				<table class="w3-table-all" id="tablaContactos">
-				<tr th:each="tlf : ${contacto.list_telefono}" varStatus="status">
-				<td th:text="${tlf.telefono}">Telefono</td>
-				</table>
+				<!--  <tr th:each="tlf : ${contacto.list_telefono}" varStatus="status">
+				<td th:text="${tlf.telefono}">Telefono</td> -->
+				<select id="browsers">
+				<option th:each="telefono : ${contacto.list_telefono}" varStatus="status" th:value="${telefono.telefono}" th:text = "${telefono.telefono}">
+				</select>
 				</td>
 				<td th:text="${contacto.direccion.localidad}">Dirección</td>
 				<td class="alineariconos"><a
