@@ -16,19 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.spring.model.Contacto;
 
-import com.proyecto.spring.service.IServicios;
+
 import com.proyecto.spring.service.IServicios_Rest;
 
 @RestController
 @RequestMapping("/rest")
 public class ControlRest {
 
-	@Autowired
-	private IServicios servicios;
+
 	@Autowired
 	private IServicios_Rest serviciosrest;
 
-	private static final Logger logger = LogManager.getLogger("Mensaje");
+	private static final Logger logger = LogManager.getLogger("Mensaje :");
 	
 	
 	/**
@@ -39,7 +38,7 @@ public class ControlRest {
 	@GetMapping("/mostrarContacto")
 	public List<Contacto> mostrarContacto() {
 
-		return servicios.mostrarContactos();
+		return serviciosrest.mostrarContactos();
 
 	}
 

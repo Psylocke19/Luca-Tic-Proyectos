@@ -1,5 +1,8 @@
 package com.proyecto.spring.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,4 +67,52 @@ public class Servicios_Rest implements IServicios_Rest{
 		return con;
 
 }
+	
+	
+	/**
+	 * Metodo para mostrar la lista de contactos a partir de las listas de persona,
+	 * telefono y direccion
+	 * 
+	 * @return List<Contacto>
+	 * @author Grupo 1
+	 * 
+	 * 
+	 */
+	public ArrayList<Contacto> mostrarContactos() {
+
+		// Creamos una lista para persona, telefono y direccion a partir de la base de
+		// datos correspondiente
+		List<Persona> persona = restDatospersona.findAll();
+		List<Telefono> telefono = restDatostelefono.findAll();
+		List<Direccion> direccion = restDatosdireccion.findAll();
+
+		// Creamos un ArrayList de contactos donde almacenaremos los datos de las
+		// distintas tablas
+		ArrayList<Contacto> listaContactos = new ArrayList<>();
+		// Recorremos el array rellenándolo con los datos de las personas
+		for (Persona p : persona) {
+			Contacto c = new Contacto();
+			c.setPersona(p);
+
+			// Hacemos lo mismo con la de teléfonos pero en forma de ArrayList, ya que cada
+			// persona puede tener asociado más de un teléfono
+			ArrayList<Telefono> listaTelefonos = new ArrayList<>();
+			for (Telefono t : telefono) {
+				if (t.getPersona().getIdpersona() == p.getIdpersona()) {
+					listaTelefonos.add(t);
+				}
+			}
+			c.setList_telefono(listaTelefonos);
+			// Introducimos las direcciones
+			for (Direccion d : direccion) {
+				if (d.getPersona().getIdpersona() == p.getIdpersona()) {
+					c.setDireccion(d);
+				}
+			}
+			listaContactos.add(c);
+		}
+		// Devolvemos la lista de contactos ya cohesionada
+		return listaContactos;
+	}
+	
 }
