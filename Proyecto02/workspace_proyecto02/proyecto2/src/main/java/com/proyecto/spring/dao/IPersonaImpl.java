@@ -23,11 +23,7 @@ public class IPersonaImpl implements IPersonaCustom {
 	@PersistenceContext
 	EntityManager entityManager;
 
-	@Override
-	public Persona buscarPersona(Persona p) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	/**
 	 * Metodo que busca una persona por parametros y nos devuelve el objeto completo
@@ -57,9 +53,9 @@ public class IPersonaImpl implements IPersonaCustom {
 		query.setParameter(5, p.getFechanacimiento());
 
 		return (Persona) query.getSingleResult();
-	} 
+	}
 
-		return (Persona) query.getSingleResult();
+		
 		
 		//ASR
 		return new Persona();
