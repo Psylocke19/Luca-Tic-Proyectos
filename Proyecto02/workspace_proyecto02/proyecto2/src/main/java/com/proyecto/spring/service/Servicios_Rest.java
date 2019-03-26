@@ -115,4 +115,25 @@ public class Servicios_Rest implements IServicios_Rest{
 		return listaContactos;
 	}
 	
+	/**
+	 * Metodo que elimina un contacto de la BBDD. Le pasamos el ID de la Persona, y
+	 * una vez borramos esta, automaticamente se borra tanto las direcciones como
+	 * los telefonos asociados a esa persona
+	 * 
+	 * @author Grupo 1
+	 * @param int idContacto
+	 */
+
+	public boolean borrarId(int idContacto) {
+
+		// Eliminamos solo la persona porque en la BBDD esta puesto el DELETE ON
+		// CASCADE, y todas las direcciones y telefono asociados al ID de esa persona,
+		// seran eliminados una vez que la persona se elimine ademas retorna un tipo boolean ,si existe retorna true y si no existe (deberia lanzar false ya que no existe) false
+		
+		restDatospersona.deleteById(idContacto);
+		
+	
+		return restDatospersona.existsById(idContacto);
+	}
+	
 }
