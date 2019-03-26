@@ -64,7 +64,7 @@ public class ControlRest {
 		return servicios.editarContacto();
 	
 	
-}*/
+}
 
 
 }
