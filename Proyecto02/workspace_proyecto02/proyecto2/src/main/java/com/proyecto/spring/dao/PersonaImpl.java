@@ -36,16 +36,18 @@ public class PersonaImpl implements IPersonaCustom {
 	// Este metodo lo creamos para buscar el objeto que introducimos en el apartado
 	// de servicios y luego para averiguar la ID que le genero la BBDD, lo buscamos
 	// con los datos, y nos retorna el objeto completo con el ID generado
+	
+	
 	@Override
 	public Persona buscarPersona(Persona p) {
 		Query query = entityManager.createNativeQuery(
-				"FROM Persona " + "WHERE nombre=?, apellido1=?, apellido2=?,dni=?,fechanacimiento=?", Persona.class);
+				"FROM Persona WHERE nombre=?, apellido1=?, apellido2=?,dni=?,fechanacimiento=?", Persona.class);
 		query.setParameter(1, p.getNombre());
 		query.setParameter(2, p.getApellido1());
 		query.setParameter(3, p.getApellido2());
 		query.setParameter(4, p.getDni());
 		query.setParameter(5, p.getFechanacimiento());
-		return (Persona) query.getResultList();
-	}
+		return (Persona) query.getSingleResult();
+	} 
 
 }
