@@ -6,14 +6,12 @@ public class Contacto {
 
 	private Persona persona;
 	private ArrayList<Telefono> list_telefono = new ArrayList<Telefono>();
-	private Telefono telefonofijo;
 	private Telefono telefonomovil;
 	private Direccion direccion;
 
-	public Contacto(Persona persona, Telefono fijo, Telefono movil, Direccion direccion) {
+	public Contacto(Persona persona, Telefono movil, Direccion direccion) {
 		super();
 		this.persona = persona;
-		this.telefonofijo = fijo;
 		this.telefonomovil = movil;
 		this.direccion = direccion;
 
@@ -30,7 +28,6 @@ public class Contacto {
 		persona = new Persona();
 		list_telefono = new ArrayList<Telefono>();
 		direccion = new Direccion();
-		telefonofijo = new Telefono();
 		telefonomovil = new Telefono();
 	}
 
@@ -58,13 +55,6 @@ public class Contacto {
 		this.direccion = direccion;
 	}
 
-	public Telefono getTelefonofijo() {
-		return telefonofijo;
-	}
-
-	public void setTelefonofijo(Telefono telefonofijo) {
-		this.telefonofijo = telefonofijo;
-	}
 
 	public Telefono getTelefonomovil() {
 		return telefonomovil;

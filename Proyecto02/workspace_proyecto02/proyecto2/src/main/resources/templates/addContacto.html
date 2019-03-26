@@ -77,11 +77,6 @@
 					id="cuadroblanco" />
 			</p>
 			<p>
-				Teléfono fijo: <input type="text"
-					th:field="*{telefonofijo.telefono}" class="w3-input w3-border"
-					id="cuadroblanco" />
-			</p>
-			<p>
 				Teléfono móvil: <input type="text"
 					th:field="*{telefonomovil.telefono}" class="w3-input w3-border"
 					id="cuadroblanco" />
@@ -114,8 +109,9 @@
 		<span th:if="${value == 'edit'}"> 
 		<form th:action="${editarContacto}" method="post"
 			th:object="${claveContacto}" id="nombre">
-
+			<input type="hidden"  th:field="*{persona.idpersona}">
 			<p>
+			
 				Nombre <input type="text" th:field="*{persona.nombre}"
 					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.persona.nombre}"/>
 			</p>
@@ -136,17 +132,17 @@
 					th:field="*{persona.fechanacimiento}" class="w3-input w3-border"
 					id="cuadroblanco" th:text="${claveContacto.persona.fechanacimiento}"/>
 			</p>
+
 			<p>
-				Teléfono fijo: <input type="text"
-					th:field="*{telefonofijo.telefono}" class="w3-input w3-border"
-					id="cuadroblanco"  th:text="${claveContacto.telefonofijo.telefono}"/>
-			</p>
-			<p>
+			<input type="hidden"  th:field="*{telefonomovil.persona.idpersona}">
+			<input type="hidden"  th:field="*{telefonomovil.idtelefono}">
 				Teléfono móvil: <input type="text"
 					th:field="*{telefonomovil.telefono}" class="w3-input w3-border"
 					id="cuadroblanco" th:text="${claveContacto.telefonomovil.telefono}"/>
 			</p>
 			<p>
+			<input type="hidden"  th:field="*{direccion.persona.idpersona}">
+			<input type="hidden"  th:field="*{direccion.iddireccion}">
 				Código Postal: <input type="text" th:field="*{direccion.codpostal}"
 					class="w3-input w3-border" id="cuadroblanco" th:text="${claveContacto.direccion.codpostal}"/>
 			</p>
