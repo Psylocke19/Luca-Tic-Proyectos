@@ -24,6 +24,11 @@ export class ServiciosService {
     return this.http.get<Contacto[]>(this.url + "mostrarContacto");
   }
 
+  //Metodo que elimina los contactos a través del id de la persona usando los servicios Rest
+  public eliminarContacto(contacto) {
+    return this.http.delete(this.url + "eliminarContacto/"+ contacto.persona.idpersona); 
+  }
+
   //Metodo que envia el objeto contacto para annadirlo al servicio Rest
   public addContacto(contacto) {
     return this.http.post<Contacto>(this.url + "addContacto", contacto);
