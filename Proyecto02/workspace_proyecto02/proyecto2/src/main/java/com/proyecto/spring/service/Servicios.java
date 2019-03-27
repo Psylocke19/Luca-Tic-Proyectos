@@ -118,15 +118,11 @@ public class Servicios implements IServicios {
 		Persona miPersona = datospersona.buscarPersona(c.getPersona());
 
 		// Le annadimos al telefono de contacto el objeto Persona completo con el ID
-		c.getTelefonofijo().setPersona(miPersona);
-
 		c.getTelefonomovil().setPersona(miPersona);
 
 		// Antes de annadir cualquiera de los dos, comprobamos si no estan vacios, en
 		// caso de que esten, no se annadira
-		if (!c.getTelefonofijo().getTelefono().isEmpty()) {
-			datostelefono.save(c.getTelefonofijo());
-		}
+
 		if (!c.getTelefonomovil().getTelefono().isEmpty()) {
 			datostelefono.save(c.getTelefonomovil());
 		}
@@ -176,10 +172,14 @@ public class Servicios implements IServicios {
 			}
 			c.setList_telefono(listaTelefonos);
 			// Introducimos las direcciones
+			if(!direccion.isEmpty()) {
 			for (Direccion d : direccion) {
+				if(d.getPersona() != null ) {
 				if (d.getPersona().getIdpersona() == p.getIdpersona()) {
 					c.setDireccion(d);
 				}
+				}
+			}
 			}
 			listaContactos.add(c);
 		}
@@ -199,19 +199,27 @@ public class Servicios implements IServicios {
 
 		datospersona.save(c.getPersona());
 		datosdireccion.save(c.getDireccion());
-		datostelefono.saveAll(c.getList_telefono());
-
+		datostelefono.save(c.getTelefonomovil());
 	}
 
+	/**
+	 * Metodo que a partir de la ID de la persona te devuelve un objeto completo de Contacto
+	 * 
+	 * @author Grupo 1
+	 * @param int idPersona
+	 * @return Contacto
+	 */
 	public Contacto buscadorContacto(int idPersona) {
 
-		ArrayList<Telefono> misTelefonos = (ArrayList<Telefono>) datostelefono.findAll();
+		ArrayList<Telefono> listaTelefonos = (ArrayList<Telefono>) datostelefono.findAll();
 
 		Persona p = datospersona.getOne(idPersona);
 
-		for (Telefono t : misTelefonos) {
-			if (t.getPersona().getIdpersona() != idPersona) {
-				misTelefonos.remove(t);
+		ArrayList<Telefono> misTelefonos = new ArrayList<Telefono>();
+
+		for (Telefono t : listaTelefonos) {
+			if (t.getPersona().getIdpersona() == idPersona) {
+				misTelefonos.add(t);
 			}
 		}
 
@@ -225,8 +233,13 @@ public class Servicios implements IServicios {
 				break;
 			}
 		}
+		if (misTelefonos.size() <= 1) {
+			Telefono t = new Telefono();
+			t.setPersona(p);
+			return new Contacto(p, misTelefonos.get(0), dir);
+		}
+		return new Contacto(p, misTelefonos.get(0), dir);
 
-		return new Contacto(p, misTelefonos, dir);
 	}
 
 	/**

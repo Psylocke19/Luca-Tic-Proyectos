@@ -1,19 +1,20 @@
 package com.proyecto.spring.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Contacto {
+public class Contacto implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	private Persona persona;
 	private ArrayList<Telefono> list_telefono = new ArrayList<Telefono>();
-	private Telefono telefonofijo;
 	private Telefono telefonomovil;
 	private Direccion direccion;
 
-	public Contacto(Persona persona, Telefono fijo, Telefono movil, Direccion direccion) {
+	public Contacto(Persona persona, Telefono movil, Direccion direccion) {
 		super();
 		this.persona = persona;
-		this.telefonofijo = fijo;
 		this.telefonomovil = movil;
 		this.direccion = direccion;
 
@@ -30,7 +31,6 @@ public class Contacto {
 		persona = new Persona();
 		list_telefono = new ArrayList<Telefono>();
 		direccion = new Direccion();
-		telefonofijo = new Telefono();
 		telefonomovil = new Telefono();
 	}
 
@@ -58,13 +58,6 @@ public class Contacto {
 		this.direccion = direccion;
 	}
 
-	public Telefono getTelefonofijo() {
-		return telefonofijo;
-	}
-
-	public void setTelefonofijo(Telefono telefonofijo) {
-		this.telefonofijo = telefonofijo;
-	}
 
 	public Telefono getTelefonomovil() {
 		return telefonomovil;
@@ -76,7 +69,7 @@ public class Contacto {
 
 	@Override
 	public String toString() {
-		return "Contacto [persona=" + persona + ", list_telefono=" + list_telefono + ", direccion=" + direccion + "]";
+		return "Contacto [persona=" + persona.toString() + ", list_telefono=" + list_telefono.toString() + ", direccion=" + direccion.toString() + "]";
 	}
 
 }

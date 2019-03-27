@@ -140,19 +140,64 @@ public class Servicios_Rest implements IServicios_Rest{
 	}
 	
 	/**
-	 * Metodo que desencapsula el Objeto Contacto, actualizando los Objetos Persona, Direccion y Telefono en la BBDD
-	 * @param Contacto c
-	 * @return
-	 */
-	public Contacto editarContacto(Contacto c) {
-		restDatospersona.save(c.getPersona());
-		restDatosdireccion.save(c.getDireccion());
-		restDatostelefono.save(c.getTelefonofijo());
-		restDatostelefono.save(c.getTelefonomovil());
+	/**
+	 * Metodo que introduce un objeto de tipo contacto y es eliminada su
+	 * encapsulacion partiendo el objeto en persona direccion y la lista de
+	 * telefonos
+	 * 
+	 * @author grupo1
+	 * @param Contacto
+	
+	
+	public Contacto editarContacto(Contacto contacto) {
+		restDatospersona.save(contacto.getPersona());
+		restDatosdireccion.save(contacto.getDireccion());
+		restDatostelefono.save(contacto.getTelefonomovil());
 		
-		return c;
+		return contacto;
 
 	}
+	
+	/**
+	 * Metodo que a partir de la ID de la persona te devuelve un objeto completo de Contacto
+	 * 
+	 * @author Grupo 1
+	 * @param int idPersona
+	 * @return Contacto
+	 
+	public Contacto BuscadorContacto(int idPersona) {
+
+		ArrayList<Telefono> listaTelefonos = (ArrayList<Telefono>) restDatostelefono.findAll();
+
+		Persona p = restDatospersona.getOne(idPersona);
+
+		ArrayList<Telefono> misTelefonos = new ArrayList<Telefono>();
+
+		for (Telefono t : listaTelefonos) {
+			if (t.getPersona().getIdpersona() == idPersona) {
+				misTelefonos.add(t);
+			}
+		}
+
+		ArrayList<Direccion> misDirecciones = (ArrayList<Direccion>) restDatosdireccion.findAll();
+
+		Direccion dir = null;
+
+		for (Direccion d : misDirecciones) {
+			if (d.getPersona().getIdpersona() == idPersona) {
+				dir = d;
+				break;
+			}
+		}
+		if (misTelefonos.size() <= 1) {
+			Telefono t = new Telefono();
+			t.setPersona(p);
+			return new Contacto(p, misTelefonos.get(0), dir);
+		}
+		return new Contacto(p, misTelefonos.get(0), dir);
+	}
+	 */
+	
 	
 	
 	public List buscarPorProvincia(String provincia) {

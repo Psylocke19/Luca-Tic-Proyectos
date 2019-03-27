@@ -24,7 +24,9 @@
 <link href="https://fonts.googleapis.com/css?family=Lato|Roboto"
 	rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Molengo|Titan+One" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Molengo|Titan+One"
+	rel="stylesheet">
 <title>Lista de Contactos</title>
 </head>
 <!-- Encabezado-->
@@ -62,17 +64,19 @@
 				<td th:text="${contacto.persona.idpersona}">Index</td>
 				<td th:text="${contacto.persona.nombre}">Nombre</td>
 				<td>
-				<!--  <tr th:each="tlf : ${contacto.list_telefono}" varStatus="status">
-				<td th:text="${tlf.telefono}">Telefono</td> -->
-				<select id="browsers">
-				<option th:each="telefono : ${contacto.list_telefono}" varStatus="status" th:value="${telefono.telefono}" th:text = "${telefono.telefono}">
+					<!--  <tr th:each="tlf : ${contacto.list_telefono}" varStatus="status">
+				<td th:text="${tlf.telefono}">Telefono</td> --> <select
+					id="browsers">
+						<option th:each="telefono : ${contacto.list_telefono}"
+							varStatus="status" th:value="${telefono.telefono}"
+							th:text="${telefono.telefono}">
 				</select>
 				</td>
 				<td th:text="${contacto.direccion.localidad}">Dirección</td>
 				<td class="alineariconos"><a
 					th:href="@{'/eliminarContacto/' + ${contacto.persona.idpersona}}"><i
 						class="far fa-trash-alt fa-1.8x"></i></a>&emsp; <a
-					th:href="@{'/editContacto/' + ${contacto.persona.idpersona}}"><i
+					th:href="@{'/editarContacto/' + ${contacto.persona.idpersona}}"><i
 						class="far fa-edit"></i></a></td>
 			</tr>
 

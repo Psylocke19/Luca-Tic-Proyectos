@@ -168,6 +168,7 @@ public class Control {
 		logger.info("-- addContacto");
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de provincias
 		ModelAndView model = new ModelAndView("addContacto");
+		model.addObject("value", "add");
 		model.addObject("claveContacto", new Contacto());
 		model.addObject("claveProvincias", service.mostrarProvincias());
 		return model;
@@ -229,9 +230,10 @@ public class Control {
 
 		return model;
 	}
-	
+
 	/**
-	 * Método que busca un contacto por su id y retorna el objeto correspondiente con los nuevos datos modificados
+	 * Método que busca un contacto por su id y retorna el objeto correspondiente
+	 * con sus datos
 	 * 
 	 * @author Grupo 1
 	 * @param Contacto c
@@ -241,22 +243,34 @@ public class Control {
 
 	@GetMapping("/editarContacto/{id}")
 	public ModelAndView editarContacto(@PathVariable int id) throws Exception {
-		logger.info("-- en editar Contacto");
+		logger.info("-- en mostrar Editar Contacto");
 		ModelAndView model = new ModelAndView("addContacto");
-		
+		model.addObject("value", "edit");
 		model.addObject("claveContacto", service.buscadorContacto(id));
+		logger.info(service.buscadorContacto(id).toString());
+		model.addObject("claveProvincias", service.mostrarProvincias());
 
 		return model;
 	}
-	
+
+	/**
+	 * Metodo que recoge un objeto con los datos modificados y los actualiza en la
+	 * BBDD
+	 * 
+	 * @param Contacto
+	 * @author Grupo 1
+	 * @throws Exception
+	 */
+
 	@PostMapping("/editarContacto/{id}")
 	public ModelAndView editarContacto(@ModelAttribute Contacto c) throws Exception {
 		logger.info("-- en editar Contactos");
 		// Le pasamos el objeto a la parte de servicios
+		logger.info(c.toString());
 		service.editarContacto(c);
 
 		logger.info("-- Contacto editado");
-		
+
 		// Una vez se haya annadido nos redirigimos a la pagina inicial de contactos
 		ModelAndView model = new ModelAndView("redirect:/listaContactos");
 
