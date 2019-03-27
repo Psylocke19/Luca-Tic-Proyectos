@@ -1,6 +1,7 @@
 package com.proyecto.spring.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.proyecto.spring.model.Contacto;
 
@@ -10,4 +11,5 @@ public interface IServicios_Rest {
 	public ArrayList<Contacto> mostrarContactos();
 	public boolean borrarId(int idContacto) ;
 	public Contacto editarContacto(Contacto c);
+	public List buscarPorProvincia(String provincia) ;
 }

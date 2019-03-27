@@ -6,8 +6,13 @@ import java.util.List;
 import com.proyecto.spring.model.Contacto;
 
 
+
+
 public interface IProvinciaCustom {
 
-	List<Contacto> buscarPorProvincia(String provincia);
+	
+	List buscarPorProvincia(String provincia);
+
+
 
 }

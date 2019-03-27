@@ -95,6 +95,13 @@ public class ControlRest {
 	
 	
 }
+	@GetMapping("/muestraProvincia/{provincia}")
+	public List buscarPorProvincia(@PathVariable String provincia) {
+		System.out.println("------------------ inside controlle r buscarPorProvincia: "+provincia);
+		
+		return serviciosRest.buscarPorProvincia(provincia);
+		
+	}
 
 
 

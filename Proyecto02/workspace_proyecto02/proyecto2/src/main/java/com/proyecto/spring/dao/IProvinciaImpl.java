@@ -13,6 +13,7 @@ import com.proyecto.spring.model.Contacto;
 import com.proyecto.spring.model.Persona;
 import com.proyecto.spring.model.Provincia;
 
+
 	@Repository
 	@Transactional(readOnly = true)
 	public class IProvinciaImpl implements IProvinciaCustom {
@@ -30,24 +31,20 @@ import com.proyecto.spring.model.Provincia;
 		 * 
 		 */
 		
-		@SuppressWarnings("rawtypes")
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		@Override
 		public List buscarPorProvincia(String provincia) {
+			System.out.println("------------------------ inside  IProvicniaImpl buscarporprovincia");
 
 			Query query = entityManager.createNativeQuery(
-					"SELECT * from telefono "
-					+ "join persona "
-					+ "on telefono.idtelefono=persona.idpersona "
-					+ "join direccion "
-					+ "on persona.idpersona=direccion.iddireccion "
-					+ "join provincia "
-					+ "on direccion.iddireccion = provincia.idprovincia"
-					+ "where provincia = ?"
-					, Persona.class);
+					"SELECT * from telefono  join persona on telefono.idtelefono=persona.idpersona join direccion on persona.idpersona=direccion.iddireccion join provincia  on direccion.iddireccion = provincia.idprovincia where provincia= ?"
+					, Provincia.class);
 			
 			query.setParameter(1, provincia);
+			List l = query.getResultList();
+			System.out.println("---------------------------- "+l);
 			
-			return  query.getResultList();
+			return  l;
 		}
 		
 	

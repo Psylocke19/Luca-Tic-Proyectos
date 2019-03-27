@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.proyecto.spring.model.Provincia;
 
 @Repository
-public interface IProvincia extends JpaRepository<Provincia, Integer> {
+public interface IProvincia extends JpaRepository<Provincia, Integer>,IProvinciaCustom {
 
 	/*
 	void delete(User user);

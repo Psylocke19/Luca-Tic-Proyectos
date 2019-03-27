@@ -6,6 +6,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.proyecto.spring.dao.IDireccion;
@@ -33,8 +34,7 @@ public class Servicios_Rest implements IServicios_Rest{
 
 	@Autowired
 	private ITelefono restDatostelefono;
-	@Autowired
-	private IProvinciaCustom restDatosCustom;
+	
 	
 	
 	public Contacto addContacto(Contacto c) {
@@ -154,11 +154,13 @@ public class Servicios_Rest implements IServicios_Rest{
 
 	}
 	
-	public List<Contacto> buscarPorProvincia(String provincia) {
+	
+	public List buscarPorProvincia(String provincia) {
 		
+		 System.out.println("------------------------- inside Serviciosrest buscarPorProvincia ");
+		 List l = restDatosprovincia.buscarPorProvincia(provincia);
 		
-		
-		return restDatosCustom.buscarPorProvincia(provincia);
+		return l;
 		
 	}
 	
