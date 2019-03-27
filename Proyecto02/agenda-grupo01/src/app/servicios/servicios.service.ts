@@ -19,7 +19,13 @@ export class ServiciosService {
   //Url original para construir en base
   private url = 'http://localhost:8080/';
 
+  //Metodo que recoge la lista de Contactos del servicio Rest
   public getContactos() {
     return this.http.get<Contacto[]>(this.url + "mostrarContacto");
+  }
+
+  //Metodo que envia el objeto contacto para annadirlo al servicio Rest
+  public addContacto(contacto) {
+    return this.http.post<Contacto>(this.url + "addContacto", contacto);
   }
 }
