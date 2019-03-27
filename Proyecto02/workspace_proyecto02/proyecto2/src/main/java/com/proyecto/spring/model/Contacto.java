@@ -1,9 +1,12 @@
 package com.proyecto.spring.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Contacto {
+public class Contacto implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	private Persona persona;
 	private ArrayList<Telefono> list_telefono = new ArrayList<Telefono>();
 	private Telefono telefonomovil;

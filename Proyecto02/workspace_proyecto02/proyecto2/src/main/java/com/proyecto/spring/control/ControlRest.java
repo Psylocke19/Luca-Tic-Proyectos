@@ -81,21 +81,35 @@ public class ControlRest {
 		return serviciosRest.borrarId(id);
 	}
 
+	
+	/**
+	 * Metodo que llama a editarContacto y recoge el objeto con los datos y lo envía
+	 * @param id
+	 * @return
+	
+	@GetMapping(path= "/editarContacto/{id}")
+	public Contacto editarContacto(@PathVariable int id ) {
+		
+		return serviciosRest.BuscadorContacto(id);
+	}
+		 
+	
+	
+	
 	/**
 	 * Metodo que retorna un Objeto Contacto modificado desde la capa de Servicios
 	 * @param Contacto c
 	 * @return
-	 */
+	 
 	
 	 
-	@PutMapping("/editarContacto/")
-	public Contacto editarContacto(@ModelAttribute Contacto c) {
-				
-		return serviciosRest.editarContacto(c);
+	@PutMapping(path= "/editarContacto/{id}")
+	public Contacto editarContactoBuscado(@RequestBody Contacto contacto ) {
+		
+		return serviciosRest.editarContacto(contacto);
 	
 	
-}
-
+}*/
 
 
 }
