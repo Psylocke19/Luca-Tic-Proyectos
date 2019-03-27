@@ -102,7 +102,7 @@ body {min-height:100%}
 }
 
 #cuadroblanco {
-	width: 55%; 
+	width: 30%; 
 }
 
 #tabla {
@@ -129,7 +129,7 @@ body {min-height:100%}
 
 footer
     {
-    position: relative; 
+    position: absolute; 
     background-color: black; 
     color: white; 
     bottom: 0; 
