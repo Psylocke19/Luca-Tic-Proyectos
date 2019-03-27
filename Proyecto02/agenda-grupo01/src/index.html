@@ -2,13 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>AgendaGrupo01</title>
+  <title>Lista de usuarios</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="styles.css" rel="stylesheet"/>
 </head>
+<div class="header">
+	<h1>FORMULARIO DE CONTACTOS</h1>
+</div>
+<!-- Barra de navegación -->
+<a name="top"></a>
+<nav class="nav">
+	<ul>
+		<li><a routerLink="/addContacto" class="cabecera">Añadir
+				contacto</a></li>
+		<li><a routerLink="/listaContactos" class="cabecera">Lista de
+				contactos</a></li>
+	</ul>
+</nav>
 <body>
   <app-root></app-root>
 </body>
-</html>
+<footer id="myFooter">
+  <div class="footerGlobal">
+    <div class="centerCopy">
+      <p>© 2018 Copyright Grupo 1</p>
+    </div>
+  </div>
+</footer>

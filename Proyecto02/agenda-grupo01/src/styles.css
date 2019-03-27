@@ -1,1 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
+*
+    {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px; 
+    }
+
+
+.header
+    {
+    position: relative; 
+    padding: 60px; 
+    padding-bottom: 10px; 
+    text-align: center;
+    background-color: #c7c9cc; 
+    }
+
+.header h1
+    {
+    font-size: 80px; 
+    color: black; 
+    font-family: 'Love Ya Like A Sister', cursive;
+    }
+
+.header p
+{
+    font-size: 30px; 
+    font-family: 'Anton', sans-serif;
+    }
+
+.nav 
+    {
+    position: relative; 
+    background-color: black; 
+    color: white; 
+    top: 0; 
+    overflow: hidden; 
+    width: 100%; 
+    float: left;  
+    }
+
+.nav ul
+    {
+    float: left; 
+    list-style-type: none;
+    position: relative; 
+    margin: 0 auto; 
+    padding: 0; 
+    }
+
+.nav li
+    {
+    float: left; 
+    }
+
+.nav li a 
+    {
+    display: block;
+    padding: 30px 30px;
+    text-decoration: none;
+    color: white;
+    text-align: center; 
+    }
+
+.nav li a:hover
+    {      
+    background-color: #ddd; 
+    color: black; 
+    }
+
+.cabecera 
+    {
+    font-family:'Lato', sans-serif;
+    font-size: 30px; 
+    }
+    
+    footer
+    {
+    position: absolute; 
+    background-color: black; 
+    color: white; 
+    bottom: 0; 
+    width: 100%; 
+    height: 200px; 
+    text-align: center; 
+    margin-top: 8px; 
+    margin-bottom: 0px; 
+    }
+
+.author 
+    {
+    font-family:'Lato', sans-serif;
+    font-size: 30px;  
+    padding-top: 50px; 
+    }
