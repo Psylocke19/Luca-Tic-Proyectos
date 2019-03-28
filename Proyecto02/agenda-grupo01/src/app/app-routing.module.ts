@@ -5,7 +5,7 @@ import { AddContactoComponent } from './componentes/add-contacto/add-contacto.co
 import { ListaContactosComponent } from './componentes/lista-contactos/lista-contactos.component'; 
 
 const routes: Routes = [ 
-  { path: 'mostrarContactos', component: ListaContactosComponent },
+  { path: 'listaContactos', component: ListaContactosComponent },
   { path: 'addContacto', component: AddContactoComponent }
 ];
 

@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+@charset "utf-8";
+/* CSS Document */
+
 *
     {
     font-family: 'Lato', sans-serif;
@@ -74,7 +78,57 @@
     font-size: 30px; 
     }
     
-    footer
+body {min-height:100%}
+ 
+#formulario {
+    margin-top: 100px; 
+    padding-top: 100px;
+    font-family:'Lato', sans-serif;
+}
+
+.cuerpoAdd {
+	margin-top: 50px; 
+	padding-top: 50px;
+}
+
+#nombre
+{
+    font-size: 30px; 
+; 
+}
+
+#registro 
+{
+    font-size: 30px;  
+}
+
+#cuadroblanco {
+	width: 30%; 
+}
+
+#tabla {
+    width: 30%;
+     
+}
+
+#tablaContactos {
+	width: 60%; 
+}
+
+.nombreTabla {
+    font-size: 30px;  
+}
+
+.alineariconos {
+	align: center; 
+}
+
+#huecoTabla {
+    min-height: 300px; 
+}
+
+
+footer
     {
     position: absolute; 
     background-color: black; 
@@ -85,11 +139,12 @@
     text-align: center; 
     margin-top: 8px; 
     margin-bottom: 0px; 
+    font-size: 30px; 
     }
 
 .author 
     {
     font-family:'Lato', sans-serif;
-    font-size: 30px;  
+    font-size: 20px;  
     padding-top: 50px; 
     }
