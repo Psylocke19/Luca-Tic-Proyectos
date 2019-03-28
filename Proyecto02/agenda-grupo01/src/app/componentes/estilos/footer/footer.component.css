@@ -1,6 +1,6 @@
 footer
     {
-    position: absolute; 
+    position: relative; 
     background-color: black; 
     color: white; 
     bottom: 0; 
@@ -9,12 +9,11 @@ footer
     text-align: center; 
     margin-top: 8px; 
     margin-bottom: 0px; 
-    font-size: 30px; 
     }
 
 .author 
     {
     font-family:'Lato', sans-serif;
-    font-size: 20px;  
+    font-size: 30px;  
     padding-top: 50px; 
     }
