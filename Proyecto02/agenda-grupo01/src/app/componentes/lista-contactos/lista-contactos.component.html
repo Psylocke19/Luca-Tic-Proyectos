@@ -1,15 +1,15 @@
-<div >
-  <h1 id="formulario"> User Details</h1>
+<div class="divListado" >
+
   
-  <table >
+  <table class="w3-table-all" id="tablaContactos"  align="center">
     <thead>
     <tr class="w3-black">
-      <th class="hidden">Id</th>
+      <th class="nombreTabla">Index</th>
       <th  class="nombreTabla">Nombre</th>
       <th  class="nombreTabla">Apellido</th>
       <th  class="nombreTabla">Localidad</th>
       <th  class="nombreTabla">Teléfono</th>
-      <th  class="nombreTabla">Accion</th>
+      <th  class="nombreTabla">Acción</th>
     </tr>
     </thead>
     <tbody>
@@ -18,7 +18,11 @@
       <td>{{contacto.persona.nombre}}</td>
       <td>{{contacto.persona.apellido1}}</td>
       <td>{{contacto.direccion.localidad}}</td>
-      <td><span *ngFor="let tel of contacto.list_telefono">{{tel.telefono}} |</span></td>
+      <td>
+        <select id="browsers">
+        <option *ngFor="let tel of contacto.list_telefono">{{tel.telefono}}</option>
+        </select>
+      </td>
       <td><button class="btn btn-danger" (click)="eliminarContacto(contacto)"> Eliminar Contacto</button></td>
     </tr>
     </tbody>

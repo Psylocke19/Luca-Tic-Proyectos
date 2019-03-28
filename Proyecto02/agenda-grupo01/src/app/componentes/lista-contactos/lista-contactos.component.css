@@ -1,26 +1,22 @@
-#tabla {
-    width: 30%;
-     
+.divListado {
+    margin-top: 50px; 
+    padding-top: 50px; 
+    height: auto;
+    margin: 0 auto;
+    border:1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 220px; 
 }
 
 #tablaContactos {
-	width: 60%; 
+    width: 60%; 
+    align-self: center; 
 }
 
 .nombreTabla {
-    font-size: 30px;  
+    font-size: 20px;
 }
 
-.alineariconos {
-	align-content: center; 
-}
-
-#huecoTabla {
-    min-height: 300px; 
-}
-
-#formulario {
-    margin-top: 100px; 
-    padding-top: 100px;
-    font-family:'Lato', sans-serif;
-}
