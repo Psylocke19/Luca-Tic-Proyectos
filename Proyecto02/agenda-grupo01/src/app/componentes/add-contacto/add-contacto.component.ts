@@ -4,6 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Contacto } from '../../model/contacto';
+import { Persona } from "../../model/persona";
+import { Telefono } from "../../model/telefono";
+import { Direccion } from "../../model/direccion";
 import { ServiciosService } from '../../servicios/servicios.service';
 
 @Component({
@@ -13,11 +16,11 @@ import { ServiciosService } from '../../servicios/servicios.service';
 })
 export class AddContactoComponent implements OnInit {
 
-  contacto : Contacto = new Contacto();
+  contacto : Contacto;
 
   constructor(private router: Router, private service: ServiciosService) { }
 
-  addUsuario(): void {
+  addContacto(): void {
     this.service.addContacto(this.contacto)
         .subscribe( data => {
           alert("Usuario generado de forma correcta.");
