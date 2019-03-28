@@ -17,7 +17,7 @@ export class ServiciosService {
   constructor(private http:HttpClient) { }
 
   //Url original para construir en base
-  private url = 'http://localhost:8080/';
+  private url = 'http://localhost:8080/rest/portal-contacto/';
 
   //Metodo que recoge la lista de Contactos del servicio Rest
   public getContactos() {

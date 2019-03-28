@@ -1,3 +1,26 @@
-<p>
-  lista-contactos works!
-</p>
+<div >
+  <h1 id="formulario"> User Details</h1>
+  
+  <table >
+    <thead>
+    <tr class="w3-black">
+      <th class="hidden">Id</th>
+      <th  class="nombreTabla">Nombre</th>
+      <th  class="nombreTabla">Apellido</th>
+      <th  class="nombreTabla">Localidad</th>
+      <th  class="nombreTabla">Teléfono</th>
+      <th  class="nombreTabla">Accion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contacto of contactos">
+      <td class="hidden">{{contacto.persona.idpersona}}</td>
+      <td>{{contacto.persona.nombre}}</td>
+      <td>{{contacto.persona.apellido1}}</td>
+      <td>{{contacto.direccion.localidad}}</td>
+      <td>{{contacto.telefono.telefono}}</td>
+      <td><button class="btn btn-danger" (click)="eliminarContacto(contacto)"> Eliminar Contacto</button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
