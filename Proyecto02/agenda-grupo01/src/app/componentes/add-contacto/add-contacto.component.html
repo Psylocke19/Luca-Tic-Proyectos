@@ -1,5 +1,4 @@
-<div class="col-md-6">
-		<h2 class="text-center">Añadir Contacto</h2>
+<div class="col-md-6" id="formulario">
 	  <form>
 		<div class="form-group">
 		  <label for="nombre">Nombre:</label>
@@ -37,10 +36,9 @@
 		  </div>
 
 		  <div class="form-group">
-				<label for="localidad">Localidad:</label>
-				<input type="text" [(ngModel)]="contacto.direccion.localidad" placeholder="Localidad" name="Localidad" class="form-control">
-		  </div>
-	  
+                <label for="localidad">Localidad:</label>
+                <input type="text" [(ngModel)]="contacto.direccion.localidad" placeholder="Localidad" name="Localidad" class="form-control">
+          </div>
 		<button class="btn btn-success" (click)="addContacto()">Crear</button>
 	  </form>
-	  </div>
+</div>
