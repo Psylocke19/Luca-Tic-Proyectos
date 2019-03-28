@@ -8,7 +8,9 @@ import { AddContactoComponent } from './componentes/add-contacto/add-contacto.co
 import { ListaContactosComponent } from './componentes/lista-contactos/lista-contactos.component';
 import { ServiciosService } from './servicios/servicios.service'; 
 import { HttpClientModule } from '@angular/common/http'; 
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './componentes/estilos/header/header.component';
+import { FooterComponent } from './componentes/estilos/footer/footer.component'; 
 
 const appRoutes: Routes = [
   { path: 'addContacto', component: AddContactoComponent },
@@ -19,7 +21,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AddContactoComponent,
-    ListaContactosComponent
+    ListaContactosComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
