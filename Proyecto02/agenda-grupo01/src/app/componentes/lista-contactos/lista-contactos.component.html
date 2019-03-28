@@ -18,7 +18,7 @@
       <td>{{contacto.persona.nombre}}</td>
       <td>{{contacto.persona.apellido1}}</td>
       <td>{{contacto.direccion.localidad}}</td>
-
+      <td><span *ngFor="let tel of contacto.list_telefono">{{tel.telefono}} |</span></td>
       <td><button class="btn btn-danger" (click)="eliminarContacto(contacto)"> Eliminar Contacto</button></td>
     </tr>
     </tbody>

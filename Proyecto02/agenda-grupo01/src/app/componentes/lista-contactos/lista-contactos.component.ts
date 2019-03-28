@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Contacto } from '../../model/contacto';
+import { Telefono } from "../../model/telefono";
 import { ServiciosService } from '../../servicios/servicios.service';
 
 
@@ -17,11 +18,14 @@ export class ListaContactosComponent implements OnInit {
 
   contactos : Contacto[];
 
+
   constructor(private router: Router, private service: ServiciosService) { }
 
   //Iniciamos el componente mostando la lista de Contactos, llamamos a la clase Servicios para realizar la peticion
-  ngOnInit() {
-    this.service.getContactos()
+  ngOnInit() { 
+
+
+   this.service.getContactos()
     .subscribe( data => {
       this.contactos = data;
     });
