@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 //Nuevo
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Contacto } from '../model/contacto';
+import { Observable } from 'rxjs';
 
 //Nuevo
 const httpOptions = {
@@ -14,13 +15,13 @@ const httpOptions = {
 })
 export class ServiciosService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http : HttpClient) { }
 
   //Url original para construir en base
-  private url = 'http://localhost:8080/';
+  private url = 'http://localhost:8080/rest';
 
   //Metodo que recoge la lista de Contactos del servicio Rest
-  public getContactos() {
+  public getContactos(): Observable<Contacto[]> {
     return this.http.get<Contacto[]>(this.url + "mostrarContacto");
   }
 
